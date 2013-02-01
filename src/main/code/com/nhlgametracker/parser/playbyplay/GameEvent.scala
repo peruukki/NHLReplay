@@ -19,7 +19,7 @@ object GameEvent
     else if (eventType == "PENL") new GameEventPenalty(columns, description)
     else if (eventType == "SHOT") new GameEventShot(columns, description)
     else if (eventType == "PSTR") new GameEventPeriodStart(columns)
-    else if (eventType == "GEND") new GameEventGameEnd(columns)
+    else if (eventType == "PEND") new GameEventPeriodEnd(columns)
     else new GameEvent(columns)
   }
 }
