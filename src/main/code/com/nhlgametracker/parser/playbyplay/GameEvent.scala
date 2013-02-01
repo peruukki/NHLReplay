@@ -17,6 +17,7 @@ object GameEvent
 
     if (eventType == "GOAL") new GameEventGoal(columns, description)
     else if (eventType == "PENL") new GameEventPenalty(columns, description)
+    else if (eventType == "SHOT") new GameEventShot(columns, description)
     else new GameEvent(columns)
   }
 }
