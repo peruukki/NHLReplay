@@ -73,8 +73,7 @@ class GameEvent(columns: NodeSeq)
     else builder.append(getJsonValue(key, value))
   }
   protected def appendValue(builder: StringBuilder, key: String, value: Int) {
-    if (value == 0) return
-    else builder.append(getJsonValue(key, value))
+    builder.append(getJsonValue(key, value))
   }
 
   private def getJsonValue(key: String, value: String) = """ "%s":"%s",""".format(key, value)
