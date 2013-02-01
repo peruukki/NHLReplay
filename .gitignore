@@ -1,0 +1,5 @@
+out/*
+target/*
+project/target/*
+src/test/resources/playbyplay/*files
+src/test/resources/playbyplay/*.xhtml
