@@ -13,7 +13,7 @@ class GameEventPenalty(columns: NodeSeq, description: String)
                             """\u00a0(.+\((\d+)\smin\))""", "team", "taker", "reason", "duration")
     pattern.findFirstMatchIn(description) match {
       case Some(penaltyMatch) => (penaltyMatch.group("team"), trim(penaltyMatch.group("taker")),
-                                  trim(penaltyMatch.group("reason")), penaltyMatch.group("duration"))
+                                  trim(penaltyMatch.group("reason")), penaltyMatch.group("duration").toInt)
       case None => throw new RuntimeException("No match in '%s'".format(description))
     }
   }
