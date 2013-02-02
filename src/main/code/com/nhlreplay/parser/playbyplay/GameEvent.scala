@@ -1,4 +1,4 @@
-package com.nhlgametracker.parser.playbyplay
+package com.nhlreplay.parser.playbyplay
 
 import util.matching.Regex
 import xml.{NodeSeq, Node}

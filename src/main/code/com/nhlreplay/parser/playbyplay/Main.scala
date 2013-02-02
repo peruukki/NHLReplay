@@ -1,6 +1,6 @@
-package com.nhlgametracker.parser.playbyplay
+package com.nhlreplay.parser.playbyplay
 
-import com.nhlgametracker.converter.xhtml.XhtmlConverter
+import com.nhlreplay.converter.xhtml.XhtmlConverter
 
 object Main
 {
