@@ -18,6 +18,7 @@ object GameEvent
     if (eventType == "GOAL") new GameEventGoal(columns, description)
     else if (eventType == "PENL") new GameEventPenalty(columns, description)
     else if (eventType == "SHOT") new GameEventShot(columns, description)
+    else if (eventType == "MISS") new GameEventMiss(columns, description)
     else if (eventType == "PSTR") new GameEventPeriodStart(columns)
     else if (eventType == "PEND") new GameEventPeriodEnd(columns)
     else new GameEvent(columns)
