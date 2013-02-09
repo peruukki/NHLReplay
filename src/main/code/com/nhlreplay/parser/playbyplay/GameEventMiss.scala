@@ -4,7 +4,7 @@ import util.matching.Regex
 import xml.NodeSeq
 
 class GameEventMiss(columns: NodeSeq, description: String)
-  extends GameEvent(columns: NodeSeq)
+  extends GameEvent(columns: NodeSeq) with GameEventGoalAttemptValues
 {
   val (team, shooter, target) = parseDescription(description)
 

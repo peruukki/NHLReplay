@@ -3,8 +3,8 @@ package com.nhlreplay.parser.playbyplay
 import util.matching.Regex
 import xml.NodeSeq
 
-class GameEventShot(columns: NodeSeq, description: String)
-  extends GameEvent(columns: NodeSeq)
+class GameEventShotOnGoal(columns: NodeSeq, description: String)
+  extends GameEvent(columns: NodeSeq) with GameEventGoalAttemptValues
 {
   val (team, shooter) = parseDescription(description)
 

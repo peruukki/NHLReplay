@@ -1,6 +1,7 @@
 package com.nhlreplay.parser.playbyplay
 
 import scala.xml.NodeSeq
+import collection.mutable.ListBuffer
 
 class GameEventParser
 {
@@ -12,11 +13,23 @@ class GameEventParser
 
     val htmlEvents = getHtmlEvents(document)
     val gameEvents = htmlEvents map { x => GameEvent(x \ "td") }
-    val interestingEvents = gameEvents filter { x => x.getClass().getSimpleName() != "GameEvent" }
-    interestingEvents foreach { _.showJson }
-    interestingEvents
+    val interestingEvents = gameEvents filter { x => x.getClass.getSimpleName != "GameEvent" }
+    val finalEvents = addEvents(interestingEvents)
+    finalEvents foreach { _.showJson() }
+    finalEvents
   }
 
   private def getHtmlEvents(document: NodeSeq) = document \\ "body" \ "table" \\ "tr" filter { x => (x \ "@class").text == "evenColor" }
   private def getHtmlInfo(document: NodeSeq, attr: String) = document \\ "table" filter { x => (x \ "@id").text == attr }
+
+  private def addEvents(events: Seq[GameEvent]) = {
+    var newEvents = new ListBuffer[GameEvent]
+    for (event <- events) {
+      if (event.isInstanceOf[GameEventGoalAttemptValues]) {
+        newEvents += new GameEventGoalAttempt(event.asInstanceOf[GameEventGoalAttemptValues])
+      }
+      newEvents += event
+    }
+    newEvents.toSeq
+  }
 }

@@ -17,7 +17,7 @@ object GameEvent
 
     if (eventType == "GOAL") new GameEventGoal(columns, description)
     else if (eventType == "PENL") new GameEventPenalty(columns, description)
-    else if (eventType == "SHOT") new GameEventShot(columns, description)
+    else if (eventType == "SHOT") new GameEventShotOnGoal(columns, description)
     else if (eventType == "MISS") new GameEventMiss(columns, description)
     else if (eventType == "PSTR") new GameEventPeriodStart(columns)
     else if (eventType == "PEND") new GameEventPeriodEnd(columns)
@@ -25,7 +25,7 @@ object GameEvent
   }
 }
 
-class GameEvent(columns: NodeSeq)
+class GameEvent(val columns: NodeSeq, givenType: String = "")
 {
   protected val PATTERN_TEAM = """(\w+)\s"""
   protected val PATTERN_PLAYER = """#\d+(?s)\s+(?:\w|\s|-|')+"""
@@ -33,7 +33,7 @@ class GameEvent(columns: NodeSeq)
 
   val period = columns(GameEvent.EVENT_COL_PERIOD).text.trim.toInt
   val strength = columns(GameEvent.EVENT_COL_STRENGTH).text.trim
-  val eventType = columns(GameEvent.EVENT_COL_EVENT).text.trim
+  val eventType = if (givenType.isEmpty) columns(GameEvent.EVENT_COL_EVENT).text.trim else givenType
   val (minElapsed, secElapsed, minLeft, secLeft) = parseTime(columns(GameEvent.EVENT_COL_TIME))
 
   private def parseTime(timeNode: Node) = {

@@ -4,9 +4,9 @@ import util.matching.Regex
 import xml.NodeSeq
 
 class GameEventGoal(columns: NodeSeq, description: String)
-  extends GameEvent(columns: NodeSeq)
+  extends GameEvent(columns: NodeSeq) with GameEventGoalAttemptValues
 {
-  val (team, scorer, assist_1st, assist_2nd) = parseDescription(description)
+  val (team, shooter, assist_1st, assist_2nd) = parseDescription(description)
 
   private def parseDescription(description: String) = {
     val goalPattern = new Regex(PATTERN_TEAM + PATTERN_PLAYER_COUNT, "team", "scorer")
@@ -43,7 +43,7 @@ class GameEventGoal(columns: NodeSeq, description: String)
   override def showJson() {
     val builder = super.startJson()
     appendValue(builder, "team", team)
-    appendValue(builder, "scorer", scorer)
+    appendValue(builder, "shooter", shooter)
     appendValue(builder, "assist_1st", assist_1st)
     appendValue(builder, "assist_2nd", assist_2nd)
     super.finishJson(builder)
