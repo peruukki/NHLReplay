@@ -5,7 +5,7 @@ import java.io.File
 class XhtmlConverter
 {
   def convertHtml(filePath: String) = {
-    val source = scala.io.Source.fromFile(filePath)
+    val source = scala.io.Source.fromFile(filePath, "UTF-8")
     val htmlContent = source.mkString.replace("<html>", "")
     source.close()
 
