@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="clock.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="game.js"></script>
+    <script src="gameEvent.js"></script>
+    <script src="clock.js"></script>
+    <script src="data.js"></script>
+  </head>
+
+  <body onload="startGame()">
+    <div class="away">
+      <div><span id="away-team">AWAY</span></div>
+      <div><span id="away-penalties"></span><span id="away-score" class="stat score">0</span></div>
+      <div><span id="away-shots" class="stat">0</span></div>
+    </div>
+    <div class="title">
+      <div><span id="title-state">Game start</span></div>
+      <div><span id="game-clock">20:00</span></div>
+      <div><span id="title-shots">Shots</span></div>
+    </div>
+    <div class="home">
+      <div><span id="home-team">HOME</span></div>
+      <div><span id="home-score" class="stat score">0</span><span id="home-penalties"></span></div>
+      <div><span id="home-shots" class="stat">0</span></div>
+    </div>
+    <div class="events"></div>
+  </body>
+
+</html>
