@@ -25,7 +25,9 @@ function GameEvent(event, teamTypes)
   this.isPenalty = function() { return this.event.type === 'PENL'; };
   this.isPeriodEnd = function() { return this.event.type === 'PEND'; };
   this.isPeriodStart = function() { return this.event.type === 'PSTR'; };
-  this.isShot = function() { return this.event.type === 'SHOT'; };
+  this.isGoalAttempt = function() { return this.event.type === 'GATT'; };
+  this.isShotOnGoal = function() { return this.event.type === 'SHOT'; };
+  this.isMissedShot = function() { return this.event.type === 'MISS'; };
 
   this.show = function()
   {
@@ -51,7 +53,7 @@ function GameEvent(event, teamTypes)
     {
       output += event.taker + ' ' + event.reason;
     }
-    else if (this.isShot())
+    else if (this.isShotOnGoal())
     {
       output += event.shooter;
     }

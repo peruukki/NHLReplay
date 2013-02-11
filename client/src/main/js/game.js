@@ -22,11 +22,13 @@ function startPeriod(gameClock, gameEvents, penalties)
   var event = gameEvents.popEvent().event;
   gameClock.initTime(event.period, event.minLeft);
   setStatus('Period ' + event.period);
-  decrementTime(gameClock, 5, gameEvents, penalties);
+  decrementTime(gameClock, 10, gameEvents, penalties);
 }
 
 function decrementTime(gameClock, timeoutInMs, gameEvents, penalties)
 {
+  var extraWaitInMs = 0;
+
   showClocks(gameClock, penalties);
 
   if (gameEvents.isEventNow(gameClock))
@@ -56,10 +58,17 @@ function decrementTime(gameClock, timeoutInMs, gameEvents, penalties)
       showEvent(event);
       addPenaltyClock(penalties, event);
     }
-    else if (event.isShot())
+    else if (event.isShotOnGoal())
     {
       incrementValue(event, 'shots');
     }
+
+    showNotification(event);
+    extraWaitInMs = 1000;
+  }
+  else
+  {
+    clearNotification();
   }
 
   if (!gameEvents.isEventNow(gameClock))
@@ -67,7 +76,7 @@ function decrementTime(gameClock, timeoutInMs, gameEvents, penalties)
     advanceClocks(gameClock, penalties);
   }
 
-  setTimeout(function() { decrementTime(gameClock, timeoutInMs, gameEvents, penalties); }, timeoutInMs);
+  setTimeout(function() { decrementTime(gameClock, timeoutInMs, gameEvents, penalties); }, timeoutInMs + extraWaitInMs);
 }
 
 function showClocks(gameClock, penalties)
@@ -131,6 +140,39 @@ function setStatus(status)
 function showEvent(event)
 {
   $('.events').append('<p class="' + event.event.type + ' ' + event.teamType + '">' + event.show() + '</p>');
+}
+
+function showNotification(event)
+{
+  var content = $('.notifications').text();
+
+  if (event.isGoalAttempt())
+  {
+    content = event.event.shooter + ' shoots...';
+  }
+  else if (event.isShotOnGoal())
+  {
+    content += ' saved!';
+  }
+  else if (event.isMissedShot())
+  {
+    content += ' wide!';
+  }
+  else if (event.isGoal())
+  {
+    content += ' he scores!';
+  }
+  else
+  {
+    content = '';
+  }
+
+  $('.notifications').html('<p class="' + event.teamType + '">' + content + '</p>');
+}
+
+function clearNotification()
+{
+  $('.notifications').text('');
 }
 
 function incrementValue(event, valueType)

@@ -1,24 +1,32 @@
 div {
-  margin: 1em 1em;
-  float: left;
+  margin: 0.5em 1em;
 }
 div.title {
+  float: left;
   width: 10%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 div.away {
+  float: left;
   width: 45%;
   margin-left: auto;
   margin-right: auto;
   text-align: right;
 }
 div.home {
+  float: left;
   width: 45%;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
+}
+div.notifications {
+  height: 8em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 div.events {
   text-align: left;
@@ -26,9 +34,6 @@ div.events {
   margin-right: 15%;
 }
 
-div div {
-  float: none;
-}
 div.title div {
   margin-left: auto;
   margin-right: auto;
