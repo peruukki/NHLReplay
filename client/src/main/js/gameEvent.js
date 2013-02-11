@@ -33,7 +33,7 @@ function GameEvent(event, teamTypes)
     var output = showEventTime(event.minElapsed, event.secElapsed, event.period) + ' ' + event.team + ' ';
     if (this.isGoal(event))
     {
-      output += event.strength + ' ' + event.scorer + ' ';
+      output += event.strength + ' ' + event.shooter + ' ';
       if (event.assist_2nd)
       {
         output += 'Assists: ' + event.assist_1st + ' & ' + event.assist_2nd;
