@@ -30,7 +30,7 @@ class GameEvent(val columns: NodeSeq, givenType: String = "")
   protected val PATTERN_TEAM = """(\w+)\s"""
   protected val PATTERN_PLAYER_NAME = """(?:\w|\s|-|')+"""
   protected val PATTERN_PLAYER = """#\d+(?s)\s+""" + PATTERN_PLAYER_NAME
-  protected val PATTERN_PLAYER_COUNT = """(#\d+(?s)\s+""" + PATTERN_PLAYER_NAME + """\(\d+\))"""
+  protected val PATTERN_PLAYER_COUNT = """(#\d+(?s)\s+""" + PATTERN_PLAYER_NAME + """)(\(\d+\))"""
 
   val period = columns(GameEvent.EVENT_COL_PERIOD).text.trim.toInt
   val strength = columns(GameEvent.EVENT_COL_STRENGTH).text.trim

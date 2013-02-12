@@ -35,14 +35,14 @@ function GameEvent(event, teamTypes)
     var output = showEventTime(event.minElapsed, event.secElapsed, event.period) + ' ' + event.team + ' ';
     if (this.isGoal(event))
     {
-      output += event.strength + ' ' + event.shooter + ' ';
-      if (event.assist_2nd)
+      output += event.strength + ' ' + event.shooter + ' ' + event.goalCount + ' ';
+      if (event.assist2nd)
       {
-        output += 'Assists: ' + event.assist_1st + ' & ' + event.assist_2nd;
+        output += 'Assists: ' + event.assist1st + ' ' + event.assist1stCount + ' & ' + event.assist2nd + ' ' + event.assist2ndCount;
       }
-      else if (event.assist_1st)
+      else if (event.assist1st)
       {
-        output += 'Assist: ' + event.assist_1st;
+        output += 'Assist: ' + event.assist1st + ' ' + event.assist1stCount;
       }
       else
       {

@@ -7,8 +7,8 @@ function getJsonData() {
     '{ "period":1, "minElapsed":0, "secElapsed":46, "minLeft":19, "secLeft":14, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#79 MARKOV" },' +
     '{ "period":1, "minElapsed":0, "secElapsed":50, "minLeft":19, "secLeft":10, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
     '{ "period":1, "minElapsed":0, "secElapsed":50, "minLeft":19, "secLeft":10, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC", "target":"Wide of Net" },' +
-    '{ "period":1, "minElapsed":0, "secElapsed":59, "minLeft":19, "secLeft":1, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV(1)" },' +
-    '{ "period":1, "minElapsed":0, "secElapsed":59, "minLeft":19, "secLeft":1, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV(1)", "assist_1st":"#41 KULEMIN(6)" },' +
+    '{ "period":1, "minElapsed":0, "secElapsed":59, "minLeft":19, "secLeft":1, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV" },' +
+    '{ "period":1, "minElapsed":0, "secElapsed":59, "minLeft":19, "secLeft":1, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV", "goalCount":"(1)", "assist1st":"#41 KULEMIN", "assist1stCount":"(6)" },' +
     '{ "period":1, "minElapsed":1, "secElapsed":31, "minLeft":18, "secLeft":29, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL" },' +
     '{ "period":1, "minElapsed":1, "secElapsed":31, "minLeft":18, "secLeft":29, "type":"MISS", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL", "target":"Wide of Net" },' +
     '{ "period":1, "minElapsed":2, "secElapsed":26, "minLeft":17, "secLeft":34, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#16 MACARTHUR" },' +
@@ -25,8 +25,8 @@ function getJsonData() {
     '{ "period":1, "minElapsed":6, "secElapsed":24, "minLeft":13, "secLeft":36, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#53 KOSTKA" },' +
     '{ "period":1, "minElapsed":6, "secElapsed":30, "minLeft":13, "secLeft":30, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
     '{ "period":1, "minElapsed":6, "secElapsed":30, "minLeft":13, "secLeft":30, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":1, "minElapsed":6, "secElapsed":33, "minLeft":13, "secLeft":27, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK(4)" },' +
-    '{ "period":1, "minElapsed":6, "secElapsed":33, "minLeft":13, "secLeft":27, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK(4)", "assist_1st":"#21 VAN RIEMSDYK(2)", "assist_2nd":"#24 LILES(5)" },' +
+    '{ "period":1, "minElapsed":6, "secElapsed":33, "minLeft":13, "secLeft":27, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK" },' +
+    '{ "period":1, "minElapsed":6, "secElapsed":33, "minLeft":13, "secLeft":27, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK", "goalCount":"(4)", "assist1st":"#21 VAN RIEMSDYK", "assist1stCount":"(2)", "assist2nd":"#24 LILES", "assist2ndCount":"(5)" },' +
     '{ "period":1, "minElapsed":7, "secElapsed":32, "minLeft":12, "secLeft":28, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#53 KOSTKA" },' +
     '{ "period":1, "minElapsed":7, "secElapsed":32, "minLeft":12, "secLeft":28, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#53 KOSTKA" },' +
     '{ "period":1, "minElapsed":7, "secElapsed":46, "minLeft":12, "secLeft":14, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#43 KADRI" },' +
@@ -77,8 +77,8 @@ function getJsonData() {
     '{ "period":2, "minElapsed":2, "secElapsed":47, "minLeft":17, "secLeft":13, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK" },' +
     '{ "period":2, "minElapsed":2, "secElapsed":53, "minLeft":17, "secLeft":7, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#67 PACIORETTY" },' +
     '{ "period":2, "minElapsed":2, "secElapsed":53, "minLeft":17, "secLeft":7, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#67 PACIORETTY" },' +
-    '{ "period":2, "minElapsed":3, "secElapsed":36, "minLeft":16, "secLeft":24, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK(7)" },' +
-    '{ "period":2, "minElapsed":3, "secElapsed":36, "minLeft":16, "secLeft":24, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK(7)", "assist_1st":"#81 KESSEL(7)" },' +
+    '{ "period":2, "minElapsed":3, "secElapsed":36, "minLeft":16, "secLeft":24, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
+    '{ "period":2, "minElapsed":3, "secElapsed":36, "minLeft":16, "secLeft":24, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK", "goalCount":"(7)", "assist1st":"#81 KESSEL", "assist1stCount":"(7)" },' +
     '{ "period":2, "minElapsed":4, "secElapsed":26, "minLeft":15, "secLeft":34, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#72 COLE", "reason":"Slashing(2 min)", "duration":2 },' +
     '{ "period":2, "minElapsed":5, "secElapsed":20, "minLeft":14, "secLeft":40, "type":"GATT", "strength":"SH", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
     '{ "period":2, "minElapsed":5, "secElapsed":20, "minLeft":14, "secLeft":40, "type":"SHOT", "strength":"SH", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
@@ -133,8 +133,8 @@ function getJsonData() {
     '{ "period":2, "minElapsed":16, "secElapsed":48, "minLeft":3, "secLeft":12, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#67 PACIORETTY" },' +
     '{ "period":2, "minElapsed":16, "secElapsed":48, "minLeft":3, "secLeft":12, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#67 PACIORETTY" },' +
     '{ "period":2, "minElapsed":17, "secElapsed":42, "minLeft":2, "secLeft":18, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#17 BOURQUE", "reason":"Hi-sticking(2 min)", "duration":2 },' +
-    '{ "period":2, "minElapsed":18, "secElapsed":1, "minLeft":1, "secLeft":59, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#81 KESSEL(2)" },' +
-    '{ "period":2, "minElapsed":18, "secElapsed":1, "minLeft":1, "secLeft":59, "type":"GOAL", "strength":"PP", "team":"TOR", "shooter":"#81 KESSEL(2)", "assist_1st":"#3 PHANEUF(2)", "assist_2nd":"#4 FRANSON(5)" },' +
+    '{ "period":2, "minElapsed":18, "secElapsed":1, "minLeft":1, "secLeft":59, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#81 KESSEL" },' +
+    '{ "period":2, "minElapsed":18, "secElapsed":1, "minLeft":1, "secLeft":59, "type":"GOAL", "strength":"PP", "team":"TOR", "shooter":"#81 KESSEL", "goalCount":"(2)", "assist1st":"#3 PHANEUF", "assist1stCount":"(2)", "assist2nd":"#4 FRANSON", "assist2ndCount":"(5)" },' +
     '{ "period":2, "minElapsed":18, "secElapsed":34, "minLeft":1, "secLeft":26, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#53 KOSTKA", "reason":"Holding(2 min)", "duration":2 },' +
     '{ "period":2, "minElapsed":19, "secElapsed":27, "minLeft":0, "secLeft":33, "type":"GATT", "strength":"PP", "team":"MTL", "shooter":"#17 BOURQUE" },' +
     '{ "period":2, "minElapsed":19, "secElapsed":27, "minLeft":0, "secLeft":33, "type":"MISS", "strength":"PP", "team":"MTL", "shooter":"#17 BOURQUE", "target":"Wide of Net" },' +
@@ -164,8 +164,8 @@ function getJsonData() {
     '{ "period":3, "minElapsed":4, "secElapsed":14, "minLeft":15, "secLeft":46, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#73 GALLAGHER" },' +
     '{ "period":3, "minElapsed":4, "secElapsed":18, "minLeft":15, "secLeft":42, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#28 ORR" },' +
     '{ "period":3, "minElapsed":4, "secElapsed":18, "minLeft":15, "secLeft":42, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#28 ORR" },' +
-    '{ "period":3, "minElapsed":4, "secElapsed":20, "minLeft":15, "secLeft":40, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#55 HOLZER(2)" },' +
-    '{ "period":3, "minElapsed":4, "secElapsed":20, "minLeft":15, "secLeft":40, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#55 HOLZER(2)", "assist_1st":"#28 ORR(1)", "assist_2nd":"#11 MCCLEMENT(2)" },' +
+    '{ "period":3, "minElapsed":4, "secElapsed":20, "minLeft":15, "secLeft":40, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#55 HOLZER" },' +
+    '{ "period":3, "minElapsed":4, "secElapsed":20, "minLeft":15, "secLeft":40, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#55 HOLZER", "goalCount":"(2)", "assist1st":"#28 ORR", "assist1stCount":"(1)", "assist2nd":"#11 MCCLEMENT", "assist2ndCount":"(2)" },' +
     '{ "period":3, "minElapsed":4, "secElapsed":30, "minLeft":15, "secLeft":30, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN" },' +
     '{ "period":3, "minElapsed":4, "secElapsed":30, "minLeft":15, "secLeft":30, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN" },' +
     '{ "period":3, "minElapsed":5, "secElapsed":52, "minLeft":14, "secLeft":8, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL" },' +
@@ -188,8 +188,8 @@ function getJsonData() {
     '{ "period":3, "minElapsed":12, "secElapsed":17, "minLeft":7, "secLeft":43, "type":"PENL", "strength":"SH", "team":"MTL", "taker":"#14 PLEKANEC", "reason":"Holding(2 min)", "duration":2 },' +
     '{ "period":3, "minElapsed":12, "secElapsed":27, "minLeft":7, "secLeft":33, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#81 KESSEL" },' +
     '{ "period":3, "minElapsed":12, "secElapsed":27, "minLeft":7, "secLeft":33, "type":"MISS", "strength":"PP", "team":"TOR", "shooter":"#81 KESSEL", "target":"Over Net" },' +
-    '{ "period":3, "minElapsed":13, "secElapsed":15, "minLeft":6, "secLeft":45, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#3 PHANEUF(1)" },' +
-    '{ "period":3, "minElapsed":13, "secElapsed":15, "minLeft":6, "secLeft":45, "type":"GOAL", "strength":"PP", "team":"TOR", "shooter":"#3 PHANEUF(1)", "assist_1st":"#81 KESSEL(8)" },' +
+    '{ "period":3, "minElapsed":13, "secElapsed":15, "minLeft":6, "secLeft":45, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#3 PHANEUF" },' +
+    '{ "period":3, "minElapsed":13, "secElapsed":15, "minLeft":6, "secLeft":45, "type":"GOAL", "strength":"PP", "team":"TOR", "shooter":"#3 PHANEUF", "goalCount":"(1)", "assist1st":"#81 KESSEL", "assist1stCount":"(8)" },' +
     '{ "period":3, "minElapsed":14, "secElapsed":12, "minLeft":5, "secLeft":48, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#16 MACARTHUR" },' +
     '{ "period":3, "minElapsed":14, "secElapsed":12, "minLeft":5, "secLeft":48, "type":"SHOT", "strength":"PP", "team":"TOR", "shooter":"#16 MACARTHUR" },' +
     '{ "period":3, "minElapsed":14, "secElapsed":17, "minLeft":5, "secLeft":43, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#45 FRASER" },' +
