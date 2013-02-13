@@ -1,5 +1,16 @@
+body {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  background: url('../img/carbon_fibre/carbon_fibre.png');
+}
+
 div {
   margin: 0.5em 1em;
+}
+div.main-container {
+  background: url('../img/gray_jean/gray_jean.png');
+  border-radius: 25px;
+  padding: 10px;
+  margin: 1em;
 }
 div.title {
   float: left;
@@ -62,10 +73,10 @@ p {
 }
 
 .away {
-  color: rgb(0, 50, 100);
+  color: #CC334D;
 }
 .home {
-  color: rgb(100, 50, 0);
+  color: #334DCC;
 }
 .GOAL, .score {
   font-weight: bolder;
