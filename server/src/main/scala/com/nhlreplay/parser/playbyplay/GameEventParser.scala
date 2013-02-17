@@ -15,7 +15,6 @@ class GameEventParser
     val gameEvents = htmlEvents map { x => GameEvent(x \ "td") }
     val interestingEvents = gameEvents filter { x => x.getClass.getSimpleName != "GameEvent" }
     val finalEvents = addEvents(interestingEvents)
-    finalEvents foreach { _.showJson() }
     GameInfo(homeTeam, awayTeam, finalEvents)
   }
 

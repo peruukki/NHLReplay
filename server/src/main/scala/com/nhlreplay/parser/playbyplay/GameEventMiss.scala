@@ -17,7 +17,7 @@ class GameEventMiss(columns: NodeSeq, description: String)
     }
   }
 
-  override def showJson() {
+  override def getJson = {
     val builder = super.startJson()
     appendValue(builder, "team", team)
     appendValue(builder, "shooter", shooter)

@@ -6,7 +6,7 @@ class GameEventGoalAttempt(resultEvent: GameEventGoalAttemptValues)
   val team = resultEvent.team
   val shooter = resultEvent.shooter
 
-  override def showJson() {
+  override def getJson = {
     val builder = super.startJson()
     appendValue(builder, "team", team)
     appendValue(builder, "shooter", shooter)

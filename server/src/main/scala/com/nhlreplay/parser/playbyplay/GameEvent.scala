@@ -46,14 +46,14 @@ class GameEvent(val columns: NodeSeq, givenType: String = "")
 
   protected def trim(text: String) = """\s+""".r.replaceAllIn(text, " ")
 
-  def showJson() {
+  def getJson = {
     val builder = startJson()
     finishJson(builder)
   }
 
   protected def startJson() = {
     val builder = new StringBuilder()
-    builder.append("'{")
+    builder.append("{")
     appendValue(builder, "period", period)
     appendValue(builder, "minElapsed", minElapsed)
     appendValue(builder, "secElapsed", secElapsed)
@@ -64,10 +64,10 @@ class GameEvent(val columns: NodeSeq, givenType: String = "")
     builder
   }
 
-  protected def finishJson(builder: StringBuilder) {
+  protected def finishJson(builder: StringBuilder) = {
     builder.deleteCharAt(builder.length - 1)
-    builder.append(" },' +")
-    println(builder.toString())
+    builder.append(" }")
+    builder.toString()
   }
 
   protected def appendValue(builder: StringBuilder, key: String, value: String) {
