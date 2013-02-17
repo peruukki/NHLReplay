@@ -5,7 +5,7 @@ import collection.mutable.ListBuffer
 
 class GameEventParser
 {
-  def parse(filePath: String): Seq[GameEvent] = {
+  def parse(filePath: String) = {
     val document = xml.parsing.XhtmlParser(io.Source.fromFile(filePath))
 
     val homeTeam = new Team(getHtmlInfo(document, "Home"))
@@ -16,7 +16,7 @@ class GameEventParser
     val interestingEvents = gameEvents filter { x => x.getClass.getSimpleName != "GameEvent" }
     val finalEvents = addEvents(interestingEvents)
     finalEvents foreach { _.showJson() }
-    finalEvents
+    GameInfo(homeTeam, awayTeam, finalEvents)
   }
 
   private def getHtmlEvents(document: NodeSeq) = document \\ "body" \ "table" \\ "tr" filter { x => (x \ "@class").text == "evenColor" }
