@@ -1,6 +1,6 @@
 package com.nhlreplay.converter.xhtml
 
-import java.io.File
+import com.nhlreplay.utils.FileUtils
 
 class XhtmlConverter
 {
@@ -21,10 +21,7 @@ class XhtmlConverter
       """.stripMargin
 
     val fileName = filePath.take(filePath.lastIndexOf(".") + 1) + "XHTML"
-    printToFile(new File(fileName))(p => {
-      List(header, convertTags(htmlContent, "meta|img|br")) foreach p.println
-    })
-
+    FileUtils.writeToFile(fileName, List(header, convertTags(htmlContent, "meta|img|br")))
     fileName
   }
 
