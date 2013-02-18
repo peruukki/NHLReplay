@@ -8,6 +8,7 @@ object Main
     val converter = new XhtmlConverter()
     val xhtmlFile = converter.convertHtml("src/test/resources/playbyplay/PL020160.HTM")
     val parser = new GameEventParser()
-    parser.parse(xhtmlFile)
+    val gameInfo = parser.parse(xhtmlFile)
+    gameInfo.writeToJsonpFile("../client/src/main/jsonp/data.jsonp")
   }
 }

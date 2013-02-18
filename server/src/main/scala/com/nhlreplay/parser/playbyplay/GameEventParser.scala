@@ -8,18 +8,20 @@ class GameEventParser
   def parse(filePath: String) = {
     val document = xml.parsing.XhtmlParser(io.Source.fromFile(filePath))
 
-    val homeTeam = new Team(getHtmlInfo(document, "Home"))
-    val awayTeam = new Team(getHtmlInfo(document, "Visitor"))
+    val abbrInfo = getHtmlAbbrInfo(document)
+    val awayTeam = new Team("away", getHtmlNameInfo(document, "Visitor"), abbrInfo.head)
+    val homeTeam = new Team("home", getHtmlNameInfo(document, "Home"), abbrInfo.tail.head)
 
     val htmlEvents = getHtmlEvents(document)
     val gameEvents = htmlEvents map { x => GameEvent(x \ "td") }
     val interestingEvents = gameEvents filter { x => x.getClass.getSimpleName != "GameEvent" }
     val finalEvents = addEvents(interestingEvents)
-    GameInfo(homeTeam, awayTeam, finalEvents)
+    GameInfo(List(awayTeam, homeTeam), finalEvents)
   }
 
   private def getHtmlEvents(document: NodeSeq) = document \\ "body" \ "table" \\ "tr" filter { x => (x \ "@class").text == "evenColor" }
-  private def getHtmlInfo(document: NodeSeq, attr: String) = document \\ "table" filter { x => (x \ "@id").text == attr }
+  private def getHtmlNameInfo(document: NodeSeq, attr: String) = document \\ "table" filter { x => (x \ "@id").text == attr }
+  private def getHtmlAbbrInfo(document: NodeSeq) = document \\ "td" filter { x => x.text contains " On Ice" }
 
   private def addEvents(events: Seq[GameEvent]) = {
     var newEvents = new ListBuffer[GameEvent]

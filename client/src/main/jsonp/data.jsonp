@@ -218,11 +218,11 @@ function getJsonData() {
   data += ',';
 
   data += '"teams": [' +
-    '{ "type":"home", "name":"TORONTO MAPLE LEAFS", "abbreviation":"TOR" },' +
-    '{ "type":"away", "name":"MONTREAL CANADIENS", "abbreviation":"MTL" }' +
+    '{ "type":"away", "name":"TORONTO MAPLE LEAFS", "abbreviation":"TOR" },' +
+    '{ "type":"home", "name":"MONTREAL CANADIENS", "abbreviation":"MTL" }' +
   ']';
 
-  data += ' }';
+  data += '};'
 
   return data;
 }
