@@ -4,8 +4,9 @@ import java.io.File
 
 object FileUtils {
 
-  def writeToFile(fileName: String, fileContent: Seq[String]) {
+  def writeToFile(fileName: String, fileContent: Seq[String]) = {
     printToFile(new File(fileName))(p => { fileContent foreach p.println })
+    fileName
   }
 
   private def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {

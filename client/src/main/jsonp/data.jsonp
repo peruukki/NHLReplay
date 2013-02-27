@@ -2,7 +2,7 @@ function getJsonData() {
   var data = '{ ';
 
   data += '"gameEvents": [' +
-    '{ "period":1, "minElapsed":0, "secElapsed":0, "minLeft":20, "secLeft":0, "type":"PSTR", "strength":" " },' +
+    '{ "period":1, "minElapsed":0, "secElapsed":0, "minLeft":20, "secLeft":0, "type":"PSTR", "strength":"?" },' +
     '{ "period":1, "minElapsed":0, "secElapsed":46, "minLeft":19, "secLeft":14, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#79 MARKOV" },' +
     '{ "period":1, "minElapsed":0, "secElapsed":46, "minLeft":19, "secLeft":14, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#79 MARKOV" },' +
     '{ "period":1, "minElapsed":0, "secElapsed":50, "minLeft":19, "secLeft":10, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
@@ -61,8 +61,8 @@ function getJsonData() {
     '{ "period":1, "minElapsed":19, "secElapsed":52, "minLeft":0, "secLeft":8, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#51 DESHARNAIS", "reason":"Roughing(2 min)", "duration":2 },' +
     '{ "period":1, "minElapsed":19, "secElapsed":59, "minLeft":0, "secLeft":1, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#21 GIONTA" },' +
     '{ "period":1, "minElapsed":19, "secElapsed":59, "minLeft":0, "secLeft":1, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#21 GIONTA", "target":"Over Net" },' +
-    '{ "period":1, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":" " },' +
-    '{ "period":2, "minElapsed":0, "secElapsed":0, "minLeft":20, "secLeft":0, "type":"PSTR", "strength":" " },' +
+    '{ "period":1, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":"?" },' +
+    '{ "period":2, "minElapsed":0, "secElapsed":0, "minLeft":20, "secLeft":0, "type":"PSTR", "strength":"?" },' +
     '{ "period":2, "minElapsed":0, "secElapsed":23, "minLeft":19, "secLeft":37, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
     '{ "period":2, "minElapsed":0, "secElapsed":23, "minLeft":19, "secLeft":37, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
     '{ "period":2, "minElapsed":0, "secElapsed":33, "minLeft":19, "secLeft":27, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#61 DIAZ" },' +
@@ -144,8 +144,8 @@ function getJsonData() {
     '{ "period":2, "minElapsed":19, "secElapsed":56, "minLeft":0, "secLeft":4, "type":"SHOT", "strength":"PP", "team":"MTL", "shooter":"#79 MARKOV" },' +
     '{ "period":2, "minElapsed":19, "secElapsed":59, "minLeft":0, "secLeft":1, "type":"GATT", "strength":"PP", "team":"MTL", "shooter":"#73 GALLAGHER" },' +
     '{ "period":2, "minElapsed":19, "secElapsed":59, "minLeft":0, "secLeft":1, "type":"MISS", "strength":"PP", "team":"MTL", "shooter":"#73 GALLAGHER", "target":"Over Net" },' +
-    '{ "period":2, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":" " },' +
-    '{ "period":3, "minElapsed":0, "secElapsed":0, "minLeft":20, "secLeft":0, "type":"PSTR", "strength":" " },' +
+    '{ "period":2, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":"?" },' +
+    '{ "period":3, "minElapsed":0, "secElapsed":0, "minLeft":20, "secLeft":0, "type":"PSTR", "strength":"?" },' +
     '{ "period":3, "minElapsed":1, "secElapsed":9, "minLeft":18, "secLeft":51, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#45 FRASER", "reason":"Fighting (maj)(5 min)", "duration":5 },' +
     '{ "period":3, "minElapsed":1, "secElapsed":9, "minLeft":18, "secLeft":51, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#8 PRUST", "reason":"Fighting (maj)(5 min)", "duration":5 },' +
     '{ "period":3, "minElapsed":1, "secElapsed":38, "minLeft":18, "secLeft":22, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#26 GORGES" },' +
@@ -212,7 +212,7 @@ function getJsonData() {
     '{ "period":3, "minElapsed":19, "secElapsed":14, "minLeft":0, "secLeft":46, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#17 BOURQUE", "reason":"Misconduct (10 min)(10 min)", "duration":10 },' +
     '{ "period":3, "minElapsed":19, "secElapsed":58, "minLeft":0, "secLeft":2, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#81 ELLER" },' +
     '{ "period":3, "minElapsed":19, "secElapsed":58, "minLeft":0, "secLeft":2, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#81 ELLER" },' +
-    '{ "period":3, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":" " }' +
+    '{ "period":3, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":"?" }' +
   ']';
 
   data += ',';

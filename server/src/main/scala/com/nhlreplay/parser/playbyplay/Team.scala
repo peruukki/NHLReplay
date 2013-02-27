@@ -9,7 +9,7 @@ class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeS
   val teamAbbreviation = getTeamAbbreviation(abbreviationColumn)
 
   private def getTeamName(columns: NodeSeq) = {
-    val pattern = """>(.+)<br/>""".r
+    val pattern = """>(.+)<br.*?>""".r
     val content = ((columns \ "tbody" \ "tr")(2) \ "td").mkString
     pattern.findFirstMatchIn(content) match {
       case Some(teamMatch) => teamMatch.group(1)

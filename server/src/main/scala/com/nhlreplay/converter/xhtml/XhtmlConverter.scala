@@ -1,36 +1,28 @@
 package com.nhlreplay.converter.xhtml
 
 import com.nhlreplay.utils.FileUtils
+import xml.XML
+import io.Source
+import org.ccil.cowan.tagsoup.jaxp.SAXFactoryImpl
 
 class XhtmlConverter
 {
   def convertHtml(filePath: String) = {
-    val source = scala.io.Source.fromFile(filePath, "UTF-8")
-    val htmlContent = source.mkString.replace("<html>", "")
+    val htmlContent = readHtml(filePath)
+    val xhtmlContent = convertToXhtml(htmlContent)
+    val xhtmlFileName = filePath.take(filePath.lastIndexOf(".") + 1) + "XHTML"
+    FileUtils.writeToFile(xhtmlFileName, List(xhtmlContent))
+  }
+
+  private def readHtml(filePath: String) = {
+    val source = Source.fromFile(filePath, "UTF-8")
+    val htmlContent = source.mkString
     source.close()
-
-    val header =
-      """<?xml version="1.0" encoding="utf-8"?>
-        |
-        |<!DOCTYPE html
-        |   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        |   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
-        |
-        |<html xmlns="http://www.w3.org/1999/xhtml">
-        |
-      """.stripMargin
-
-    val fileName = filePath.take(filePath.lastIndexOf(".") + 1) + "XHTML"
-    FileUtils.writeToFile(fileName, List(header, convertTags(htmlContent, "meta|img|br")))
-    fileName
+    htmlContent
   }
 
-  private def convertTags(content: String, tag: String) = {
-    """(<(?:%s).*?)(>)""".format(tag).r.replaceAllIn(content, x => { x.group(1) + " /" + x.group(2) })
-  }
-
-  private def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {
-    val p = new java.io.PrintWriter(f)
-    try { op(p) } finally { p.close() }
+  private def convertToXhtml(htmlContent: String) = {
+    val parser = XML.withSAXParser(new SAXFactoryImpl().newSAXParser())
+    parser.loadString(htmlContent).mkString
   }
 }
