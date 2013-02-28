@@ -6,7 +6,7 @@ import collection.mutable.ListBuffer
 class GameEventParser
 {
   def parse(filePath: String) = {
-    val document = xml.parsing.XhtmlParser(io.Source.fromFile(filePath))
+    val document = xml.parsing.XhtmlParser(io.Source.fromFile(filePath, "UTF-8"))
 
     val abbrInfo = getHtmlAbbrInfo(document)
     val awayTeam = new Team("away", getHtmlNameInfo(document, "Visitor"), abbrInfo.head)

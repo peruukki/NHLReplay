@@ -10,7 +10,7 @@ object FileUtils {
   }
 
   private def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {
-    val p = new java.io.PrintWriter(f)
+    val p = new java.io.PrintWriter(f, "UTF-8")
     try { op(p) } finally { p.close() }
   }
 }
