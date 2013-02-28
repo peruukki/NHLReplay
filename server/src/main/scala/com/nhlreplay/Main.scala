@@ -1,6 +1,7 @@
-package com.nhlreplay.parser.playbyplay
+package com.nhlreplay
 
-import com.nhlreplay.converter.xhtml.XhtmlConverter
+import converter.xhtml.XhtmlConverter
+import parser.playbyplay.GameEventParser
 
 object Main
 {
