@@ -1,8 +1,11 @@
 package com.nhlreplay.utils
 
 import java.io.File
+import io.Source
 
 object FileUtils {
+
+  def getFileSource(fileName: String) = Source.fromFile(fileName, "UTF-8")
 
   def writeToFile(fileName: String, fileContent: Seq[String]) = {
     printToFile(new File(fileName))(p => { fileContent foreach p.println })

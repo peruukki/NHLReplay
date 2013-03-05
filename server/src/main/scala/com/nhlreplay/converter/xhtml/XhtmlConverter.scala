@@ -2,7 +2,6 @@ package com.nhlreplay.converter.xhtml
 
 import com.nhlreplay.utils.FileUtils
 import xml.XML
-import io.Source
 import org.ccil.cowan.tagsoup.jaxp.SAXFactoryImpl
 
 class XhtmlConverter
@@ -15,7 +14,7 @@ class XhtmlConverter
   }
 
   private def readHtml(filePath: String) = {
-    val source = Source.fromFile(filePath, "UTF-8")
+    val source = FileUtils.getFileSource(filePath)
     val htmlContent = source.mkString
     source.close()
     htmlContent
