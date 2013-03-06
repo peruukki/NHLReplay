@@ -1,3 +1,5 @@
+org.scalastyle.sbt.ScalastylePlugin.Settings
+
 name := "NHLReplay"
 
 version := "0.1"
