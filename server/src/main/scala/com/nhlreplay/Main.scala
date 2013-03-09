@@ -2,7 +2,7 @@ package com.nhlreplay
 
 import converter.xhtml.XhtmlConverter
 import parser.playbyplay.GameEventParser
-import parser.reports.GameReportsParser
+import parser.reports.{GameReportSource, GameReportsParser}
 
 object Main
 {
@@ -18,7 +18,8 @@ object Main
   }
 
   private def parseGameReports() {
-    val xhtmlFile = XhtmlConverter.convertHtml("src/test/resources/reports/TOR.HTM")
+    val gameReportFile = GameReportSource.getReportsByTeam("TOR")
+    val xhtmlFile = XhtmlConverter.convertHtml(gameReportFile)
     val gameReports = GameReportsParser.parse(xhtmlFile)
   }
 }

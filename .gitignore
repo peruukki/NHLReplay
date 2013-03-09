@@ -4,3 +4,4 @@ server/project/target/
 server/project/project/target/
 server/src/test/resources/*/*files
 server/src/test/resources/*/*.xhtml
+server/src/test/resources/reports/*

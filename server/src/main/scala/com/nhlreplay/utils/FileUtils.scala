@@ -2,6 +2,7 @@ package com.nhlreplay.utils
 
 import java.io.File
 import io.Source
+import java.net.URL
 
 object FileUtils {
   val encoding = "UTF-8"
@@ -9,6 +10,8 @@ object FileUtils {
   def getFileSource(fileName: String): Source = Source.fromFile(fileName, encoding)
 
   def getFileContent(fileName: String): String = getFileContent(getFileSource(fileName))
+
+  def getURLContent(url: String): String = getFileContent(Source.fromURL(url, encoding))
 
   private def getFileContent(source: Source) = {
     val content = source.mkString
