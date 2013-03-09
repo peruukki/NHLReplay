@@ -8,17 +8,10 @@ import xml.transform.{RuleTransformer, RewriteRule}
 class XhtmlConverter
 {
   def convertHtml(filePath: String): String = {
-    val htmlContent = readHtml(filePath)
+    val htmlContent = FileUtils.getFileContent(filePath)
     val xhtmlContent = filterXhtml(convertToXhtml(htmlContent))
     val xhtmlFileName = filePath.take(filePath.lastIndexOf(".") + 1) + "XHTML"
     FileUtils.writeToFile(xhtmlFileName, List(xhtmlContent))
-  }
-
-  private def readHtml(filePath: String) = {
-    val source = FileUtils.getFileSource(filePath)
-    val htmlContent = source.mkString
-    source.close()
-    htmlContent
   }
 
   private def convertToXhtml(htmlContent: String) = {
