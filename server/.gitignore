@@ -1,0 +1,7 @@
+out/
+target/
+project/target/
+project/project/target/
+src/test/resources/*/*files
+src/test/resources/*/*.xhtml
+src/test/resources/reports/*
