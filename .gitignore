@@ -2,5 +2,5 @@ server/out/
 server/target/
 server/project/target/
 server/project/project/target/
-server/src/test/resources/playbyplay/*files
-server/src/test/resources/playbyplay/*.xhtml
+server/src/test/resources/*/*files
+server/src/test/resources/*/*.xhtml
