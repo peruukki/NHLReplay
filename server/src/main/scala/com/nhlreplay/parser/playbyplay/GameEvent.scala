@@ -11,7 +11,7 @@ object GameEvent
   val EVENT_COL_EVENT = 4
   val EVENT_COL_DESCRIPTION = 5
 
-  def apply(columns: NodeSeq) = {
+  def apply(columns: NodeSeq): GameEvent = {
     val description = columns(EVENT_COL_DESCRIPTION).mkString
     val eventType = columns(EVENT_COL_EVENT).text.trim
 
@@ -47,7 +47,7 @@ class GameEvent(val columns: NodeSeq, givenType: String = "")
 
   protected def trim(text: String) = """\s+""".r.replaceAllIn(text, " ")
 
-  def getJson = {
+  def getJson: String = {
     val builder = startJson()
     finishJson(builder)
   }
@@ -72,8 +72,7 @@ class GameEvent(val columns: NodeSeq, givenType: String = "")
   }
 
   protected def appendValue(builder: StringBuilder, key: String, value: String) {
-    if (value.isEmpty) return
-    else builder.append(getJsonValue(key, value))
+    if (!value.isEmpty) builder.append(getJsonValue(key, value))
   }
   protected def appendValue(builder: StringBuilder, key: String, value: Int) {
     builder.append(getJsonValue(key, value))

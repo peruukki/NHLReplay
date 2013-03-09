@@ -5,9 +5,9 @@ import io.Source
 
 object FileUtils {
 
-  def getFileSource(fileName: String) = Source.fromFile(fileName, "UTF-8")
+  def getFileSource(fileName: String): Source = Source.fromFile(fileName, "UTF-8")
 
-  def writeToFile(fileName: String, fileContent: Seq[String]) = {
+  def writeToFile(fileName: String, fileContent: Seq[String]): String = {
     printToFile(new File(fileName))(p => { fileContent foreach p.println })
     fileName
   }

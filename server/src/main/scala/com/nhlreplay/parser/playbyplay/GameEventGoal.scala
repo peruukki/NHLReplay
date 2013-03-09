@@ -41,7 +41,7 @@ class GameEventGoal(columns: NodeSeq, description: String)
     }
   }
 
-  override def getJson = {
+  override def getJson: String = {
     val builder = super.startJson()
     appendValue(builder, "team", team)
     appendValue(builder, "shooter", shooter)

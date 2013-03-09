@@ -7,7 +7,7 @@ import xml.transform.{RuleTransformer, RewriteRule}
 
 class XhtmlConverter
 {
-  def convertHtml(filePath: String) = {
+  def convertHtml(filePath: String): String = {
     val htmlContent = readHtml(filePath)
     val xhtmlContent = filterXhtml(convertToXhtml(htmlContent))
     val xhtmlFileName = filePath.take(filePath.lastIndexOf(".") + 1) + "XHTML"
@@ -29,7 +29,7 @@ class XhtmlConverter
   private def filterXhtml(xhtmlContent: NodeSeq) = {
 
     val filter = new RewriteRule {
-      override def transform(node: Node) = node match {
+      override def transform(node: Node): Seq[Node] = node match {
         // Filter out all script tags
         case n if (n.label == "script") => NodeSeq.Empty
         case x => x

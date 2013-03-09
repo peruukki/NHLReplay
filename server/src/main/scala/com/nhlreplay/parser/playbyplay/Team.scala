@@ -26,7 +26,7 @@ class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeS
     }
   }
 
-  def getJson = {
+  def getJson: String = {
     val builder = new StringBuilder()
     builder.append("""{ "type":"%s", "name":"%s", "abbreviation":"%s" }""".format(teamType, teamName, teamAbbreviation))
     builder.toString()
