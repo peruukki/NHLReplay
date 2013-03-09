@@ -12,13 +12,13 @@ object Main
   }
 
   private def parsePlayByPlay() {
-    val xhtmlFile = new XhtmlConverter().convertHtml("src/test/resources/playbyplay/PL020160.HTM")
-    val gameInfo = new GameEventParser().parse(xhtmlFile)
+    val xhtmlFile = XhtmlConverter.convertHtml("src/test/resources/playbyplay/PL020160.HTM")
+    val gameInfo = GameEventParser.parse(xhtmlFile)
     gameInfo.writeToJsonpFile("../client/src/main/jsonp/data.jsonp")
   }
 
   private def parseGameReports() {
-    val xhtmlFile = new XhtmlConverter().convertHtml("src/test/resources/reports/TOR.HTM")
-    val gameReports = new GameReportsParser().parse(xhtmlFile)
+    val xhtmlFile = XhtmlConverter.convertHtml("src/test/resources/reports/TOR.HTM")
+    val gameReports = GameReportsParser.parse(xhtmlFile)
   }
 }

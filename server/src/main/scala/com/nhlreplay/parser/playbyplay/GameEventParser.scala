@@ -4,7 +4,7 @@ import com.nhlreplay.utils.FileUtils
 import scala.xml.NodeSeq
 import collection.mutable.ListBuffer
 
-class GameEventParser
+object GameEventParser
 {
   def parse(filePath: String): GameInfo = {
     val document = xml.parsing.XhtmlParser(FileUtils.getFileSource(filePath))

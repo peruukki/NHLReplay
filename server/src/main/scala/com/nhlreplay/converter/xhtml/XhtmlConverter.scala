@@ -5,7 +5,7 @@ import xml.{Node, NodeSeq, XML}
 import org.ccil.cowan.tagsoup.jaxp.SAXFactoryImpl
 import xml.transform.{RuleTransformer, RewriteRule}
 
-class XhtmlConverter
+object XhtmlConverter
 {
   def convertHtml(filePath: String): String = {
     val htmlContent = FileUtils.getFileContent(filePath)
