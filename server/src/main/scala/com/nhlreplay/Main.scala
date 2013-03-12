@@ -7,8 +7,14 @@ import parser.reports.{GameReportSource, GameReportsParser}
 object Main
 {
   def main(args: Array[String]) {
+    val gameReports = retrieveGameReports()
     parsePlayByPlay()
-    parseGameReports()
+  }
+
+  private def retrieveGameReports() {
+    val gameReportFile = GameReportSource.getReportsByTeam("TOR")
+    val xhtmlFile = XhtmlConverter.convertHtml(gameReportFile)
+    GameReportsParser.parse(xhtmlFile)
   }
 
   private def parsePlayByPlay() {
@@ -17,9 +23,4 @@ object Main
     gameInfo.writeToJsonpFile("../client/src/main/jsonp/data.jsonp")
   }
 
-  private def parseGameReports() {
-    val gameReportFile = GameReportSource.getReportsByTeam("TOR")
-    val xhtmlFile = XhtmlConverter.convertHtml(gameReportFile)
-    val gameReports = GameReportsParser.parse(xhtmlFile)
-  }
 }
