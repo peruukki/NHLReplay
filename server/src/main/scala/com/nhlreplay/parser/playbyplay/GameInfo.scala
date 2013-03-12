@@ -16,7 +16,7 @@ case class GameInfo(teams: Seq[Team], events: Seq[GameEvent]) {
     jsonp += "\n  %s += ',';\n".format(dataVariable)
     jsonp += getJsonpTeams
     jsonp += """
-               |  %s += '};'
+               |  %s += '}'
                |
                |  return %s;
                |}""".stripMargin.format(dataVariable, dataVariable)
