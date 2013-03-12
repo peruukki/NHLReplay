@@ -22,7 +22,6 @@ object GameReportSource
       "&" + gameTypeParam + "=" + gameTypeValue +
       "&" + teamParam + "=" + team +
       "&" + reportTypeParam + "=" + reportTypeValue
-    val reportContent = FileUtils.getURLContent(reportURL)
-    FileUtils.writeToFile(destinationPath + team + ".HTM", List(reportContent))
+    FileUtils.retrieveFile(reportURL, destinationPath + team + ".HTM")
   }
 }
