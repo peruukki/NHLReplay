@@ -18,6 +18,8 @@ class GameEventGoal(columns: NodeSeq, description: String)
       case Some(scorerMatch) => {
         val (team, scorer, scorerCount) = (scorerMatch.group("team"), trim(scorerMatch.group("scorer")),
                                            scorerMatch.group("count"))
+        val goalCount = if (scorerCount != null) scorerCount else ""
+
         firstAssistPattern.findFirstMatchIn(scorerMatch.after) match {
 
           case Some(assist1stMatch) => {
@@ -26,14 +28,14 @@ class GameEventGoal(columns: NodeSeq, description: String)
 
               case Some(assist2ndMatch) => {
                 val (assist2nd, assist2ndCount) = (trim(assist2ndMatch.group("assist")), assist2ndMatch.group("count"))
-                (team, scorer, scorerCount, assist1st, assist1stCount, assist2nd, assist2ndCount)
+                (team, scorer, goalCount, assist1st, assist1stCount, assist2nd, assist2ndCount)
               }
 
-              case None => (team, scorer, scorerCount, assist1st, assist1stCount, "", "")
+              case None => (team, scorer, goalCount, assist1st, assist1stCount, "", "")
             }
           }
 
-          case None => (team, scorer, scorerCount, "", "", "", "")
+          case None => (team, scorer, goalCount, "", "", "", "")
         }
       }
 
