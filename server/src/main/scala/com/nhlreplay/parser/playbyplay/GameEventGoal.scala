@@ -19,6 +19,7 @@ class GameEventGoal(columns: NodeSeq, description: String)
         val (team, scorer, scorerCount) = (Team.trimAbbreviation(scorerMatch.group("team")),
                                            trim(scorerMatch.group("scorer")),
                                            scorerMatch.group("count"))
+        // scalastyle:off null
         val goalCount = if (scorerCount != null) scorerCount else ""
 
         firstAssistPattern.findFirstMatchIn(scorerMatch.after) match {
