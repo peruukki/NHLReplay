@@ -22,7 +22,7 @@ function startPeriod(gameClock, gameEvents, penalties)
   var event = gameEvents.popEvent().event;
   gameClock.initTime(event.period, event.minLeft);
   setStatus('Period ' + event.period);
-  decrementTime(gameClock, 10, gameEvents, penalties);
+  decrementTime(gameClock, 5, gameEvents, penalties);
 }
 
 function decrementTime(gameClock, timeoutInMs, gameEvents, penalties)
@@ -43,7 +43,7 @@ function decrementTime(gameClock, timeoutInMs, gameEvents, penalties)
     if (event.isPeriodEnd())
     {
       setStatus('Period end!');
-      setTimeout(function() { startPeriod(gameClock, gameEvents, penalties); }, 1000);
+      setTimeout(function() { startPeriod(gameClock, gameEvents, penalties); }, 3000);
       return;
     }
 
@@ -52,6 +52,7 @@ function decrementTime(gameClock, timeoutInMs, gameEvents, penalties)
       showEvent(event);
       incrementValue(event, 'shots');
       incrementValue(event, 'score');
+      extraWaitInMs += 4000;
     }
     else if (event.isPenalty())
     {
@@ -64,7 +65,7 @@ function decrementTime(gameClock, timeoutInMs, gameEvents, penalties)
     }
 
     showNotification(event);
-    extraWaitInMs = 1000;
+    extraWaitInMs += 1000;
   }
   else
   {
