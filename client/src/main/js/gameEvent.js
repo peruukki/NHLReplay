@@ -1,11 +1,9 @@
-function GameEvents(events, teamTypes)
-{
+function GameEvents(events, teamTypes) {
   this.events = events;
   this.eventIndex = 0;
   this.teamTypes = teamTypes;
 
-  this.isEventNow = function(clock)
-  {
+  this.isEventNow = function(clock) {
     return this.eventIndex < events.length &&
            clock.decisecond == 0 &&
            this.events[this.eventIndex].minLeft == clock.minute &&
@@ -16,8 +14,7 @@ function GameEvents(events, teamTypes)
   this.isEmpty = function() { return this.eventIndex >= events.length; };
 }
 
-function GameEvent(event, teamTypes)
-{
+function GameEvent(event, teamTypes) {
   this.event = event;
   this.teamType = teamTypes[event.team];
 
@@ -29,45 +26,35 @@ function GameEvent(event, teamTypes)
   this.isShotOnGoal = function() { return this.event.type === 'SHOT'; };
   this.isMissedShot = function() { return this.event.type === 'MISS'; };
 
-  this.show = function()
-  {
+  this.show = function() {
     var event = this.event;
     var output = showEventTime(event.minElapsed, event.secElapsed, event.period) + ' ' + event.team + ' ';
-    if (this.isGoal(event))
-    {
+    if (this.isGoal(event)) {
       output += event.strength + ' ' + event.shooter + ' ' + event.goalCount + ' ';
-      if (event.assist2nd)
-      {
+      if (event.assist2nd) {
         output += 'Assists: ' + event.assist1st + ' ' + event.assist1stCount + ' & ' + event.assist2nd + ' ' + event.assist2ndCount;
       }
-      else if (event.assist1st)
-      {
+      else if (event.assist1st) {
         output += 'Assist: ' + event.assist1st + ' ' + event.assist1stCount;
       }
-      else
-      {
+      else {
         output += 'Unassisted';
       }
     }
-    else if (this.isPenalty())
-    {
+    else if (this.isPenalty()) {
       output += event.taker + ' ' + event.reason;
     }
-    else if (this.isShotOnGoal())
-    {
+    else if (this.isShotOnGoal()) {
       output += event.shooter;
     }
-    else
-    {
+    else {
       output += event.type;
     }
     return output;
   };
 
-  function showEventTime(minute, second, period)
-  {
-    if (second < 10)
-    {
+  function showEventTime(minute, second, period) {
+    if (second < 10) {
       second = '0' + second;
     }
     return (minute + (period - 1) * 20) + ':' + second;
