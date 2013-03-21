@@ -16,7 +16,8 @@ class GameEventGoal(columns: NodeSeq, description: String)
     goalPattern.findFirstMatchIn(description) match {
 
       case Some(scorerMatch) => {
-        val (team, scorer, scorerCount) = (scorerMatch.group("team"), trim(scorerMatch.group("scorer")),
+        val (team, scorer, scorerCount) = (Team.trimAbbreviation(scorerMatch.group("team")),
+                                           trim(scorerMatch.group("scorer")),
                                            scorerMatch.group("count"))
         val goalCount = if (scorerCount != null) scorerCount else ""
 

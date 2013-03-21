@@ -28,7 +28,7 @@ object GameEvent
 class GameEvent(val columns: NodeSeq, givenType: String = "")
   extends HasJson
 {
-  protected val PATTERN_TEAM = """(\w+)\s"""
+  protected val PATTERN_TEAM = Team.PATTERN_ABBREVIATION
   protected val PATTERN_PLAYER_NAME = """(?:\w|\s|-|')+"""
   protected val PATTERN_PLAYER = """#\d+(?s)\s+""" + PATTERN_PLAYER_NAME
   protected val PATTERN_PLAYER_COUNT = """(#\d+(?s)\s+""" + PATTERN_PLAYER_NAME + """)(\(\d+\))?"""

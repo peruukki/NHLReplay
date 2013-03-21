@@ -18,10 +18,10 @@ class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeS
   }
 
   private def getTeamAbbreviation(column: NodeSeq) = {
-    val pattern = """(\w+) On Ice""".r
+    val pattern = (Team.PATTERN_ABBREVIATION + """On Ice""").r
     val content = column.mkString
     pattern.findFirstMatchIn(content) match {
-      case Some(teamMatch) => teamMatch.group(1)
+      case Some(teamMatch) => Team.trimAbbreviation(teamMatch.group(1))
       case None => throw new RuntimeException("No match in '%s'".format(content))
     }
   }
@@ -31,4 +31,11 @@ class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeS
     builder.append("""{ "type":"%s", "name":"%s", "abbreviation":"%s" }""".format(teamType, teamName, teamAbbreviation))
     builder.toString()
   }
+}
+
+object Team
+{
+  val PATTERN_ABBREVIATION = """((?:\w|\.)+)\s"""
+
+  def trimAbbreviation(abbreviation: String): String = abbreviation.replaceAll("""\.""", "")
 }

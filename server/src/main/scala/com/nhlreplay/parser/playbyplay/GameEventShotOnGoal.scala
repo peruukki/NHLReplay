@@ -11,7 +11,8 @@ class GameEventShotOnGoal(columns: NodeSeq, description: String)
   private def parseDescription(description: String) = {
     val pattern = new Regex(PATTERN_TEAM + """ONGOAL\s-\s(""" + PATTERN_PLAYER + "),", "team", "shooter")
     pattern.findFirstMatchIn(description) match {
-      case Some(shotMatch) => (shotMatch.group("team"), trim(shotMatch.group("shooter")))
+      case Some(shotMatch) => (Team.trimAbbreviation(shotMatch.group("team")),
+                               trim(shotMatch.group("shooter")))
       case None => throw new RuntimeException("No match in '%s'".format(description))
     }
   }
