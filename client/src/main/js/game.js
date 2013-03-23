@@ -1,8 +1,32 @@
-function startGame() {
+var _gameDelayInMs;
+var _gameClock;
+var _gameEvents;
+var _gamePenalties;
+
+function gameInit() {
+  $('#button-play').click(function() { playClick($(this)); return false; });
+
   var data = JSON.parse(getJsonData());
   var teamTypes = setTeams(data["teams"]);
-  startPeriod(new GameClock(), new GameEvents(data["gameEvents"], teamTypes),
-              { "away":new Penalties('away'), "home":new Penalties('home') });
+  _gameDelayInMs = 5;
+  _gameClock = new GameClock();
+  _gameEvents = new GameEvents(data["gameEvents"], teamTypes);
+  _gamePenalties = { "away": new Penalties('away'), "home": new Penalties('home') };
+  startPeriod();
+}
+
+function playClick(button) {
+  if (isGameOver()) return;
+
+  if (button.text() === 'Pause') {
+    button.text('Resume');
+    _gameClock.isRunning = false;
+  }
+  else {
+    button.text('Pause');
+    _gameClock.isRunning = true;
+    decrementTime();
+  }
 }
 
 function setTeams(teams) {
@@ -14,28 +38,30 @@ function setTeams(teams) {
   return teamTypes;
 }
 
-function startPeriod(gameClock, gameEvents, penalties) {
-  var event = gameEvents.popEvent().event;
-  gameClock.initTime(event.period, event.minLeft);
+function startPeriod() {
+  var event = _gameEvents.popEvent().event;
+  _gameClock.initTime(event.period, event.minLeft);
   setStatus('Period ' + event.period);
-  decrementTime(gameClock, 5, gameEvents, penalties);
+  decrementTime();
 }
 
-function decrementTime(gameClock, timeoutInMs, gameEvents, penalties) {
+function decrementTime() {
   var extraWaitInMs = 0;
 
-  showClocks(gameClock, penalties);
+  if (!_gameClock.isRunning) return;
 
-  if (gameEvents.isEventNow(gameClock)) {
-    var event = gameEvents.popEvent();
+  showClocks(_gameClock, _gamePenalties);
 
-    if (gameEvents.isEmpty()) {
+  if (_gameEvents.isEventNow(_gameClock)) {
+    var event = _gameEvents.popEvent();
+
+    if (isGameOver()) {
       setStatus('Game end!');
       return;
     }
     if (event.isPeriodEnd()) {
       setStatus('Period end!');
-      setTimeout(function() { startPeriod(gameClock, gameEvents, penalties); }, 3000);
+      setTimeout(function() { startPeriod(); }, 3000);
       return;
     }
 
@@ -47,7 +73,7 @@ function decrementTime(gameClock, timeoutInMs, gameEvents, penalties) {
     }
     else if (event.isPenalty()) {
       showEvent(event);
-      addPenaltyClock(penalties, event);
+      addPenaltyClock(_gamePenalties, event);
     }
     else if (event.isShotOnGoal()) {
       incrementValue(event, 'shots');
@@ -60,11 +86,15 @@ function decrementTime(gameClock, timeoutInMs, gameEvents, penalties) {
     clearNotification();
   }
 
-  if (!gameEvents.isEventNow(gameClock)) {
-    advanceClocks(gameClock, penalties);
+  if (!_gameEvents.isEventNow(_gameClock)) {
+    advanceClocks(_gameClock, _gamePenalties);
   }
 
-  setTimeout(function() { decrementTime(gameClock, timeoutInMs, gameEvents, penalties); }, timeoutInMs + extraWaitInMs);
+  setTimeout(function() { decrementTime(); }, _gameDelayInMs + extraWaitInMs);
+}
+
+function isGameOver() {
+  return _gameEvents.isEmpty();
 }
 
 function showClocks(gameClock, penalties) {

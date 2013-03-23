@@ -9,8 +9,11 @@
     <script src="../jsonp/data.jsonp"></script>
   </head>
 
-  <body onload="startGame()">
+  <body onload="gameInit()">
     <div class="main-container">
+      <div class="buttons">
+        <a class="button" id="button-play" href="#">Start</a>
+      </div>
       <div class="away">
         <div><span id="away-team">AWAY</span></div>
         <div class="scorebar"><span id="away-penalties"></span><span id="away-score" class="stat score">0</span></div>
@@ -30,5 +33,4 @@
       <div class="events"></div>
     </div>
   </body>
-
 </html>

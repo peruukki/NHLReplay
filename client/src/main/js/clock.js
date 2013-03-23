@@ -12,6 +12,8 @@ function GameClock() {
   };
 
   this.advance = function() { return clockAdvance_(this, this.minute == 0); };
+
+  this.isRunning = false;
 }
 
 function PenaltyClock() {
