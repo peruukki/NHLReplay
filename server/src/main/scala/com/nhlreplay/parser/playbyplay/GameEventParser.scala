@@ -3,10 +3,12 @@ package com.nhlreplay.parser.playbyplay
 import com.nhlreplay.utils.FileUtils
 import scala.xml.NodeSeq
 import collection.mutable.ListBuffer
+import com.typesafe.scalalogging.slf4j.Logging
 
-object GameEventParser
+object GameEventParser extends Logging
 {
   def parse(filePath: String): GameInfo = {
+    logger.info(s"Parsing file '${filePath}'")
     val document = xml.parsing.XhtmlParser(FileUtils.getFileSource(filePath))
 
     val abbrInfo = getHtmlAbbrInfo(document)
