@@ -157,7 +157,7 @@ function showNotification(event) {
     content += ' saved!';
   }
   else if (event.isMissedShot()) {
-    content += ' wide!';
+    content += ' ' + event.event.target + '!';
   }
   else if (event.isGoal()) {
     content += ' he scores!';

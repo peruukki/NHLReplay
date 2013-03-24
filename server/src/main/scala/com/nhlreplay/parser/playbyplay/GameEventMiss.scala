@@ -13,8 +13,18 @@ class GameEventMiss(columns: NodeSeq, description: String)
     pattern.findFirstMatchIn(description) match {
       case Some(shotMatch) => (Team.trimAbbreviation(shotMatch.group("team")),
                                trim(shotMatch.group("shooter")),
-                               trim(shotMatch.group("target")))
+                               trimTarget(trim(shotMatch.group("target"))))
       case None => throw new RuntimeException("No match in '%s'".format(description))
+    }
+  }
+
+  private def trimTarget(target: String) = {
+    target.toLowerCase match {
+      case "goalpost" => "hits the post"
+      case "hit crossbar" => "hits the crossbar"
+      case "over net" => "over the net"
+      case "wide of net" => "wide"
+      case x => x
     }
   }
 
