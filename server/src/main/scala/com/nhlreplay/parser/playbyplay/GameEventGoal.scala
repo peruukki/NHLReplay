@@ -6,19 +6,22 @@ import xml.NodeSeq
 class GameEventGoal(columns: NodeSeq, description: String)
   extends GameEvent(columns: NodeSeq) with GameEventGoalAttemptValues
 {
-  val (team, shooter, goalCount, assist1st, assist1stCount, assist2nd, assist2ndCount) = parseDescription(description)
+  val (team, shooter, goalCount, shotType, assist1st, assist1stCount, assist2nd, assist2ndCount) = parseDescription(description)
 
   private def parseDescription(description: String) = {
-    val goalPattern = new Regex(PATTERN_TEAM + PATTERN_PLAYER_COUNT, "team", "scorer", "count")
+    val goalPattern = new Regex(PATTERN_TEAM + PATTERN_PLAYER_COUNT + "," + PATTERN_SHOT_TYPE,
+                                "team", "scorer", "count", "shotType")
     val firstAssistPattern = new Regex(""".+Assists?:\s""" + PATTERN_PLAYER_COUNT, "assist", "count")
     val secondAssistPattern = new Regex(""";\s""" + PATTERN_PLAYER_COUNT, "assist", "count")
 
     goalPattern.findFirstMatchIn(description) match {
 
       case Some(scorerMatch) => {
-        val (team, scorer, scorerCount) = (Team.trimAbbreviation(scorerMatch.group("team")),
-                                           trim(scorerMatch.group("scorer")),
-                                           scorerMatch.group("count"))
+        val (team, scorer, scorerCount, shotType) =
+          (Team.trimAbbreviation(scorerMatch.group("team")),
+           trim(scorerMatch.group("scorer")),
+           scorerMatch.group("count"),
+           scorerMatch.group("shotType"))
         // scalastyle:off null
         val goalCount = if (scorerCount != null) scorerCount else ""
 
@@ -30,14 +33,14 @@ class GameEventGoal(columns: NodeSeq, description: String)
 
               case Some(assist2ndMatch) => {
                 val (assist2nd, assist2ndCount) = (trim(assist2ndMatch.group("assist")), assist2ndMatch.group("count"))
-                (team, scorer, goalCount, assist1st, assist1stCount, assist2nd, assist2ndCount)
+                (team, scorer, goalCount, shotType, assist1st, assist1stCount, assist2nd, assist2ndCount)
               }
 
-              case None => (team, scorer, goalCount, assist1st, assist1stCount, "", "")
+              case None => (team, scorer, goalCount, shotType, assist1st, assist1stCount, "", "")
             }
           }
 
-          case None => (team, scorer, goalCount, "", "", "", "")
+          case None => (team, scorer, goalCount, shotType, "", "", "", "")
         }
       }
 
@@ -50,6 +53,7 @@ class GameEventGoal(columns: NodeSeq, description: String)
     appendValue(builder, "team", team)
     appendValue(builder, "shooter", shooter)
     appendValue(builder, "goalCount", goalCount)
+    appendValue(builder, "shotType", shotType)
     appendValue(builder, "assist1st", assist1st)
     appendValue(builder, "assist1stCount", assist1stCount)
     appendValue(builder, "assist2nd", assist2nd)
