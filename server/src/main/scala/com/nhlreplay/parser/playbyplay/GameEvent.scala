@@ -72,7 +72,7 @@ class GameEvent(val columns: NodeSeq, givenType: String = "")
   }
 
   protected def appendValue(builder: StringBuilder, key: String, value: String) {
-    if (!value.isEmpty) builder.append(getJsonValue(key, value))
+    if (!value.isEmpty) builder.append(getJsonValue(key, value.replaceAll("'", """\\'""")))
   }
   protected def appendValue(builder: StringBuilder, key: String, value: Int) {
     builder.append(getJsonValue(key, value))
