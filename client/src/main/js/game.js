@@ -78,6 +78,9 @@ function decrementTime() {
     else if (event.isShotOnGoal()) {
       incrementValue(event, 'shots');
     }
+    else if (event.isMissedShot()) {
+      incrementValue(event, 'shots-off-target');
+    }
 
     showNotification(event);
     extraWaitInMs += 1000;
