@@ -6,15 +6,17 @@ import xml.NodeSeq
 class GameEventShotOnGoal(columns: NodeSeq, description: String)
   extends GameEvent(columns: NodeSeq) with GameEventGoalAttemptValues
 {
-  val (team, shooter, shotType) = parseDescription(description)
+  val (team, shooter, shotType, shotDistance) = parseDescription(description)
 
   private def parseDescription(description: String) = {
-    val pattern = new Regex(PATTERN_TEAM + """ONGOAL\s-\s(""" + PATTERN_PLAYER + ")," + PATTERN_SHOT_TYPE,
-                            "team", "shooter", "shotType")
+    val pattern = new Regex(PATTERN_TEAM + """ONGOAL\s-\s(""" + PATTERN_PLAYER + ")," +
+                            PATTERN_SHOT_TYPE + PATTERN_SHOT_ZONE + PATTERN_SHOT_DISTANCE,
+                            "team", "shooter", "shotType", "shotZone", "shotDistance")
     pattern.findFirstMatchIn(description) match {
       case Some(shotMatch) => (Team.trimAbbreviation(shotMatch.group("team")),
                                trim(shotMatch.group("shooter")),
-                               shotMatch.group("shotType"))
+                               shotMatch.group("shotType"),
+                               shotMatch.group("shotDistance"))
       case None => throw new RuntimeException("No match in '%s'".format(description))
     }
   }
@@ -23,7 +25,6 @@ class GameEventShotOnGoal(columns: NodeSeq, description: String)
     val builder = super.startJson()
     appendValue(builder, "team", team)
     appendValue(builder, "shooter", shooter)
-    appendValue(builder, "shotType", shotType)
     super.finishJson(builder)
   }
 }

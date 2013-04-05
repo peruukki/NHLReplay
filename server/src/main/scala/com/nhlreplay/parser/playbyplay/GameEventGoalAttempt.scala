@@ -6,6 +6,7 @@ class GameEventGoalAttempt(resultEvent: GameEventGoalAttemptValues)
   val team = resultEvent.team
   val shooter = resultEvent.shooter
   val shotType = trimShotType(resultEvent.shotType)
+  val shotDistance = resultEvent.shotDistance
 
   private def trimShotType(shotType: String) = {
     shotType.toLowerCase match {
@@ -25,6 +26,7 @@ class GameEventGoalAttempt(resultEvent: GameEventGoalAttemptValues)
     appendValue(builder, "team", team)
     appendValue(builder, "shooter", shooter)
     appendValue(builder, "shotType", shotType)
+    appendValue(builder, "shotDistance", shotDistance)
     super.finishJson(builder)
   }
 }

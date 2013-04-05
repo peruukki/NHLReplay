@@ -151,7 +151,7 @@ function showNotification(event) {
   var content = $('.notifications').text();
 
   if (event.isGoalAttempt()) {
-    content = event.event.shooter + ' ' + event.event.shotType + '...';
+    content = event.event.shooter + ' ' + event.event.shotType + " from " + event.event.shotDistance + '...';
   }
   else if (event.isShotOnGoal()) {
     content += ' saved!';
