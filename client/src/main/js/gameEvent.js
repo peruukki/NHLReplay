@@ -28,20 +28,20 @@ function GameEvent(event, teamTypes) {
 
   this.show = function() {
     if (this.isPeriodStart()) {
-      return showPeriodStart(this.event.period);
+      return this.showPeriod() + " period";
     }
     else {
       return showTimedEvent(this);
     }
   };
-
-  function showPeriodStart(period) {
+  this.showPeriod = function() {
+    var period = this.event.period;
     var ordinalStr = 'th';
     if (period === 1) ordinalStr = 'st';
     if (period === 2) ordinalStr = 'nd';
     if (period === 3) ordinalStr = 'rd';
-    return period + ordinalStr + " period";
-  }
+    return period + ordinalStr;
+  };
 
   function showTimedEvent(gameEvent) {
     var event = gameEvent.event;
