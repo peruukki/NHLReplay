@@ -28,20 +28,38 @@ function GameEvent(event, teamTypes) {
 
   this.show = function() {
     if (this.isPeriodStart()) {
-      return this.showPeriod() + " period";
+      return getPeriod(this.event.period, this.event.minLeft).longName;
     }
     else {
       return showTimedEvent(this);
     }
   };
-  this.showPeriod = function() {
-    var period = this.event.period;
+
+  this.showShortPeriodName = function() {
+    return getPeriod(this.event.period, this.event.minLeft).shortName;
+  }
+
+  function getPeriod(period, periodMinutes) {
+    if (periodMinutes == 0) {
+      return new Period('SO', 'Shootout');
+    }
+    if (periodMinutes == 5) {
+      return new Period('OT', 'Overtime');
+    }
+
+    var otStr = ''
+    if (period > 3) {
+      // Playoff overtime
+      period -= 3;
+      otStr = ' OT';
+    }
     var ordinalStr = 'th';
     if (period === 1) ordinalStr = 'st';
     if (period === 2) ordinalStr = 'nd';
     if (period === 3) ordinalStr = 'rd';
-    return period + ordinalStr;
-  };
+    var periodShortName = period + ordinalStr + otStr;
+    return new Period(periodShortName, periodShortName + ' period');
+  }
 
   function showTimedEvent(gameEvent) {
     var event = gameEvent.event;
@@ -76,4 +94,9 @@ function GameEvent(event, teamTypes) {
     }
     return minute + ':' + second;
   }
+}
+
+function Period(shortName, longName) {
+  this.shortName = shortName;
+  this.longName = longName;
 }

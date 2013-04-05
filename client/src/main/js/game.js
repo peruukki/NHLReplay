@@ -41,7 +41,7 @@ function setTeams(teams) {
 function startPeriod() {
   var event = _gameEvents.popEvent();
   _gameClock.initTime(event.event.period, event.event.minLeft);
-  setStatus(event.showPeriod());
+  setStatus(event.showShortPeriodName());
   showEvent(event);
   decrementTime();
 }
