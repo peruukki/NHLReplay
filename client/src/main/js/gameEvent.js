@@ -16,7 +16,7 @@ function GameEvents(events, teamTypes) {
 
 function GameEvent(event, teamTypes) {
   this.event = event;
-  this.teamType = teamTypes[event.team];
+  this.teamType = event.team ? teamTypes[event.team] : "";
 
   this.isGoal = function() { return this.event.type === 'GOAL'; };
   this.isPenalty = function() { return this.event.type === 'PENL'; };
@@ -27,9 +27,26 @@ function GameEvent(event, teamTypes) {
   this.isMissedShot = function() { return this.event.type === 'MISS'; };
 
   this.show = function() {
-    var event = this.event;
+    if (this.isPeriodStart()) {
+      return showPeriodStart(this.event.period);
+    }
+    else {
+      return showTimedEvent(this);
+    }
+  };
+
+  function showPeriodStart(period) {
+    var ordinalStr = 'th';
+    if (period === 1) ordinalStr = 'st';
+    if (period === 2) ordinalStr = 'nd';
+    if (period === 3) ordinalStr = 'rd';
+    return period + ordinalStr + " period";
+  }
+
+  function showTimedEvent(gameEvent) {
+    var event = gameEvent.event;
     var output = showEventTime(event.minElapsed, event.secElapsed, event.period) + ' ' + event.team + ' ';
-    if (this.isGoal(event)) {
+    if (gameEvent.isGoal()) {
       output += event.strength + ' ' + event.shooter + ' ' + event.goalCount + ' ';
       if (event.assist2nd) {
         output += 'Assists: ' + event.assist1st + ' ' + event.assist1stCount + ' & ' + event.assist2nd + ' ' + event.assist2ndCount;
@@ -41,22 +58,22 @@ function GameEvent(event, teamTypes) {
         output += 'Unassisted';
       }
     }
-    else if (this.isPenalty()) {
+    else if (gameEvent.isPenalty()) {
       output += event.taker + ' ' + event.reason;
     }
-    else if (this.isShotOnGoal()) {
+    else if (gameEvent.isShotOnGoal()) {
       output += event.shooter;
     }
     else {
       output += event.type;
     }
     return output;
-  };
+  }
 
   function showEventTime(minute, second, period) {
     if (second < 10) {
       second = '0' + second;
     }
-    return (minute + (period - 1) * 20) + ':' + second;
+    return minute + ':' + second;
   }
 }

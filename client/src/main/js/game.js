@@ -39,9 +39,10 @@ function setTeams(teams) {
 }
 
 function startPeriod() {
-  var event = _gameEvents.popEvent().event;
-  _gameClock.initTime(event.period, event.minLeft);
-  setStatus('Period ' + event.period);
+  var event = _gameEvents.popEvent();
+  _gameClock.initTime(event.event.period, event.event.minLeft);
+  setStatus('Period ' + event.event.period);
+  showEvent(event);
   decrementTime();
 }
 

@@ -94,6 +94,11 @@ p {
 .PENL {
   font-weight: lighter;
 }
+.PSTR {
+  font-weight: bolder;
+  text-align: center;
+  padding: 1em 0em 0em 0em;
+}
 .button {
   display: inline-block;
   min-width: 4em;
