@@ -151,7 +151,7 @@ function showNotification(event) {
   var content = $('.notifications').text();
 
   if (event.isGoalAttempt()) {
-    content = event.event.shooter + ' ' + event.event.shotType + " from " + event.event.shotDistance + '...';
+    content = event.event.shooter + ' ' + event.event.shotType + " from " + convertLength(event.event.shotDistance) + '...';
   }
   else if (event.isShotOnGoal()) {
     content += ' saved!';
@@ -177,6 +177,20 @@ function incrementValue(event, valueType) {
   var element = $('#' + event.teamType + '-' + valueType);
   var value = parseInt(element.text());
   element.text(value + 1);
+}
+
+function convertLength(length) {
+  var lengthItems = length.split(' ');
+  var quantity = lengthItems[0];
+  var unit = lengthItems[1];
+  var convertedLength = "0 ?";
+
+  if (unit === "ft") {
+    var convertedQuantity = (parseFloat(quantity) * 0.3048).toFixed(0);
+    convertedLength = convertedQuantity + " m";
+  }
+
+  return convertedLength;
 }
 
 function Penalties(teamType) {
