@@ -3,255 +3,219 @@ function getJsonData() {
 
   data += '"gameEvents": [' +
     '{ "period":1, "minElapsed":0, "secElapsed":0, "minLeft":20, "secLeft":0, "type":"PSTR", "strength":" " },' +
-    '{ "period":1, "minElapsed":1, "secElapsed":3, "minLeft":18, "secLeft":57, "type":"GATT", "strength":"EV", "team":"BUF", "shooter":"#6 WEBER" },' +
-    '{ "period":1, "minElapsed":1, "secElapsed":3, "minLeft":18, "secLeft":57, "type":"SHOT", "strength":"EV", "team":"BUF", "shooter":"#6 WEBER" },' +
-    '{ "period":1, "minElapsed":1, "secElapsed":21, "minLeft":18, "secLeft":39, "type":"GATT", "strength":"EV", "team":"BUF", "shooter":"#3 LEOPOLD" },' +
-    '{ "period":1, "minElapsed":1, "secElapsed":21, "minLeft":18, "secLeft":39, "type":"SHOT", "strength":"EV", "team":"BUF", "shooter":"#3 LEOPOLD" },' +
-    '{ "period":1, "minElapsed":1, "secElapsed":35, "minLeft":18, "secLeft":25, "type":"GATT", "strength":"EV", "team":"BUF", "shooter":"#53 PYSYK" },' +
-    '{ "period":1, "minElapsed":1, "secElapsed":35, "minLeft":18, "secLeft":25, "type":"MISS", "strength":"EV", "team":"BUF", "shooter":"#53 PYSYK", "target":"Wide of Net" },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":9, "minLeft":17, "secLeft":51, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#28 ORR", "reason":"Cross checking(2 min)", "duration":2 },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":9, "minLeft":17, "secLeft":51, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#28 ORR", "reason":"Instigator(2 min)", "duration":2 },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":9, "minLeft":17, "secLeft":51, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#28 ORR", "reason":"Fighting (maj)(5 min)", "duration":5 },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":9, "minLeft":17, "secLeft":51, "type":"PENL", "strength":"EV", "team":"BUF", "taker":"#32 SCOTT", "reason":"Fighting (maj)(5 min)", "duration":5 },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":9, "minLeft":17, "secLeft":51, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#38 MCLAREN", "reason":"Fighting (maj)(5 min)", "duration":5 },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":9, "minLeft":17, "secLeft":51, "type":"PENL", "strength":"EV", "team":"BUF", "taker":"#36 KALETA", "reason":"Fighting (maj)(5 min)", "duration":5 },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":9, "minLeft":17, "secLeft":51, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#28 ORR", "reason":"Misconduct (10 min)(10 min)", "duration":10 },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":9, "minLeft":17, "secLeft":51, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#28 ORR", "reason":"Game Misconduct(10 min)", "duration":10 },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":56, "minLeft":17, "secLeft":4, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#29 POMINVILLE" },' +
-    '{ "period":1, "minElapsed":2, "secElapsed":56, "minLeft":17, "secLeft":4, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#29 POMINVILLE", "target":"Over Net" },' +
-    '{ "period":1, "minElapsed":3, "secElapsed":10, "minLeft":16, "secLeft":50, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#3 LEOPOLD" },' +
-    '{ "period":1, "minElapsed":3, "secElapsed":10, "minLeft":16, "secLeft":50, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#3 LEOPOLD" },' +
-    '{ "period":1, "minElapsed":4, "secElapsed":40, "minLeft":15, "secLeft":20, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF" },' +
-    '{ "period":1, "minElapsed":4, "secElapsed":40, "minLeft":15, "secLeft":20, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF", "target":"Wide of Net" },' +
-    '{ "period":1, "minElapsed":4, "secElapsed":47, "minLeft":15, "secLeft":13, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF" },' +
-    '{ "period":1, "minElapsed":4, "secElapsed":47, "minLeft":15, "secLeft":13, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF", "target":"Wide of Net" },' +
-    '{ "period":1, "minElapsed":4, "secElapsed":53, "minLeft":15, "secLeft":7, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF" },' +
-    '{ "period":1, "minElapsed":4, "secElapsed":53, "minLeft":15, "secLeft":7, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF" },' +
-    '{ "period":1, "minElapsed":5, "secElapsed":15, "minLeft":14, "secLeft":45, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#29 POMINVILLE" },' +
-    '{ "period":1, "minElapsed":5, "secElapsed":15, "minLeft":14, "secLeft":45, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#29 POMINVILLE" },' +
-    '{ "period":1, "minElapsed":6, "secElapsed":11, "minLeft":13, "secLeft":49, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#55 HECHT" },' +
-    '{ "period":1, "minElapsed":6, "secElapsed":11, "minLeft":13, "secLeft":49, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#55 HECHT" },' +
-    '{ "period":1, "minElapsed":6, "secElapsed":54, "minLeft":13, "secLeft":6, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":1, "minElapsed":6, "secElapsed":54, "minLeft":13, "secLeft":6, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":1, "minElapsed":8, "secElapsed":32, "minLeft":11, "secLeft":28, "type":"PENL", "strength":"PP", "team":"BUF", "taker":"#9 OTT", "reason":"Unsportsmanlike conduct(2 min)", "duration":2 },' +
-    '{ "period":1, "minElapsed":8, "secElapsed":48, "minLeft":11, "secLeft":12, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":1, "minElapsed":8, "secElapsed":48, "minLeft":11, "secLeft":12, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK", "goalCount":"(9)", "assist1st":"#81 KESSEL", "assist1stCount":"(19)", "assist2nd":"#3 PHANEUF", "assist2ndCount":"(12)" },' +
-    '{ "period":1, "minElapsed":10, "secElapsed":4, "minLeft":9, "secLeft":56, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":1, "minElapsed":10, "secElapsed":4, "minLeft":9, "secLeft":56, "type":"GOAL", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI", "goalCount":"(12)", "assist1st":"#41 KULEMIN", "assist1stCount":"(12)", "assist2nd":"#16 MACARTHUR", "assist2ndCount":"(9)" },' +
-    '{ "period":1, "minElapsed":10, "secElapsed":16, "minLeft":9, "secLeft":44, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":1, "minElapsed":10, "secElapsed":16, "minLeft":9, "secLeft":44, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI", "target":"Wide of Net" },' +
-    '{ "period":1, "minElapsed":10, "secElapsed":52, "minLeft":9, "secLeft":8, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#21 STAFFORD" },' +
-    '{ "period":1, "minElapsed":10, "secElapsed":52, "minLeft":9, "secLeft":8, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#21 STAFFORD" },' +
-    '{ "period":1, "minElapsed":11, "secElapsed":6, "minLeft":8, "secLeft":54, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#57 MYERS" },' +
-    '{ "period":1, "minElapsed":11, "secElapsed":6, "minLeft":8, "secLeft":54, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#57 MYERS" },' +
-    '{ "period":1, "minElapsed":11, "secElapsed":36, "minLeft":8, "secLeft":24, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":1, "minElapsed":11, "secElapsed":36, "minLeft":8, "secLeft":24, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL", "target":"Wide of Net" },' +
-    '{ "period":1, "minElapsed":13, "secElapsed":45, "minLeft":6, "secLeft":15, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#6 WEBER" },' +
-    '{ "period":1, "minElapsed":13, "secElapsed":45, "minLeft":6, "secLeft":15, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#6 WEBER", "target":"Wide of Net" },' +
-    '{ "period":1, "minElapsed":14, "secElapsed":37, "minLeft":5, "secLeft":23, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#57 MYERS" },' +
-    '{ "period":1, "minElapsed":14, "secElapsed":37, "minLeft":5, "secLeft":23, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#57 MYERS" },' +
-    '{ "period":1, "minElapsed":14, "secElapsed":47, "minLeft":5, "secLeft":13, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":1, "minElapsed":14, "secElapsed":47, "minLeft":5, "secLeft":13, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL", "target":"Wide of Net" },' +
-    '{ "period":1, "minElapsed":15, "secElapsed":25, "minLeft":4, "secLeft":35, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":1, "minElapsed":15, "secElapsed":25, "minLeft":4, "secLeft":35, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":1, "minElapsed":15, "secElapsed":37, "minLeft":4, "secLeft":23, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI" },' +
-    '{ "period":1, "minElapsed":15, "secElapsed":37, "minLeft":4, "secLeft":23, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI" },' +
-    '{ "period":1, "minElapsed":16, "secElapsed":53, "minLeft":3, "secLeft":7, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#36 KALETA" },' +
-    '{ "period":1, "minElapsed":16, "secElapsed":53, "minLeft":3, "secLeft":7, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#36 KALETA" },' +
-    '{ "period":1, "minElapsed":16, "secElapsed":54, "minLeft":3, "secLeft":6, "type":"PENL", "strength":"SH", "team":"TOR", "taker":"#45 FRASER", "reason":"Interference(2 min)", "duration":2 },' +
-    '{ "period":1, "minElapsed":18, "secElapsed":43, "minLeft":1, "secLeft":17, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":1, "minElapsed":18, "secElapsed":43, "minLeft":1, "secLeft":17, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#9 OTT", "target":"Wide of Net" },' +
-    '{ "period":1, "minElapsed":18, "secElapsed":54, "minLeft":1, "secLeft":6, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":1, "minElapsed":18, "secElapsed":54, "minLeft":1, "secLeft":6, "type":"GOAL", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS", "goalCount":"(9)", "assist1st":"#9 OTT", "assist1stCount":"(12)", "assist2nd":"#10 EHRHOFF", "assist2ndCount":"(11)" },' +
+    '{ "period":1, "minElapsed":1, "secElapsed":41, "minLeft":18, "secLeft":19, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#55 BOUILLON", "reason":"hi-sticking", "duration":2 },' +
+    '{ "period":1, "minElapsed":1, "secElapsed":59, "minLeft":18, "secLeft":1, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#42 BOZAK", "shotType":"takes a snap shot", "shotDistance":"25 ft" },' +
+    '{ "period":1, "minElapsed":1, "secElapsed":59, "minLeft":18, "secLeft":1, "type":"GOAL", "strength":"PP", "team":"TOR", "shooter":"#42 BOZAK", "goalCount":"(12)", "assist1st":"#21 VAN RIEMSDYK", "assist1stCount":"(13)", "assist2nd":"#81 KESSEL", "assist2ndCount":"(27)" },' +
+    '{ "period":1, "minElapsed":2, "secElapsed":50, "minLeft":17, "secLeft":10, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#40 BEAULIEU", "shotType":"shoots and it\'s deflected", "shotDistance":"34 ft" },' +
+    '{ "period":1, "minElapsed":2, "secElapsed":50, "minLeft":17, "secLeft":10, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#40 BEAULIEU" },' +
+    '{ "period":1, "minElapsed":3, "secElapsed":12, "minLeft":16, "secLeft":48, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#51 GARDINER", "shotType":"takes a wrist shot", "shotDistance":"38 ft" },' +
+    '{ "period":1, "minElapsed":3, "secElapsed":12, "minLeft":16, "secLeft":48, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#51 GARDINER" },' +
+    '{ "period":1, "minElapsed":4, "secElapsed":13, "minLeft":15, "secLeft":47, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN", "shotType":"takes a slapshot", "shotDistance":"57 ft" },' +
+    '{ "period":1, "minElapsed":4, "secElapsed":13, "minLeft":15, "secLeft":47, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN" },' +
+    '{ "period":1, "minElapsed":4, "secElapsed":17, "minLeft":15, "secLeft":43, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC", "shotType":"tries a wrap-around", "shotDistance":"5 ft" },' +
+    '{ "period":1, "minElapsed":4, "secElapsed":17, "minLeft":15, "secLeft":43, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
+    '{ "period":1, "minElapsed":4, "secElapsed":30, "minLeft":15, "secLeft":30, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#38 MCLAREN", "reason":"fighting", "duration":5 },' +
+    '{ "period":1, "minElapsed":4, "secElapsed":30, "minLeft":15, "secLeft":30, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#8 PRUST", "reason":"fighting", "duration":5 },' +
+    '{ "period":1, "minElapsed":4, "secElapsed":54, "minLeft":15, "secLeft":6, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#55 BOUILLON", "shotType":"takes a slapshot", "shotDistance":"51 ft" },' +
+    '{ "period":1, "minElapsed":4, "secElapsed":54, "minLeft":15, "secLeft":6, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#55 BOUILLON" },' +
+    '{ "period":1, "minElapsed":5, "secElapsed":8, "minLeft":14, "secLeft":52, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#51 DESHARNAIS", "shotType":"shoots and it\'s deflected", "shotDistance":"10 ft" },' +
+    '{ "period":1, "minElapsed":5, "secElapsed":8, "minLeft":14, "secLeft":52, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#51 DESHARNAIS", "target":"wide" },' +
+    '{ "period":1, "minElapsed":5, "secElapsed":24, "minLeft":14, "secLeft":36, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#67 PACIORETTY", "shotType":"takes a snap shot", "shotDistance":"29 ft" },' +
+    '{ "period":1, "minElapsed":5, "secElapsed":24, "minLeft":14, "secLeft":36, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#67 PACIORETTY" },' +
+    '{ "period":1, "minElapsed":5, "secElapsed":53, "minLeft":14, "secLeft":7, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#27 GALCHENYUK", "shotType":"takes a wrist shot", "shotDistance":"23 ft" },' +
+    '{ "period":1, "minElapsed":5, "secElapsed":53, "minLeft":14, "secLeft":7, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#27 GALCHENYUK" },' +
+    '{ "period":1, "minElapsed":6, "secElapsed":5, "minLeft":13, "secLeft":55, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN", "shotType":"takes a wrist shot", "shotDistance":"54 ft" },' +
+    '{ "period":1, "minElapsed":6, "secElapsed":5, "minLeft":13, "secLeft":55, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN" },' +
+    '{ "period":1, "minElapsed":6, "secElapsed":28, "minLeft":13, "secLeft":32, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE", "shotType":"takes a wrist shot", "shotDistance":"43 ft" },' +
+    '{ "period":1, "minElapsed":6, "secElapsed":28, "minLeft":13, "secLeft":32, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE", "target":"wide" },' +
+    '{ "period":1, "minElapsed":8, "secElapsed":8, "minLeft":11, "secLeft":52, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV", "shotType":"takes a wrist shot", "shotDistance":"43 ft" },' +
+    '{ "period":1, "minElapsed":8, "secElapsed":8, "minLeft":11, "secLeft":52, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV", "goalCount":"(3)", "assist1st":"#23 O\'BYRNE", "assist1stCount":"(4)", "assist2nd":"#11 MCCLEMENT", "assist2ndCount":"(8)" },' +
+    '{ "period":1, "minElapsed":8, "secElapsed":20, "minLeft":11, "secLeft":40, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#42 BOZAK", "reason":"hooking", "duration":2 },' +
+    '{ "period":1, "minElapsed":9, "secElapsed":19, "minLeft":10, "secLeft":41, "type":"GATT", "strength":"PP", "team":"MTL", "shooter":"#76 SUBBAN", "shotType":"takes a slapshot", "shotDistance":"53 ft" },' +
+    '{ "period":1, "minElapsed":9, "secElapsed":19, "minLeft":10, "secLeft":41, "type":"MISS", "strength":"PP", "team":"MTL", "shooter":"#76 SUBBAN", "target":"wide" },' +
+    '{ "period":1, "minElapsed":10, "secElapsed":0, "minLeft":10, "secLeft":0, "type":"GATT", "strength":"PP", "team":"MTL", "shooter":"#79 MARKOV", "shotType":"takes a slapshot", "shotDistance":"59 ft" },' +
+    '{ "period":1, "minElapsed":10, "secElapsed":0, "minLeft":10, "secLeft":0, "type":"SHOT", "strength":"PP", "team":"MTL", "shooter":"#79 MARKOV" },' +
+    '{ "period":1, "minElapsed":10, "secElapsed":10, "minLeft":9, "secLeft":50, "type":"GATT", "strength":"PP", "team":"MTL", "shooter":"#40 BEAULIEU", "shotType":"takes a slapshot", "shotDistance":"57 ft" },' +
+    '{ "period":1, "minElapsed":10, "secElapsed":10, "minLeft":9, "secLeft":50, "type":"SHOT", "strength":"PP", "team":"MTL", "shooter":"#40 BEAULIEU" },' +
+    '{ "period":1, "minElapsed":10, "secElapsed":25, "minLeft":9, "secLeft":35, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#11 MCCLEMENT", "shotType":"shoots on his backhand", "shotDistance":"41 ft" },' +
+    '{ "period":1, "minElapsed":10, "secElapsed":25, "minLeft":9, "secLeft":35, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#11 MCCLEMENT", "goalCount":"(7)", "assist1st":"#41 KULEMIN", "assist1stCount":"(15)" },' +
+    '{ "period":1, "minElapsed":11, "secElapsed":17, "minLeft":8, "secLeft":43, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN", "shotType":"takes a wrist shot", "shotDistance":"43 ft" },' +
+    '{ "period":1, "minElapsed":11, "secElapsed":17, "minLeft":8, "secLeft":43, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN" },' +
+    '{ "period":1, "minElapsed":11, "secElapsed":29, "minLeft":8, "secLeft":31, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#44 DREWISKE", "shotType":"takes a slapshot", "shotDistance":"53 ft" },' +
+    '{ "period":1, "minElapsed":11, "secElapsed":29, "minLeft":8, "secLeft":31, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#44 DREWISKE", "target":"wide" },' +
+    '{ "period":1, "minElapsed":13, "secElapsed":8, "minLeft":6, "secLeft":52, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#44 DREWISKE", "shotType":"takes a snap shot", "shotDistance":"53 ft" },' +
+    '{ "period":1, "minElapsed":13, "secElapsed":8, "minLeft":6, "secLeft":52, "type":"GOAL", "strength":"EV", "team":"MTL", "shooter":"#44 DREWISKE", "goalCount":"(2)", "assist1st":"#11 GALLAGHER", "assist1stCount":"(11)", "assist2nd":"#51 DESHARNAIS", "assist2ndCount":"(15)" },' +
+    '{ "period":1, "minElapsed":13, "secElapsed":46, "minLeft":6, "secLeft":14, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#81 ELLER", "shotType":"takes a wrist shot", "shotDistance":"43 ft" },' +
+    '{ "period":1, "minElapsed":13, "secElapsed":46, "minLeft":6, "secLeft":14, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#81 ELLER", "target":"wide" },' +
+    '{ "period":1, "minElapsed":14, "secElapsed":51, "minLeft":5, "secLeft":9, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#55 BOUILLON", "shotType":"takes a slapshot", "shotDistance":"58 ft" },' +
+    '{ "period":1, "minElapsed":14, "secElapsed":51, "minLeft":5, "secLeft":9, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#55 BOUILLON" },' +
+    '{ "period":1, "minElapsed":15, "secElapsed":19, "minLeft":4, "secLeft":41, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#79 MARKOV", "shotType":"takes a wrist shot", "shotDistance":"59 ft" },' +
+    '{ "period":1, "minElapsed":15, "secElapsed":19, "minLeft":4, "secLeft":41, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#79 MARKOV" },' +
+    '{ "period":1, "minElapsed":15, "secElapsed":53, "minLeft":4, "secLeft":7, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#81 ELLER", "shotType":"takes a wrist shot", "shotDistance":"46 ft" },' +
+    '{ "period":1, "minElapsed":15, "secElapsed":53, "minLeft":4, "secLeft":7, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#81 ELLER", "target":"wide" },' +
+    '{ "period":1, "minElapsed":17, "secElapsed":6, "minLeft":2, "secLeft":54, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#3 PHANEUF", "shotType":"takes a wrist shot", "shotDistance":"59 ft" },' +
+    '{ "period":1, "minElapsed":17, "secElapsed":6, "minLeft":2, "secLeft":54, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#3 PHANEUF", "goalCount":"(8)", "assist1st":"#43 KADRI", "assist1stCount":"(24)", "assist2nd":"#36 GUNNARSSON", "assist2ndCount":"(13)" },' +
+    '{ "period":1, "minElapsed":18, "secElapsed":33, "minLeft":1, "secLeft":27, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN", "shotType":"takes a wrist shot", "shotDistance":"53 ft" },' +
+    '{ "period":1, "minElapsed":18, "secElapsed":33, "minLeft":1, "secLeft":27, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN", "target":"wide" },' +
+    '{ "period":1, "minElapsed":18, "secElapsed":53, "minLeft":1, "secLeft":7, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#43 KADRI", "reason":"interference", "duration":2 },' +
     '{ "period":1, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":" " },' +
     '{ "period":2, "minElapsed":0, "secElapsed":0, "minLeft":20, "secLeft":0, "type":"PSTR", "strength":" " },' +
-    '{ "period":2, "minElapsed":0, "secElapsed":31, "minLeft":19, "secLeft":29, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":2, "minElapsed":0, "secElapsed":31, "minLeft":19, "secLeft":29, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS", "target":"Wide of Net" },' +
-    '{ "period":2, "minElapsed":1, "secElapsed":43, "minLeft":18, "secLeft":17, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF" },' +
-    '{ "period":2, "minElapsed":1, "secElapsed":43, "minLeft":18, "secLeft":17, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF" },' +
-    '{ "period":2, "minElapsed":1, "secElapsed":47, "minLeft":18, "secLeft":13, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#53 PYSYK" },' +
-    '{ "period":2, "minElapsed":1, "secElapsed":47, "minLeft":18, "secLeft":13, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#53 PYSYK" },' +
-    '{ "period":2, "minElapsed":2, "secElapsed":37, "minLeft":17, "secLeft":23, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#39 FRATTIN" },' +
-    '{ "period":2, "minElapsed":2, "secElapsed":37, "minLeft":17, "secLeft":23, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#39 FRATTIN" },' +
-    '{ "period":2, "minElapsed":4, "secElapsed":6, "minLeft":15, "secLeft":54, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":2, "minElapsed":4, "secElapsed":6, "minLeft":15, "secLeft":54, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":2, "minElapsed":5, "secElapsed":34, "minLeft":14, "secLeft":26, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":2, "minElapsed":5, "secElapsed":34, "minLeft":14, "secLeft":26, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":2, "minElapsed":5, "secElapsed":39, "minLeft":14, "secLeft":21, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":2, "minElapsed":5, "secElapsed":39, "minLeft":14, "secLeft":21, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":2, "minElapsed":6, "secElapsed":28, "minLeft":13, "secLeft":32, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":2, "minElapsed":6, "secElapsed":28, "minLeft":13, "secLeft":32, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#9 OTT", "target":"Wide of Net" },' +
-    '{ "period":2, "minElapsed":6, "secElapsed":42, "minLeft":13, "secLeft":18, "type":"PENL", "strength":"PP", "team":"BUF", "taker":"#9 OTT", "reason":"Slashing(2 min)", "duration":2 },' +
-    '{ "period":2, "minElapsed":7, "secElapsed":43, "minLeft":12, "secLeft":17, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#3 PHANEUF" },' +
-    '{ "period":2, "minElapsed":7, "secElapsed":43, "minLeft":12, "secLeft":17, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#3 PHANEUF" },' +
-    '{ "period":2, "minElapsed":7, "secElapsed":49, "minLeft":12, "secLeft":11, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":2, "minElapsed":7, "secElapsed":49, "minLeft":12, "secLeft":11, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":2, "minElapsed":8, "secElapsed":52, "minLeft":11, "secLeft":8, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI" },' +
-    '{ "period":2, "minElapsed":8, "secElapsed":52, "minLeft":11, "secLeft":8, "type":"GOAL", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI", "goalCount":"(7)", "assist1st":"#51 GARDINER", "assist1stCount":"(1)", "assist2nd":"#43 KADRI", "assist2ndCount":"(20)" },' +
-    '{ "period":2, "minElapsed":10, "secElapsed":14, "minLeft":9, "secLeft":46, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":2, "minElapsed":10, "secElapsed":14, "minLeft":9, "secLeft":46, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":2, "minElapsed":10, "secElapsed":19, "minLeft":9, "secLeft":41, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":2, "minElapsed":10, "secElapsed":19, "minLeft":9, "secLeft":41, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":2, "minElapsed":10, "secElapsed":37, "minLeft":9, "secLeft":23, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#57 MYERS" },' +
-    '{ "period":2, "minElapsed":10, "secElapsed":37, "minLeft":9, "secLeft":23, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#57 MYERS", "target":"Wide of Net" },' +
-    '{ "period":2, "minElapsed":11, "secElapsed":37, "minLeft":8, "secLeft":23, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#12 PORTER" },' +
-    '{ "period":2, "minElapsed":11, "secElapsed":37, "minLeft":8, "secLeft":23, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#12 PORTER" },' +
-    '{ "period":2, "minElapsed":11, "secElapsed":39, "minLeft":8, "secLeft":21, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#82 FOLIGNO" },' +
-    '{ "period":2, "minElapsed":11, "secElapsed":39, "minLeft":8, "secLeft":21, "type":"GOAL", "strength":"PP", "team":"BUF", "shooter":"#82 FOLIGNO", "goalCount":"(4)", "assist1st":"#12 PORTER", "assist1stCount":"(2)", "assist2nd":"#10 EHRHOFF", "assist2ndCount":"(12)" },' +
-    '{ "period":2, "minElapsed":11, "secElapsed":48, "minLeft":8, "secLeft":12, "type":"PENL", "strength":"SH", "team":"TOR", "taker":"#81 KESSEL", "reason":"Unsportsmanlike conduct(2 min)", "duration":2 },' +
-    '{ "period":2, "minElapsed":11, "secElapsed":48, "minLeft":8, "secLeft":12, "type":"PENL", "strength":"PP", "team":"BUF", "taker":"#32 SCOTT", "reason":"Unsportsmanlike conduct(2 min)", "duration":2 },' +
-    '{ "period":2, "minElapsed":12, "secElapsed":1, "minLeft":7, "secLeft":59, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":2, "minElapsed":12, "secElapsed":1, "minLeft":7, "secLeft":59, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON", "target":"Wide of Net" },' +
-    '{ "period":2, "minElapsed":12, "secElapsed":24, "minLeft":7, "secLeft":36, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#29 POMINVILLE" },' +
-    '{ "period":2, "minElapsed":12, "secElapsed":24, "minLeft":7, "secLeft":36, "type":"GOAL", "strength":"PP", "team":"BUF", "shooter":"#29 POMINVILLE", "goalCount":"(10)", "assist1st":"#19 HODGSON", "assist1stCount":"(13)" },' +
-    '{ "period":2, "minElapsed":12, "secElapsed":56, "minLeft":7, "secLeft":4, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#23 LEINO" },' +
-    '{ "period":2, "minElapsed":12, "secElapsed":56, "minLeft":7, "secLeft":4, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#23 LEINO" },' +
-    '{ "period":2, "minElapsed":13, "secElapsed":30, "minLeft":6, "secLeft":30, "type":"PENL", "strength":"PP", "team":"BUF", "taker":"#57 MYERS", "reason":"Interference(2 min)", "duration":2 },' +
-    '{ "period":2, "minElapsed":13, "secElapsed":44, "minLeft":6, "secLeft":16, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":2, "minElapsed":13, "secElapsed":44, "minLeft":6, "secLeft":16, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":2, "minElapsed":14, "secElapsed":35, "minLeft":5, "secLeft":25, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#4 FRANSON" },' +
-    '{ "period":2, "minElapsed":14, "secElapsed":35, "minLeft":5, "secLeft":25, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#4 FRANSON" },' +
-    '{ "period":2, "minElapsed":14, "secElapsed":39, "minLeft":5, "secLeft":21, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":2, "minElapsed":14, "secElapsed":39, "minLeft":5, "secLeft":21, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":2, "minElapsed":16, "secElapsed":1, "minLeft":3, "secLeft":59, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#11 MCCLEMENT" },' +
-    '{ "period":2, "minElapsed":16, "secElapsed":1, "minLeft":3, "secLeft":59, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#11 MCCLEMENT" },' +
-    '{ "period":2, "minElapsed":17, "secElapsed":36, "minLeft":2, "secLeft":24, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#51 GARDINER" },' +
-    '{ "period":2, "minElapsed":17, "secElapsed":36, "minLeft":2, "secLeft":24, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#51 GARDINER", "target":"Wide of Net" },' +
-    '{ "period":2, "minElapsed":18, "secElapsed":8, "minLeft":1, "secLeft":52, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#11 MCCLEMENT" },' +
-    '{ "period":2, "minElapsed":18, "secElapsed":8, "minLeft":1, "secLeft":52, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#11 MCCLEMENT", "target":"Wide of Net" },' +
-    '{ "period":2, "minElapsed":19, "secElapsed":39, "minLeft":0, "secLeft":21, "type":"PENL", "strength":"SH", "team":"TOR", "taker":"#16 MACARTHUR", "reason":"Slashing(2 min)", "duration":2 },' +
+    '{ "period":2, "minElapsed":0, "secElapsed":38, "minLeft":19, "secLeft":22, "type":"GATT", "strength":"PP", "team":"MTL", "shooter":"#76 SUBBAN", "shotType":"takes a wrist shot", "shotDistance":"56 ft" },' +
+    '{ "period":2, "minElapsed":0, "secElapsed":38, "minLeft":19, "secLeft":22, "type":"SHOT", "strength":"PP", "team":"MTL", "shooter":"#76 SUBBAN" },' +
+    '{ "period":2, "minElapsed":1, "secElapsed":3, "minLeft":18, "secLeft":57, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#26 GORGES", "shotType":"takes a slapshot", "shotDistance":"58 ft" },' +
+    '{ "period":2, "minElapsed":1, "secElapsed":3, "minLeft":18, "secLeft":57, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#26 GORGES" },' +
+    '{ "period":2, "minElapsed":1, "secElapsed":16, "minLeft":18, "secLeft":44, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE", "shotType":"takes a snap shot", "shotDistance":"19 ft" },' +
+    '{ "period":2, "minElapsed":1, "secElapsed":16, "minLeft":18, "secLeft":44, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE" },' +
+    '{ "period":2, "minElapsed":1, "secElapsed":54, "minLeft":18, "secLeft":6, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#40 BEAULIEU", "shotType":"takes a wrist shot", "shotDistance":"62 ft" },' +
+    '{ "period":2, "minElapsed":1, "secElapsed":54, "minLeft":18, "secLeft":6, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#40 BEAULIEU", "target":"wide" },' +
+    '{ "period":2, "minElapsed":1, "secElapsed":59, "minLeft":18, "secLeft":1, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#73 RYDER", "shotType":"tries to tip it in", "shotDistance":"9 ft" },' +
+    '{ "period":2, "minElapsed":1, "secElapsed":59, "minLeft":18, "secLeft":1, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#73 RYDER", "target":"wide" },' +
+    '{ "period":2, "minElapsed":2, "secElapsed":2, "minLeft":17, "secLeft":58, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#27 GALCHENYUK", "shotType":"tries a wrap-around", "shotDistance":"7 ft" },' +
+    '{ "period":2, "minElapsed":2, "secElapsed":2, "minLeft":17, "secLeft":58, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#27 GALCHENYUK" },' +
+    '{ "period":2, "minElapsed":3, "secElapsed":14, "minLeft":16, "secLeft":46, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN", "shotType":"takes a wrist shot", "shotDistance":"47 ft" },' +
+    '{ "period":2, "minElapsed":3, "secElapsed":14, "minLeft":16, "secLeft":46, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN" },' +
+    '{ "period":2, "minElapsed":4, "secElapsed":4, "minLeft":15, "secLeft":56, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL", "shotType":"takes a wrist shot", "shotDistance":"47 ft" },' +
+    '{ "period":2, "minElapsed":4, "secElapsed":4, "minLeft":15, "secLeft":56, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL" },' +
+    '{ "period":2, "minElapsed":4, "secElapsed":12, "minLeft":15, "secLeft":48, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK", "shotType":"shoots on his backhand", "shotDistance":"13 ft" },' +
+    '{ "period":2, "minElapsed":4, "secElapsed":12, "minLeft":15, "secLeft":48, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
+    '{ "period":2, "minElapsed":4, "secElapsed":24, "minLeft":15, "secLeft":36, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL", "shotType":"takes a wrist shot", "shotDistance":"35 ft" },' +
+    '{ "period":2, "minElapsed":4, "secElapsed":24, "minLeft":15, "secLeft":36, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL" },' +
+    '{ "period":2, "minElapsed":4, "secElapsed":42, "minLeft":15, "secLeft":18, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL", "shotType":"takes a snap shot", "shotDistance":"17 ft" },' +
+    '{ "period":2, "minElapsed":4, "secElapsed":42, "minLeft":15, "secLeft":18, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL", "goalCount":"(15)", "assist1st":"#21 VAN RIEMSDYK", "assist1stCount":"(14)", "assist2nd":"#4 FRANSON", "assist2ndCount":"(20)" },' +
+    '{ "period":2, "minElapsed":5, "secElapsed":16, "minLeft":14, "secLeft":44, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#73 RYDER", "shotType":"takes a wrist shot", "shotDistance":"40 ft" },' +
+    '{ "period":2, "minElapsed":5, "secElapsed":16, "minLeft":14, "secLeft":44, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#73 RYDER" },' +
+    '{ "period":2, "minElapsed":5, "secElapsed":21, "minLeft":14, "secLeft":39, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#81 ELLER", "shotType":"takes a snap shot", "shotDistance":"12 ft" },' +
+    '{ "period":2, "minElapsed":5, "secElapsed":21, "minLeft":14, "secLeft":39, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#81 ELLER" },' +
+    '{ "period":2, "minElapsed":6, "secElapsed":0, "minLeft":14, "secLeft":0, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN", "shotType":"tries to tip it in", "shotDistance":"19 ft" },' +
+    '{ "period":2, "minElapsed":6, "secElapsed":0, "minLeft":14, "secLeft":0, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN", "target":"wide" },' +
+    '{ "period":2, "minElapsed":6, "secElapsed":18, "minLeft":13, "secLeft":42, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#26 GORGES", "shotType":"takes a snap shot", "shotDistance":"56 ft" },' +
+    '{ "period":2, "minElapsed":6, "secElapsed":18, "minLeft":13, "secLeft":42, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#26 GORGES", "target":"wide" },' +
+    '{ "period":2, "minElapsed":6, "secElapsed":56, "minLeft":13, "secLeft":4, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#43 KADRI", "shotType":"takes a wrist shot", "shotDistance":"19 ft" },' +
+    '{ "period":2, "minElapsed":6, "secElapsed":56, "minLeft":13, "secLeft":4, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#43 KADRI" },' +
+    '{ "period":2, "minElapsed":7, "secElapsed":16, "minLeft":12, "secLeft":44, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#45 FRASER", "shotType":"takes a slapshot", "shotDistance":"59 ft" },' +
+    '{ "period":2, "minElapsed":7, "secElapsed":16, "minLeft":12, "secLeft":44, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#45 FRASER" },' +
+    '{ "period":2, "minElapsed":7, "secElapsed":27, "minLeft":12, "secLeft":33, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC", "shotType":"takes a snap shot", "shotDistance":"33 ft" },' +
+    '{ "period":2, "minElapsed":7, "secElapsed":27, "minLeft":12, "secLeft":33, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
+    '{ "period":2, "minElapsed":7, "secElapsed":52, "minLeft":12, "secLeft":8, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#73 RYDER", "shotType":"takes a wrist shot", "shotDistance":"46 ft" },' +
+    '{ "period":2, "minElapsed":7, "secElapsed":52, "minLeft":12, "secLeft":8, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#73 RYDER" },' +
+    '{ "period":2, "minElapsed":8, "secElapsed":2, "minLeft":11, "secLeft":58, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#84 GRABOVSKI", "shotType":"takes a wrist shot", "shotDistance":"27 ft" },' +
+    '{ "period":2, "minElapsed":8, "secElapsed":2, "minLeft":11, "secLeft":58, "type":"MISS", "strength":"EV", "team":"TOR", "shooter":"#84 GRABOVSKI", "target":"wide" },' +
+    '{ "period":2, "minElapsed":8, "secElapsed":35, "minLeft":11, "secLeft":25, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC", "shotType":"takes a wrist shot", "shotDistance":"41 ft" },' +
+    '{ "period":2, "minElapsed":8, "secElapsed":35, "minLeft":11, "secLeft":25, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
+    '{ "period":2, "minElapsed":8, "secElapsed":49, "minLeft":11, "secLeft":11, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#28 ORR", "reason":"interference", "duration":2 },' +
+    '{ "period":2, "minElapsed":8, "secElapsed":49, "minLeft":11, "secLeft":11, "type":"PENL", "strength":"PP", "team":"MTL", "taker":"#76 SUBBAN", "reason":"unsportsmanlike conduct", "duration":2 },' +
+    '{ "period":2, "minElapsed":8, "secElapsed":49, "minLeft":11, "secLeft":11, "type":"PENL", "strength":"SH", "team":"TOR", "taker":"#3 PHANEUF", "reason":"unsportsmanlike conduct", "duration":2 },' +
+    '{ "period":2, "minElapsed":10, "secElapsed":21, "minLeft":9, "secLeft":39, "type":"GATT", "strength":"PP", "team":"MTL", "shooter":"#14 PLEKANEC", "shotType":"takes a slapshot", "shotDistance":"43 ft" },' +
+    '{ "period":2, "minElapsed":10, "secElapsed":21, "minLeft":9, "secLeft":39, "type":"MISS", "strength":"PP", "team":"MTL", "shooter":"#14 PLEKANEC", "target":"wide" },' +
+    '{ "period":2, "minElapsed":11, "secElapsed":17, "minLeft":8, "secLeft":43, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#73 RYDER", "shotType":"takes a snap shot", "shotDistance":"46 ft" },' +
+    '{ "period":2, "minElapsed":11, "secElapsed":17, "minLeft":8, "secLeft":43, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#73 RYDER" },' +
+    '{ "period":2, "minElapsed":11, "secElapsed":49, "minLeft":8, "secLeft":11, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK", "shotType":"takes a wrist shot", "shotDistance":"45 ft" },' +
+    '{ "period":2, "minElapsed":11, "secElapsed":49, "minLeft":8, "secLeft":11, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
+    '{ "period":2, "minElapsed":11, "secElapsed":59, "minLeft":8, "secLeft":1, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#38 MCLAREN", "shotType":"takes a snap shot", "shotDistance":"29 ft" },' +
+    '{ "period":2, "minElapsed":11, "secElapsed":59, "minLeft":8, "secLeft":1, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#38 MCLAREN" },' +
+    '{ "period":2, "minElapsed":12, "secElapsed":12, "minLeft":7, "secLeft":48, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#24 HALPERN", "shotType":"takes a snap shot", "shotDistance":"16 ft" },' +
+    '{ "period":2, "minElapsed":12, "secElapsed":12, "minLeft":7, "secLeft":48, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#24 HALPERN", "target":"wide" },' +
+    '{ "period":2, "minElapsed":12, "secElapsed":26, "minLeft":7, "secLeft":34, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#38 MCLAREN", "shotType":"takes a wrist shot", "shotDistance":"55 ft" },' +
+    '{ "period":2, "minElapsed":12, "secElapsed":26, "minLeft":7, "secLeft":34, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#38 MCLAREN" },' +
+    '{ "period":2, "minElapsed":13, "secElapsed":27, "minLeft":6, "secLeft":33, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#23 O\'BYRNE", "shotType":"takes a wrist shot", "shotDistance":"55 ft" },' +
+    '{ "period":2, "minElapsed":13, "secElapsed":27, "minLeft":6, "secLeft":33, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#23 O\'BYRNE" },' +
+    '{ "period":2, "minElapsed":13, "secElapsed":53, "minLeft":6, "secLeft":7, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#16 MACARTHUR", "shotType":"takes a wrist shot", "shotDistance":"56 ft" },' +
+    '{ "period":2, "minElapsed":13, "secElapsed":53, "minLeft":6, "secLeft":7, "type":"MISS", "strength":"EV", "team":"TOR", "shooter":"#16 MACARTHUR", "target":"wide" },' +
+    '{ "period":2, "minElapsed":15, "secElapsed":26, "minLeft":4, "secLeft":34, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC", "shotType":"takes a snap shot", "shotDistance":"34 ft" },' +
+    '{ "period":2, "minElapsed":15, "secElapsed":26, "minLeft":4, "secLeft":34, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
+    '{ "period":2, "minElapsed":16, "secElapsed":37, "minLeft":3, "secLeft":23, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#51 DESHARNAIS", "shotType":"tries a wrap-around", "shotDistance":"12 ft" },' +
+    '{ "period":2, "minElapsed":16, "secElapsed":37, "minLeft":3, "secLeft":23, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#51 DESHARNAIS", "target":"wide" },' +
+    '{ "period":2, "minElapsed":16, "secElapsed":48, "minLeft":3, "secLeft":12, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN", "shotType":"takes a wrist shot", "shotDistance":"61 ft" },' +
+    '{ "period":2, "minElapsed":16, "secElapsed":48, "minLeft":3, "secLeft":12, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN" },' +
+    '{ "period":2, "minElapsed":16, "secElapsed":52, "minLeft":3, "secLeft":8, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#11 GALLAGHER", "shotType":"takes a wrist shot", "shotDistance":"10 ft" },' +
+    '{ "period":2, "minElapsed":16, "secElapsed":52, "minLeft":3, "secLeft":8, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#11 GALLAGHER" },' +
+    '{ "period":2, "minElapsed":16, "secElapsed":58, "minLeft":3, "secLeft":2, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN", "shotType":"takes a wrist shot", "shotDistance":"58 ft" },' +
+    '{ "period":2, "minElapsed":16, "secElapsed":58, "minLeft":3, "secLeft":2, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN" },' +
+    '{ "period":2, "minElapsed":17, "secElapsed":32, "minLeft":2, "secLeft":28, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV", "shotType":"tries to tip it in", "shotDistance":"62 ft" },' +
+    '{ "period":2, "minElapsed":17, "secElapsed":32, "minLeft":2, "secLeft":28, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV" },' +
+    '{ "period":2, "minElapsed":18, "secElapsed":5, "minLeft":1, "secLeft":55, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV", "shotType":"shoots and it\'s deflected", "shotDistance":"21 ft" },' +
+    '{ "period":2, "minElapsed":18, "secElapsed":5, "minLeft":1, "secLeft":55, "type":"MISS", "strength":"EV", "team":"TOR", "shooter":"#47 KOMAROV", "target":"wide" },' +
+    '{ "period":2, "minElapsed":18, "secElapsed":17, "minLeft":1, "secLeft":43, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#3 PHANEUF", "shotType":"takes a slapshot", "shotDistance":"56 ft" },' +
+    '{ "period":2, "minElapsed":18, "secElapsed":17, "minLeft":1, "secLeft":43, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#3 PHANEUF" },' +
+    '{ "period":2, "minElapsed":18, "secElapsed":34, "minLeft":1, "secLeft":26, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#24 HALPERN", "shotType":"takes a wrist shot", "shotDistance":"45 ft" },' +
+    '{ "period":2, "minElapsed":18, "secElapsed":34, "minLeft":1, "secLeft":26, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#24 HALPERN", "target":"wide" },' +
+    '{ "period":2, "minElapsed":19, "secElapsed":10, "minLeft":0, "secLeft":50, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#41 KULEMIN", "shotType":"takes a wrist shot", "shotDistance":"53 ft" },' +
+    '{ "period":2, "minElapsed":19, "secElapsed":10, "minLeft":0, "secLeft":50, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#41 KULEMIN" },' +
+    '{ "period":2, "minElapsed":19, "secElapsed":33, "minLeft":0, "secLeft":27, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC", "shotType":"tries a wrap-around", "shotDistance":"10 ft" },' +
+    '{ "period":2, "minElapsed":19, "secElapsed":33, "minLeft":0, "secLeft":27, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC" },' +
+    '{ "period":2, "minElapsed":19, "secElapsed":48, "minLeft":0, "secLeft":12, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK", "shotType":"takes a wrist shot", "shotDistance":"37 ft" },' +
+    '{ "period":2, "minElapsed":19, "secElapsed":48, "minLeft":0, "secLeft":12, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK" },' +
+    '{ "period":2, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE", "shotType":"takes a wrist shot", "shotDistance":"24 ft" },' +
+    '{ "period":2, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE", "target":"wide" },' +
     '{ "period":2, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":" " },' +
     '{ "period":3, "minElapsed":0, "secElapsed":0, "minLeft":20, "secLeft":0, "type":"PSTR", "strength":" " },' +
-    '{ "period":3, "minElapsed":0, "secElapsed":22, "minLeft":19, "secLeft":38, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF" },' +
-    '{ "period":3, "minElapsed":0, "secElapsed":22, "minLeft":19, "secLeft":38, "type":"GOAL", "strength":"PP", "team":"BUF", "shooter":"#10 EHRHOFF", "goalCount":"(3)", "assist1st":"#19 HODGSON", "assist1stCount":"(14)", "assist2nd":"#63 ENNIS", "assist2ndCount":"(14)" },' +
-    '{ "period":3, "minElapsed":0, "secElapsed":31, "minLeft":19, "secLeft":29, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":3, "minElapsed":0, "secElapsed":31, "minLeft":19, "secLeft":29, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":3, "minElapsed":0, "secElapsed":46, "minLeft":19, "secLeft":14, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":3, "minElapsed":0, "secElapsed":46, "minLeft":19, "secLeft":14, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":3, "minElapsed":0, "secElapsed":50, "minLeft":19, "secLeft":10, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":3, "minElapsed":0, "secElapsed":50, "minLeft":19, "secLeft":10, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":3, "minElapsed":2, "secElapsed":4, "minLeft":17, "secLeft":56, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#65 FLYNN" },' +
-    '{ "period":3, "minElapsed":2, "secElapsed":4, "minLeft":17, "secLeft":56, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#65 FLYNN" },' +
-    '{ "period":3, "minElapsed":2, "secElapsed":43, "minLeft":17, "secLeft":17, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#82 FOLIGNO" },' +
-    '{ "period":3, "minElapsed":2, "secElapsed":43, "minLeft":17, "secLeft":17, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#82 FOLIGNO", "target":"Wide of Net" },' +
-    '{ "period":3, "minElapsed":4, "secElapsed":15, "minLeft":15, "secLeft":45, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":3, "minElapsed":4, "secElapsed":15, "minLeft":15, "secLeft":45, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL", "target":"Wide of Net" },' +
-    '{ "period":3, "minElapsed":4, "secElapsed":44, "minLeft":15, "secLeft":16, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":3, "minElapsed":4, "secElapsed":44, "minLeft":15, "secLeft":16, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":3, "minElapsed":4, "secElapsed":57, "minLeft":15, "secLeft":3, "type":"PENL", "strength":"PP", "team":"BUF", "taker":"#63 ENNIS", "reason":"Slashing(2 min)", "duration":2 },' +
-    '{ "period":3, "minElapsed":6, "secElapsed":25, "minLeft":13, "secLeft":35, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":3, "minElapsed":6, "secElapsed":25, "minLeft":13, "secLeft":35, "type":"MISS", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK", "target":"Wide of Net" },' +
-    '{ "period":3, "minElapsed":6, "secElapsed":33, "minLeft":13, "secLeft":27, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":3, "minElapsed":6, "secElapsed":33, "minLeft":13, "secLeft":27, "type":"GOAL", "strength":"EV", "team":"TOR", "shooter":"#43 KADRI", "goalCount":"(13)", "assist1st":"#4 FRANSON", "assist1stCount":"(16)", "assist2nd":"#81 KESSEL", "assist2ndCount":"(20)" },' +
-    '{ "period":3, "minElapsed":7, "secElapsed":11, "minLeft":12, "secLeft":49, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#39 FRATTIN" },' +
-    '{ "period":3, "minElapsed":7, "secElapsed":11, "minLeft":12, "secLeft":49, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#39 FRATTIN" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":3, "minLeft":11, "secLeft":57, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":3, "minLeft":11, "secLeft":57, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":29, "minLeft":11, "secLeft":31, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":29, "minLeft":11, "secLeft":31, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK", "target":"Wide of Net" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":35, "minLeft":11, "secLeft":25, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#3 PHANEUF" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":35, "minLeft":11, "secLeft":25, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#3 PHANEUF" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":55, "minLeft":11, "secLeft":5, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#36 GUNNARSSON" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":55, "minLeft":11, "secLeft":5, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#36 GUNNARSSON", "target":"Wide of Net" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":57, "minLeft":11, "secLeft":3, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#11 MCCLEMENT" },' +
-    '{ "period":3, "minElapsed":8, "secElapsed":57, "minLeft":11, "secLeft":3, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#11 MCCLEMENT" },' +
-    '{ "period":3, "minElapsed":11, "secElapsed":7, "minLeft":8, "secLeft":53, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#36 KALETA" },' +
-    '{ "period":3, "minElapsed":11, "secElapsed":7, "minLeft":8, "secLeft":53, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#36 KALETA" },' +
-    '{ "period":3, "minElapsed":11, "secElapsed":15, "minLeft":8, "secLeft":45, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#55 HECHT" },' +
-    '{ "period":3, "minElapsed":11, "secElapsed":15, "minLeft":8, "secLeft":45, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#55 HECHT" },' +
-    '{ "period":3, "minElapsed":11, "secElapsed":23, "minLeft":8, "secLeft":37, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI" },' +
-    '{ "period":3, "minElapsed":11, "secElapsed":23, "minLeft":8, "secLeft":37, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI" },' +
-    '{ "period":3, "minElapsed":11, "secElapsed":29, "minLeft":8, "secLeft":31, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#11 MCCLEMENT" },' +
-    '{ "period":3, "minElapsed":11, "secElapsed":29, "minLeft":8, "secLeft":31, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#11 MCCLEMENT" },' +
-    '{ "period":3, "minElapsed":12, "secElapsed":57, "minLeft":7, "secLeft":3, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#23 LEINO" },' +
-    '{ "period":3, "minElapsed":12, "secElapsed":57, "minLeft":7, "secLeft":3, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#23 LEINO" },' +
-    '{ "period":3, "minElapsed":13, "secElapsed":50, "minLeft":6, "secLeft":10, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":3, "minElapsed":13, "secElapsed":50, "minLeft":6, "secLeft":10, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":3, "minElapsed":14, "secElapsed":36, "minLeft":5, "secLeft":24, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#3 LEOPOLD" },' +
-    '{ "period":3, "minElapsed":14, "secElapsed":36, "minLeft":5, "secLeft":24, "type":"MISS", "strength":"PP", "team":"BUF", "shooter":"#3 LEOPOLD", "target":"Wide of Net" },' +
-    '{ "period":3, "minElapsed":15, "secElapsed":41, "minLeft":4, "secLeft":19, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":3, "minElapsed":15, "secElapsed":41, "minLeft":4, "secLeft":19, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":3, "minElapsed":15, "secElapsed":44, "minLeft":4, "secLeft":16, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":3, "minElapsed":15, "secElapsed":44, "minLeft":4, "secLeft":16, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":3, "minElapsed":15, "secElapsed":48, "minLeft":4, "secLeft":12, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":3, "minElapsed":15, "secElapsed":48, "minLeft":4, "secLeft":12, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI", "target":"Wide of Net" },' +
-    '{ "period":3, "minElapsed":15, "secElapsed":56, "minLeft":4, "secLeft":4, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":3, "minElapsed":15, "secElapsed":56, "minLeft":4, "secLeft":4, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":3, "minElapsed":16, "secElapsed":8, "minLeft":3, "secLeft":52, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#21 STAFFORD" },' +
-    '{ "period":3, "minElapsed":16, "secElapsed":8, "minLeft":3, "secLeft":52, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#21 STAFFORD" },' +
-    '{ "period":3, "minElapsed":16, "secElapsed":27, "minLeft":3, "secLeft":33, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":3, "minElapsed":16, "secElapsed":27, "minLeft":3, "secLeft":33, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK", "target":"Goalpost" },' +
-    '{ "period":3, "minElapsed":16, "secElapsed":41, "minLeft":3, "secLeft":19, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":3, "minElapsed":16, "secElapsed":41, "minLeft":3, "secLeft":19, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":3, "minElapsed":17, "secElapsed":27, "minLeft":2, "secLeft":33, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#39 FRATTIN" },' +
-    '{ "period":3, "minElapsed":17, "secElapsed":27, "minLeft":2, "secLeft":33, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#39 FRATTIN" },' +
-    '{ "period":3, "minElapsed":17, "secElapsed":33, "minLeft":2, "secLeft":27, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI" },' +
-    '{ "period":3, "minElapsed":17, "secElapsed":33, "minLeft":2, "secLeft":27, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI", "target":"Wide of Net" },' +
-    '{ "period":3, "minElapsed":17, "secElapsed":53, "minLeft":2, "secLeft":7, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#55 HECHT" },' +
-    '{ "period":3, "minElapsed":17, "secElapsed":53, "minLeft":2, "secLeft":7, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#55 HECHT" },' +
-    '{ "period":3, "minElapsed":17, "secElapsed":58, "minLeft":2, "secLeft":2, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#6 WEBER" },' +
-    '{ "period":3, "minElapsed":17, "secElapsed":58, "minLeft":2, "secLeft":2, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#6 WEBER" },' +
-    '{ "period":3, "minElapsed":18, "secElapsed":43, "minLeft":1, "secLeft":17, "type":"PENL", "strength":"SH", "team":"TOR", "taker":"#41 KULEMIN", "reason":"Hi-sticking(2 min)", "duration":2 },' +
-    '{ "period":3, "minElapsed":19, "secElapsed":0, "minLeft":1, "secLeft":0, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":3, "minElapsed":19, "secElapsed":0, "minLeft":1, "secLeft":0, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":3, "minElapsed":19, "secElapsed":10, "minLeft":0, "secLeft":50, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":3, "minElapsed":19, "secElapsed":10, "minLeft":0, "secLeft":50, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":3, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":" " },' +
-    '{ "period":4, "minElapsed":0, "secElapsed":0, "minLeft":5, "secLeft":0, "type":"PSTR", "strength":" " },' +
-    '{ "period":4, "minElapsed":0, "secElapsed":24, "minLeft":4, "secLeft":36, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":4, "minElapsed":0, "secElapsed":24, "minLeft":4, "secLeft":36, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":4, "minElapsed":1, "secElapsed":15, "minLeft":3, "secLeft":45, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":4, "minElapsed":1, "secElapsed":15, "minLeft":3, "secLeft":45, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":4, "minElapsed":1, "secElapsed":42, "minLeft":3, "secLeft":18, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#24 LILES" },' +
-    '{ "period":4, "minElapsed":1, "secElapsed":42, "minLeft":3, "secLeft":18, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#24 LILES", "target":"Wide of Net" },' +
-    '{ "period":4, "minElapsed":2, "secElapsed":18, "minLeft":2, "secLeft":42, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":4, "minElapsed":2, "secElapsed":18, "minLeft":2, "secLeft":42, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":4, "minElapsed":2, "secElapsed":42, "minLeft":2, "secLeft":18, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#16 MACARTHUR" },' +
-    '{ "period":4, "minElapsed":2, "secElapsed":42, "minLeft":2, "secLeft":18, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#16 MACARTHUR", "target":"Wide of Net" },' +
-    '{ "period":4, "minElapsed":3, "secElapsed":7, "minLeft":1, "secLeft":53, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#4 FRANSON" },' +
-    '{ "period":4, "minElapsed":3, "secElapsed":7, "minLeft":1, "secLeft":53, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#4 FRANSON" },' +
-    '{ "period":4, "minElapsed":3, "secElapsed":14, "minLeft":1, "secLeft":46, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":4, "minElapsed":3, "secElapsed":14, "minLeft":1, "secLeft":46, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":4, "minElapsed":3, "secElapsed":29, "minLeft":1, "secLeft":31, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#51 GARDINER" },' +
-    '{ "period":4, "minElapsed":3, "secElapsed":29, "minLeft":1, "secLeft":31, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#51 GARDINER" },' +
-    '{ "period":4, "minElapsed":4, "secElapsed":48, "minLeft":0, "secLeft":12, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":4, "minElapsed":4, "secElapsed":48, "minLeft":0, "secLeft":12, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":4, "minElapsed":4, "secElapsed":59, "minLeft":0, "secLeft":1, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#3 LEOPOLD" },' +
-    '{ "period":4, "minElapsed":4, "secElapsed":59, "minLeft":0, "secLeft":1, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#3 LEOPOLD" },' +
-    '{ "period":4, "minElapsed":5, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":" " },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PSTR", "strength":" " },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#29 POMINVILLE" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#29 POMINVILLE" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#43 KADRI" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#63 ENNIS" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GOAL", "strength":"SH", "team":"TOR", "shooter":"#42 BOZAK" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#21 STAFFORD" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GOAL", "strength":"PP", "team":"BUF", "shooter":"#21 STAFFORD" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#19 HODGSON" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#81 KESSEL" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#23 LEINO" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"SHOT", "strength":"PP", "team":"BUF", "shooter":"#23 LEINO" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"MISS", "strength":"SH", "team":"TOR", "shooter":"#84 GRABOVSKI", "target":"Wide of Net" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GOAL", "strength":"PP", "team":"BUF", "shooter":"#9 OTT" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"GATT", "strength":"SH", "team":"TOR", "shooter":"#16 MACARTHUR" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"SHOT", "strength":"SH", "team":"TOR", "shooter":"#16 MACARTHUR" },' +
-    '{ "period":5, "minElapsed":0, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":" " }' +
+    '{ "period":3, "minElapsed":0, "secElapsed":59, "minLeft":19, "secLeft":1, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK", "shotType":"tries to tip it in", "shotDistance":"14 ft" },' +
+    '{ "period":3, "minElapsed":0, "secElapsed":59, "minLeft":19, "secLeft":1, "type":"MISS", "strength":"EV", "team":"TOR", "shooter":"#42 BOZAK", "target":"wide" },' +
+    '{ "period":3, "minElapsed":1, "secElapsed":17, "minLeft":18, "secLeft":43, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE", "shotType":"takes a wrist shot", "shotDistance":"48 ft" },' +
+    '{ "period":3, "minElapsed":1, "secElapsed":17, "minLeft":18, "secLeft":43, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE" },' +
+    '{ "period":3, "minElapsed":1, "secElapsed":32, "minLeft":18, "secLeft":28, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE", "shotType":"takes a wrist shot", "shotDistance":"8 ft" },' +
+    '{ "period":3, "minElapsed":1, "secElapsed":32, "minLeft":18, "secLeft":28, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#17 BOURQUE" },' +
+    '{ "period":3, "minElapsed":1, "secElapsed":43, "minLeft":18, "secLeft":17, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK", "shotType":"takes a wrist shot", "shotDistance":"42 ft" },' +
+    '{ "period":3, "minElapsed":1, "secElapsed":43, "minLeft":18, "secLeft":17, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
+    '{ "period":3, "minElapsed":1, "secElapsed":54, "minLeft":18, "secLeft":6, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC", "shotType":"shoots on his backhand", "shotDistance":"33 ft" },' +
+    '{ "period":3, "minElapsed":1, "secElapsed":54, "minLeft":18, "secLeft":6, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#14 PLEKANEC", "target":"wide" },' +
+    '{ "period":3, "minElapsed":2, "secElapsed":0, "minLeft":18, "secLeft":0, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#21 GIONTA", "reason":"slashing", "duration":2 },' +
+    '{ "period":3, "minElapsed":2, "secElapsed":39, "minLeft":17, "secLeft":21, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#84 GRABOVSKI", "shotType":"tries to tip it in", "shotDistance":"30 ft" },' +
+    '{ "period":3, "minElapsed":2, "secElapsed":39, "minLeft":17, "secLeft":21, "type":"MISS", "strength":"PP", "team":"TOR", "shooter":"#84 GRABOVSKI", "target":"wide" },' +
+    '{ "period":3, "minElapsed":4, "secElapsed":12, "minLeft":15, "secLeft":48, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#21 GIONTA", "shotType":"takes a slapshot", "shotDistance":"49 ft" },' +
+    '{ "period":3, "minElapsed":4, "secElapsed":12, "minLeft":15, "secLeft":48, "type":"MISS", "strength":"EV", "team":"MTL", "shooter":"#21 GIONTA", "target":"over the net" },' +
+    '{ "period":3, "minElapsed":4, "secElapsed":43, "minLeft":15, "secLeft":17, "type":"PENL", "strength":"EV", "team":"TOR", "taker":"#45 FRASER", "reason":"interference", "duration":2 },' +
+    '{ "period":3, "minElapsed":7, "secElapsed":21, "minLeft":12, "secLeft":39, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#27 GALCHENYUK", "reason":"tripping", "duration":2 },' +
+    '{ "period":3, "minElapsed":7, "secElapsed":27, "minLeft":12, "secLeft":33, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#3 PHANEUF", "shotType":"takes a slapshot", "shotDistance":"57 ft" },' +
+    '{ "period":3, "minElapsed":7, "secElapsed":27, "minLeft":12, "secLeft":33, "type":"MISS", "strength":"PP", "team":"TOR", "shooter":"#3 PHANEUF", "target":"over the net" },' +
+    '{ "period":3, "minElapsed":8, "secElapsed":32, "minLeft":11, "secLeft":28, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#36 GUNNARSSON", "shotType":"takes a slapshot", "shotDistance":"60 ft" },' +
+    '{ "period":3, "minElapsed":8, "secElapsed":32, "minLeft":11, "secLeft":28, "type":"SHOT", "strength":"PP", "team":"TOR", "shooter":"#36 GUNNARSSON" },' +
+    '{ "period":3, "minElapsed":8, "secElapsed":48, "minLeft":11, "secLeft":12, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#84 GRABOVSKI", "shotType":"tries to tip it in", "shotDistance":"38 ft" },' +
+    '{ "period":3, "minElapsed":8, "secElapsed":48, "minLeft":11, "secLeft":12, "type":"MISS", "strength":"PP", "team":"TOR", "shooter":"#84 GRABOVSKI", "target":"over the net" },' +
+    '{ "period":3, "minElapsed":9, "secElapsed":11, "minLeft":10, "secLeft":49, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#51 GARDINER", "shotType":"takes a wrist shot", "shotDistance":"55 ft" },' +
+    '{ "period":3, "minElapsed":9, "secElapsed":11, "minLeft":10, "secLeft":49, "type":"MISS", "strength":"PP", "team":"TOR", "shooter":"#51 GARDINER", "target":"wide" },' +
+    '{ "period":3, "minElapsed":9, "secElapsed":35, "minLeft":10, "secLeft":25, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL", "shotType":"takes a wrist shot", "shotDistance":"17 ft" },' +
+    '{ "period":3, "minElapsed":9, "secElapsed":35, "minLeft":10, "secLeft":25, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#81 KESSEL" },' +
+    '{ "period":3, "minElapsed":11, "secElapsed":58, "minLeft":8, "secLeft":2, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#84 GRABOVSKI", "shotType":"takes a snap shot", "shotDistance":"28 ft" },' +
+    '{ "period":3, "minElapsed":11, "secElapsed":58, "minLeft":8, "secLeft":2, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#84 GRABOVSKI" },' +
+    '{ "period":3, "minElapsed":12, "secElapsed":14, "minLeft":7, "secLeft":46, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#16 MACARTHUR", "shotType":"tries to tip it in", "shotDistance":"34 ft" },' +
+    '{ "period":3, "minElapsed":12, "secElapsed":14, "minLeft":7, "secLeft":46, "type":"MISS", "strength":"EV", "team":"TOR", "shooter":"#16 MACARTHUR", "target":"wide" },' +
+    '{ "period":3, "minElapsed":12, "secElapsed":17, "minLeft":7, "secLeft":43, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#55 BOUILLON", "reason":"roughing", "duration":2 },' +
+    '{ "period":3, "minElapsed":12, "secElapsed":29, "minLeft":7, "secLeft":31, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#21 VAN RIEMSDYK", "shotType":"takes a wrist shot", "shotDistance":"40 ft" },' +
+    '{ "period":3, "minElapsed":12, "secElapsed":29, "minLeft":7, "secLeft":31, "type":"SHOT", "strength":"PP", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
+    '{ "period":3, "minElapsed":13, "secElapsed":9, "minLeft":6, "secLeft":51, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#21 VAN RIEMSDYK", "shotType":"tries to tip it in", "shotDistance":"10 ft" },' +
+    '{ "period":3, "minElapsed":13, "secElapsed":9, "minLeft":6, "secLeft":51, "type":"SHOT", "strength":"PP", "team":"TOR", "shooter":"#21 VAN RIEMSDYK" },' +
+    '{ "period":3, "minElapsed":13, "secElapsed":40, "minLeft":6, "secLeft":20, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#16 MACARTHUR", "shotType":"takes a wrist shot", "shotDistance":"23 ft" },' +
+    '{ "period":3, "minElapsed":13, "secElapsed":40, "minLeft":6, "secLeft":20, "type":"MISS", "strength":"PP", "team":"TOR", "shooter":"#16 MACARTHUR", "target":"wide" },' +
+    '{ "period":3, "minElapsed":13, "secElapsed":48, "minLeft":6, "secLeft":12, "type":"GATT", "strength":"SH", "team":"MTL", "shooter":"#17 BOURQUE", "shotType":"takes a snap shot", "shotDistance":"22 ft" },' +
+    '{ "period":3, "minElapsed":13, "secElapsed":48, "minLeft":6, "secLeft":12, "type":"SHOT", "strength":"SH", "team":"MTL", "shooter":"#17 BOURQUE" },' +
+    '{ "period":3, "minElapsed":14, "secElapsed":17, "minLeft":5, "secLeft":43, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#16 MACARTHUR", "shotType":"tries to tip it in", "shotDistance":"18 ft" },' +
+    '{ "period":3, "minElapsed":14, "secElapsed":17, "minLeft":5, "secLeft":43, "type":"MISS", "strength":"PP", "team":"TOR", "shooter":"#16 MACARTHUR", "target":"over the net" },' +
+    '{ "period":3, "minElapsed":15, "secElapsed":3, "minLeft":4, "secLeft":57, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#44 DREWISKE", "shotType":"takes a wrist shot", "shotDistance":"55 ft" },' +
+    '{ "period":3, "minElapsed":15, "secElapsed":3, "minLeft":4, "secLeft":57, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#44 DREWISKE" },' +
+    '{ "period":3, "minElapsed":15, "secElapsed":19, "minLeft":4, "secLeft":41, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#38 MCLAREN", "shotType":"takes a wrist shot", "shotDistance":"19 ft" },' +
+    '{ "period":3, "minElapsed":15, "secElapsed":19, "minLeft":4, "secLeft":41, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#38 MCLAREN" },' +
+    '{ "period":3, "minElapsed":16, "secElapsed":7, "minLeft":3, "secLeft":53, "type":"GATT", "strength":"EV", "team":"TOR", "shooter":"#84 GRABOVSKI", "shotType":"takes a wrist shot", "shotDistance":"45 ft" },' +
+    '{ "period":3, "minElapsed":16, "secElapsed":7, "minLeft":3, "secLeft":53, "type":"SHOT", "strength":"EV", "team":"TOR", "shooter":"#84 GRABOVSKI" },' +
+    '{ "period":3, "minElapsed":16, "secElapsed":58, "minLeft":3, "secLeft":2, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN", "shotType":"takes a wrist shot", "shotDistance":"53 ft" },' +
+    '{ "period":3, "minElapsed":16, "secElapsed":58, "minLeft":3, "secLeft":2, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#76 SUBBAN" },' +
+    '{ "period":3, "minElapsed":16, "secElapsed":59, "minLeft":3, "secLeft":1, "type":"PENL", "strength":"EV", "team":"MTL", "taker":"#76 SUBBAN", "reason":"unsportsmanlike conduct", "duration":2 },' +
+    '{ "period":3, "minElapsed":18, "secElapsed":6, "minLeft":1, "secLeft":54, "type":"GATT", "strength":"SH", "team":"MTL", "shooter":"#81 ELLER", "shotType":"shoots on his backhand", "shotDistance":"40 ft" },' +
+    '{ "period":3, "minElapsed":18, "secElapsed":6, "minLeft":1, "secLeft":54, "type":"SHOT", "strength":"SH", "team":"MTL", "shooter":"#81 ELLER" },' +
+    '{ "period":3, "minElapsed":18, "secElapsed":16, "minLeft":1, "secLeft":44, "type":"GATT", "strength":"PP", "team":"TOR", "shooter":"#3 PHANEUF", "shotType":"takes a wrist shot", "shotDistance":"27 ft" },' +
+    '{ "period":3, "minElapsed":18, "secElapsed":16, "minLeft":1, "secLeft":44, "type":"SHOT", "strength":"PP", "team":"TOR", "shooter":"#3 PHANEUF" },' +
+    '{ "period":3, "minElapsed":19, "secElapsed":13, "minLeft":0, "secLeft":47, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#8 PRUST", "shotType":"takes a wrist shot", "shotDistance":"45 ft" },' +
+    '{ "period":3, "minElapsed":19, "secElapsed":13, "minLeft":0, "secLeft":47, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#8 PRUST" },' +
+    '{ "period":3, "minElapsed":19, "secElapsed":29, "minLeft":0, "secLeft":31, "type":"GATT", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN", "shotType":"takes a snap shot", "shotDistance":"14 ft" },' +
+    '{ "period":3, "minElapsed":19, "secElapsed":29, "minLeft":0, "secLeft":31, "type":"SHOT", "strength":"EV", "team":"MTL", "shooter":"#32 MOEN" },' +
+    '{ "period":3, "minElapsed":20, "secElapsed":0, "minLeft":0, "secLeft":0, "type":"PEND", "strength":" " }' +
   ']';
 
   data += ',';
 
   data += '"teams": [' +
-    '{ "type":"away", "name":"TORONTO MAPLE LEAFS", "abbreviation":"TOR" },' +
-    '{ "type":"home", "name":"BUFFALO SABRES", "abbreviation":"BUF" }' +
+    '{ "type":"away", "name":"MONTREAL CANADIENS", "abbreviation":"MTL" },' +
+    '{ "type":"home", "name":"TORONTO MAPLE LEAFS", "abbreviation":"TOR" }' +
   ']';
 
   data += '}'
