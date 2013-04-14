@@ -10,8 +10,10 @@ object Main
   val playByPlayPath = "src/test/resources/playbyplay"
 
   def main(args: Array[String]) {
-    val gameReports = retrieveGameReports()
-    val playByPlayReportFile = retrievePlayByPlayReport(gameReports.head.playByPlayURL)
+    val playByPlayReportFile = {
+      if (args.length > 0) playByPlayPath + "/" + args.head
+      else retrievePlayByPlayReport(retrieveGameReports().head.playByPlayURL)
+    }
     parsePlayByPlay(playByPlayReportFile)
   }
 
@@ -27,7 +29,10 @@ object Main
   }
 
   private def parsePlayByPlay(reportPath: String) {
-    val xhtmlFile = XhtmlConverter.convertHtml(reportPath)
+    val xhtmlFile = {
+      if (reportPath.toLowerCase.endsWith(".xhtml")) reportPath
+      else XhtmlConverter.convertHtml(reportPath)
+    }
     val gameInfo = GameEventParser.parse(xhtmlFile)
     gameInfo.writeToJsonpFile("../client/src/main/jsonp/data.jsonp")
   }
