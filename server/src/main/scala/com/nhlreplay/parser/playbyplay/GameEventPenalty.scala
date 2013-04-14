@@ -10,11 +10,11 @@ class GameEventPenalty(columns: NodeSeq, description: String)
 
   private def parseDescription(description: String) = {
     val pattern = new Regex(PATTERN_TEAM + """(""" + PATTERN_PLAYER + """|TEAM)""" +
-                            """\u00a0(.+\((\d+)\smin\))""", "team", "taker", "reason", "duration")
+                            """\u00a0(.+?)(?:\s\(maj\))?\((\d+)\smin\)""", "team", "taker", "reason", "duration")
     pattern.findFirstMatchIn(description) match {
       case Some(penaltyMatch) => (Team.trimAbbreviation(penaltyMatch.group("team")),
                                   trim(penaltyMatch.group("taker")),
-                                  trim(penaltyMatch.group("reason")),
+                                  trim(penaltyMatch.group("reason")).toLowerCase,
                                   penaltyMatch.group("duration").toInt)
       case None => throw new RuntimeException("No match in '%s'".format(description))
     }

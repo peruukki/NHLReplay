@@ -73,8 +73,8 @@ function decrementTime() {
       extraWaitInMs += 4000;
     }
     else if (event.isPenalty()) {
-      showEvent(event);
       addPenaltyClock(_gamePenalties, event);
+      extraWaitInMs += 4000;
     }
     else if (event.isShotOnGoal()) {
       incrementValue(event, 'shots');
@@ -165,6 +165,9 @@ function showNotification(event) {
   }
   else if (event.isGoal()) {
     content += ' he scores!';
+  }
+  else if (event.isPenalty()) {
+    content = event.event.taker + ' gets a ' + event.event.duration + ' min penalty for ' + event.event.reason + '.';
   }
   else {
     content = '';
