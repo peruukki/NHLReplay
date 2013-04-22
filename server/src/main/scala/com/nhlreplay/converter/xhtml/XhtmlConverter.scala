@@ -9,7 +9,7 @@ import com.typesafe.scalalogging.slf4j.Logging
 object XhtmlConverter extends Logging
 {
   def convertHtml(filePath: String): String = {
-    logger.info(s"Converting file '${filePath}'")
+    logger.info(s"Converting file '$filePath'")
     val htmlContent = FileUtils.getFileContent(filePath)
     val xhtmlContent = filterXhtml(convertToXhtml(htmlContent))
     val xhtmlFileName = filePath.take(filePath.lastIndexOf(".") + 1) + "XHTML"
