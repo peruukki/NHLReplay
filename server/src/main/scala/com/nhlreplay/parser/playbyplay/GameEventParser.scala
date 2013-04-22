@@ -8,7 +8,7 @@ import com.typesafe.scalalogging.slf4j.Logging
 object GameEventParser extends Logging
 {
   def parse(filePath: String): GameInfo = {
-    logger.info(s"Parsing file '${filePath}'")
+    logger.info(s"Parsing file '$filePath'")
     val document = xml.parsing.XhtmlParser(FileUtils.getFileSource(filePath))
 
     val abbrInfo = getHtmlAbbrInfo(document)
@@ -16,8 +16,8 @@ object GameEventParser extends Logging
     val homeTeam = new Team("home", getHtmlNameInfo(document, "Home"), abbrInfo.tail.head)
 
     val htmlEvents = getHtmlEvents(document)
-    val gameEvents = htmlEvents map { x => GameEvent(x \ "td") }
-    val interestingEvents = gameEvents filter { x => x.getClass.getSimpleName != "GameEvent" }
+    val gameEvents = htmlEvents map { x => GameEventParsed(x \ "td") }
+    val interestingEvents = gameEvents filter { !_.ignore }
     val finalEvents = addEvents(interestingEvents)
     GameInfo(List(awayTeam, homeTeam), finalEvents)
   }
@@ -28,11 +28,9 @@ object GameEventParser extends Logging
 
   private def addEvents(events: Seq[GameEvent]) = {
     var newEvents = new ListBuffer[GameEvent]
-    for (event <- events) {
-      if (event.isInstanceOf[GameEventGoalAttemptValues]) {
-        newEvents += new GameEventGoalAttempt(event.asInstanceOf[GameEventGoalAttemptValues])
-      }
-      newEvents += event
+    events.foreach { x =>
+      if (x.generateGoalAttempt) newEvents += new GameEventGoalAttempt(x)
+      newEvents += x
     }
     newEvents.toSeq
   }

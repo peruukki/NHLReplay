@@ -65,22 +65,22 @@ function GameEvent(event, teamTypes) {
     var event = gameEvent.event;
     var output = showEventTime(event.minElapsed, event.secElapsed, event.period) + ' ' + event.team + ' ';
     if (gameEvent.isGoal()) {
-      output += event.strength + ' ' + event.shooter + ' ' + event.goalCount + ' ';
+      output += event.strength + ' ' + event.player + ' ';
       if (event.assist2nd) {
-        output += 'Assists: ' + event.assist1st + ' ' + event.assist1stCount + ' & ' + event.assist2nd + ' ' + event.assist2ndCount;
+        output += 'Assists: ' + event.assist1st + ' & ' + event.assist2nd;
       }
       else if (event.assist1st) {
-        output += 'Assist: ' + event.assist1st + ' ' + event.assist1stCount;
+        output += 'Assist: ' + event.assist1st;
       }
       else {
         output += 'Unassisted';
       }
     }
     else if (gameEvent.isPenalty()) {
-      output += event.taker + ' ' + event.reason;
+      output += event.player + ' ' + event.reason;
     }
     else if (gameEvent.isShotOnGoal()) {
-      output += event.shooter;
+      output += event.player;
     }
     else {
       output += event.type;

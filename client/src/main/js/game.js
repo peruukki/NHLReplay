@@ -155,7 +155,7 @@ function showNotification(event) {
   var content = $('.notifications').text();
 
   if (event.isGoalAttempt()) {
-    content = event.event.shooter + ' ' + event.event.shotType + " from " + convertLength(event.event.shotDistance) + '...';
+    content = event.event.player + ' ' + event.event.shotType + " from " + convertLength(event.event.distance) + '...';
   }
   else if (event.isShotOnGoal()) {
     content += ' saved!';
@@ -167,7 +167,7 @@ function showNotification(event) {
     content += ' he scores!';
   }
   else if (event.isPenalty()) {
-    content = event.event.taker + ' gets a ' + event.event.duration + ' min penalty for ' + event.event.reason + '.';
+    content = event.event.player + ' gets a ' + event.event.duration + ' min penalty for ' + event.event.reason + '.';
   }
   else {
     content = '';

@@ -2,41 +2,40 @@ package com.nhlreplay.parser.playbyplay
 
 import util.matching.Regex
 import xml.{NodeSeq, Node}
+import com.typesafe.scalalogging.slf4j.Logging
 
 object GameEvent
 {
-  val EVENT_COL_PERIOD = 1
-  val EVENT_COL_STRENGTH = 2
-  val EVENT_COL_TIME = 3
-  val EVENT_COL_EVENT = 4
-  val EVENT_COL_DESCRIPTION = 5
+  val EventColPeriod = 1
+  val EventColStrength = 2
+  val EventColTime = 3
+  val EventColEvent = 4
+  val EventColDescription = 5
 
-  def apply(columns: NodeSeq): GameEvent = {
-    val description = columns(EVENT_COL_DESCRIPTION).mkString
-    val eventType = columns(EVENT_COL_EVENT).text.trim
-
-    if (eventType == "GOAL") new GameEventGoal(columns, description)
-    else if (eventType == "PENL") new GameEventPenalty(columns, description)
-    else if (eventType == "SHOT") new GameEventShotOnGoal(columns, description)
-    else if (eventType == "MISS") new GameEventMiss(columns, description)
-    else if (eventType == "PSTR") new GameEventPeriodStart(columns)
-    else if (eventType == "PEND") new GameEventPeriodEnd(columns)
-    else new GameEvent(columns)
-  }
+  val Assist1st = "assist1st"
+  val Assist2nd = "assist2nd"
+  val Distance = "distance"
+  val Duration = "duration"
+  val Hyphen = "hyphen"
+  val Player = "player"
+  val Reason = "reason"
+  val ShotOnGoal = "shotOnGoal"
+  val ShotType = "shotType"
+  val Target = "target"
+  val Team = "team"
+  val Zone = "zone"
 }
 
-class GameEvent(val columns: NodeSeq, givenType: String = "")
+abstract class GameEvent(val columns: NodeSeq, val generateGoalAttempt: Boolean, val ignore: Boolean)
   extends HasJson
+  with Logging
 {
-  protected val PATTERN_TEAM = Team.PATTERN_ABBREVIATION
-  protected val PATTERN_PLAYER_NAME = """(?:\w|\s|-|')+"""
-  protected val PATTERN_PLAYER = """#\d+(?s)\s+""" + PATTERN_PLAYER_NAME
-  protected val PATTERN_PLAYER_COUNT = """(#\d+(?s)\s+""" + PATTERN_PLAYER_NAME + """)(\(\d+\))?"""
+  val tokenValues: Seq[TokenValue]
 
-  val period = columns(GameEvent.EVENT_COL_PERIOD).text.trim.toInt
-  val strength = columns(GameEvent.EVENT_COL_STRENGTH).text.trim
-  val eventType = if (givenType.isEmpty) columns(GameEvent.EVENT_COL_EVENT).text.trim else givenType
-  val (minElapsed, secElapsed, minLeft, secLeft) = parseTime(columns(GameEvent.EVENT_COL_TIME))
+  val period = columns(GameEvent.EventColPeriod).text.trim.toInt
+  val strength = columns(GameEvent.EventColStrength).text.trim
+  val eventType: String
+  val (minElapsed, secElapsed, minLeft, secLeft) = parseTime(columns(GameEvent.EventColTime))
 
   private def parseTime(timeNode: Node) = {
     val pattern = new Regex("""(\d+):(\d+).+?(\d+):(\d+)""", "minElapsed", "secElapsed", "minLeft", "secLeft")
@@ -49,6 +48,8 @@ class GameEvent(val columns: NodeSeq, givenType: String = "")
 
   def getJson: String = {
     val builder = startJson()
+    tokenValues.filter(_.token.visibility == TokenVisibility.Public)
+               .foreach(tv => appendValue(builder, tv.token.name, tv.value))
     finishJson(builder)
   }
 
@@ -71,13 +72,15 @@ class GameEvent(val columns: NodeSeq, givenType: String = "")
     builder.toString()
   }
 
-  protected def appendValue(builder: StringBuilder, key: String, value: String) {
-    if (!value.isEmpty) builder.append(getJsonValue(key, value.replaceAll("'", """\\'""")))
-  }
-  protected def appendValue(builder: StringBuilder, key: String, value: Int) {
+  private def appendValue(builder: StringBuilder, key: String, value: Any) {
     builder.append(getJsonValue(key, value))
   }
 
-  private def getJsonValue(key: String, value: String) = """ "%s":"%s",""".format(key, value)
-  private def getJsonValue(key: String, value: Int) = """ "%s":%d,""".format(key, value)
+  private def getJsonValue(key: String, value: Any) = {
+    val format = {
+      if (value.isInstanceOf[String]) """ "%s":"%s","""
+      else """ "%s":%s,"""
+    }
+    format.format(key, value).replaceAll("'", """\\'""")
+  }
 }
