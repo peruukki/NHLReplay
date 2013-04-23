@@ -16,11 +16,7 @@ object GameEventParsed
   val defaultTokens = List(Token("", Pattern.Text, TokenVisibility.Ignored))
 
   val goalTokens = List(
-    Token(GameEvent.Team, Pattern.Word, trimmer = Trimmer.removeDots),
-    Token(GameEvent.Player, Pattern.Player, trimmer = Trimmer.trimWhitespace),
-    Token(GameEvent.ShotType, Pattern.Word, TokenVisibility.Internal),
-    Token(GameEvent.Zone, Pattern.Words, TokenVisibility.Ignored),
-    Token(GameEvent.Distance, Pattern.Distance, TokenVisibility.Internal),
+    Token.Team, Token.Player, Token.ShotType, Token.Zone, Token.Distance,
     Token("", Pattern.OptionalStart, TokenVisibility.Ignored),
     Token("", Pattern.Assists, TokenVisibility.Ignored),
     Token(GameEvent.Assist1st, Pattern.Player, trimmer = Trimmer.trimWhitespace),
@@ -30,26 +26,19 @@ object GameEventParsed
     Token("", Pattern.OptionalEnd, TokenVisibility.Ignored))
 
   val missTokens = List(
-    Token(GameEvent.Team, Pattern.Word, trimmer = Trimmer.removeDots),
-    Token(GameEvent.Player, Pattern.Player, trimmer = Trimmer.trimWhitespace),
-    Token(GameEvent.ShotType, Pattern.Words, TokenVisibility.Internal),
+    Token.Team, Token.Player, Token.ShotType,
     Token(GameEvent.Target, Pattern.Words, trimmer = Trimmer.trimTarget),
-    Token(GameEvent.Zone, Pattern.Words, TokenVisibility.Ignored),
-    Token(GameEvent.Distance, Pattern.Distance, TokenVisibility.Internal))
+    Token.Zone, Token.Distance)
 
   val penaltyTokens = List(
-    Token(GameEvent.Team, Pattern.Word, trimmer = Trimmer.removeDots),
-    Token(GameEvent.Player, Pattern.Player, trimmer = Trimmer.trimWhitespace),
+    Token.Team, Token.Player,
     Token(GameEvent.Reason, Pattern.PenaltyReason, trimmer = Trimmer.trimPenaltyReason),
     Token(GameEvent.Duration, Pattern.PenaltyDuration, trimmer = Trimmer.toInt))
 
   val shotOnGoalTokens = List(
-    Token(GameEvent.Team, Pattern.Word, trimmer = Trimmer.removeDots),
+    Token.Team,
     Token(GameEvent.ShotOnGoal, Pattern.Word, TokenVisibility.Ignored),
-    Token(GameEvent.Player, Pattern.Player, trimmer = Trimmer.trimWhitespace),
-    Token(GameEvent.ShotType, Pattern.Words, TokenVisibility.Internal),
-    Token(GameEvent.Zone, Pattern.Words, TokenVisibility.Ignored),
-    Token(GameEvent.Distance, Pattern.Distance, TokenVisibility.Internal))
+    Token.Player, Token.ShotType, Token.Zone, Token.Distance)
 
   def apply(columns: NodeSeq): GameEvent = {
     val description = columns(GameEvent.EventColDescription).mkString

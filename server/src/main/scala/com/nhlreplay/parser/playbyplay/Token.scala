@@ -6,6 +6,14 @@ object TokenVisibility extends Enumeration {
 }
 import TokenVisibility._
 
+object Token {
+  val Distance = Token(GameEvent.Distance, Pattern.Distance, TokenVisibility.Internal)
+  val Player = Token(GameEvent.Player, Pattern.Player, trimmer = Trimmer.trimWhitespace)
+  val ShotType = Token(GameEvent.ShotType, Pattern.Word, TokenVisibility.Internal)
+  val Team = Token(GameEvent.Team, Pattern.Word, trimmer = Trimmer.removeDots)
+  val Zone = Token(GameEvent.Zone, Pattern.Words, TokenVisibility.Ignored)
+}
+
 case class Token(name: String,
                  pattern: String = "",
                  visibility: TokenVisibility = Public,
