@@ -13,32 +13,18 @@ object GameEventParsed
     "PSTR" -> defaultTokens,
     "PEND" -> defaultTokens)
 
-  val defaultTokens = List(Token("", Pattern.Text, TokenVisibility.Ignored))
+  val defaultTokens = List(Token.Default)
 
   val goalTokens = List(
     Token.Team, Token.Player, Token.ShotType, Token.Zone, Token.Distance,
-    Token("", Pattern.OptionalStart, TokenVisibility.Ignored),
-    Token("", Pattern.Assists, TokenVisibility.Ignored),
-    Token(GameEvent.Assist1st, Pattern.Player, trimmer = Trimmer.trimWhitespace),
-    Token("", Pattern.OptionalEnd, TokenVisibility.Ignored),
-    Token("", Pattern.OptionalStart, TokenVisibility.Ignored),
-    Token(GameEvent.Assist2nd, Pattern.Player, trimmer = Trimmer.trimWhitespace),
-    Token("", Pattern.OptionalEnd, TokenVisibility.Ignored))
+    Token.OptionalStart, Token.Assists, Token.Assist1st, Token.OptionalEnd,
+    Token.OptionalStart, Token.Assist2nd, Token.OptionalEnd)
 
-  val missTokens = List(
-    Token.Team, Token.Player, Token.ShotType,
-    Token(GameEvent.Target, Pattern.Words, trimmer = Trimmer.trimTarget),
-    Token.Zone, Token.Distance)
+  val missTokens = List(Token.Team, Token.Player, Token.ShotType, Token.Target, Token.Zone, Token.Distance)
 
-  val penaltyTokens = List(
-    Token.Team, Token.Player,
-    Token(GameEvent.Reason, Pattern.PenaltyReason, trimmer = Trimmer.trimPenaltyReason),
-    Token(GameEvent.Duration, Pattern.PenaltyDuration, trimmer = Trimmer.toInt))
+  val penaltyTokens = List(Token.Team, Token.Player, Token.Reason, Token.Duration)
 
-  val shotOnGoalTokens = List(
-    Token.Team,
-    Token(GameEvent.ShotOnGoal, Pattern.Word, TokenVisibility.Ignored),
-    Token.Player, Token.ShotType, Token.Zone, Token.Distance)
+  val shotOnGoalTokens = List(Token.Team, Token.ShotOnGoal, Token.Player, Token.ShotType, Token.Zone, Token.Distance)
 
   def apply(columns: NodeSeq): GameEvent = {
     val description = columns(GameEvent.EventColDescription).mkString
