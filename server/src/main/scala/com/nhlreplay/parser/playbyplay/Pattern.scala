@@ -12,7 +12,7 @@ object Pattern {
   lazy val PenaltyDuration = """(?:\s\(maj\))?\((\d+)\smin\)"""
   lazy val PenaltyReason = """\u00a0(.+?)"""
   lazy val Player = """(""" + Number + Separator + Name + """|TEAM),?"""
-  lazy val Separator = """(?:\s|,|;)*"""
+  lazy val Separator = """(?:\s|,|;|\s-\s)*"""
   lazy val Text = """(.+)"""
   lazy val Word = """((?:\w|-|\.)+),?"""
   lazy val Words = """((?:\w|-|\.|\s)+),"""

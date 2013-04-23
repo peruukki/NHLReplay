@@ -46,7 +46,6 @@ object GameEventParsed
   val shotOnGoalTokens = List(
     Token(GameEvent.Team, Pattern.Word, trimmer = Trimmer.removeDots),
     Token(GameEvent.ShotOnGoal, Pattern.Word, TokenVisibility.Ignored),
-    Token(GameEvent.Hyphen, Pattern.Word, TokenVisibility.Ignored),
     Token(GameEvent.Player, Pattern.Player, trimmer = Trimmer.trimWhitespace),
     Token(GameEvent.ShotType, Pattern.Words, TokenVisibility.Internal),
     Token(GameEvent.Zone, Pattern.Words, TokenVisibility.Ignored),

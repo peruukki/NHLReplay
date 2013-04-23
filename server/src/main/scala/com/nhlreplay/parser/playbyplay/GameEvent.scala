@@ -16,7 +16,6 @@ object GameEvent
   val Assist2nd = "assist2nd"
   val Distance = "distance"
   val Duration = "duration"
-  val Hyphen = "hyphen"
   val Player = "player"
   val Reason = "reason"
   val ShotOnGoal = "shotOnGoal"
