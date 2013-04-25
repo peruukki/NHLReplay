@@ -2,6 +2,7 @@ package com.nhlreplay.parser.playbyplay
 
 object Pattern {
   lazy val Assists = """.+?:"""
+  lazy val BlockedBy = """\s+BLOCKED\sBY\s+"""
   lazy val Count = """\((\d+)\)"""
   lazy val Distance = """(\d+\sft)\."""
   lazy val Label = """((?:\w|\s)+)\:"""
@@ -16,4 +17,5 @@ object Pattern {
   lazy val Text = """(.+)"""
   lazy val Word = """((?:\w|-|\.)+),?"""
   lazy val Words = """((?:\w|-|\.|\s)+),"""
+  lazy val Zone = Word + """\sZone"""
 }

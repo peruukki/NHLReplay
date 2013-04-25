@@ -155,13 +155,18 @@ function showNotification(event) {
   var content = $('.notifications').text();
 
   if (event.isGoalAttempt()) {
-    content = event.event.player + ' ' + event.event.shotType + " from " + convertLength(event.event.distance) + '...';
+    content = event.event.player + ' ' + event.event.shotType;
+    if (event.event.distance) content += " from " + convertLength(event.event.distance);
+    content += '...';
   }
   else if (event.isShotOnGoal()) {
     content += ' saved!';
   }
   else if (event.isMissedShot()) {
     content += ' ' + event.event.target + '!';
+  }
+  else if (event.isBlockedShot()) {
+    content += ' blocked by ' + event.event.otherPlayer + '.';
   }
   else if (event.isGoal()) {
     content += ' he scores!';

@@ -25,6 +25,7 @@ function GameEvent(event, teamTypes) {
   this.isGoalAttempt = function() { return this.event.type === 'GATT'; };
   this.isShotOnGoal = function() { return this.event.type === 'SHOT'; };
   this.isMissedShot = function() { return this.event.type === 'MISS'; };
+  this.isBlockedShot = function() { return this.event.type === 'BLOCK'; };
 
   this.show = function() {
     if (this.isPeriodStart()) {

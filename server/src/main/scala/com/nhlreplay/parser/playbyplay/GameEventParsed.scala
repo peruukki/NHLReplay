@@ -6,14 +6,19 @@ import util.matching.Regex
 object GameEventParsed
 {
   lazy val eventTokens = Map(
+    "BLOCK" -> blockTokens,
     "GOAL" -> goalTokens,
+    "MISS" -> missTokens,
     "PENL" -> penaltyTokens,
     "SHOT" -> shotOnGoalTokens,
-    "MISS" -> missTokens,
     "PSTR" -> defaultTokens,
     "PEND" -> defaultTokens)
 
   val defaultTokens = List(Token.Default)
+
+  val blockTokens = List(
+    Token.Team, Token.Player, Token.BlockedBy,
+    Token.OtherTeam, Token.OtherPlayer, Token.ShotType, Token.Zone)
 
   val goalTokens = List(
     Token.Team, Token.Player, Token.ShotType, Token.Zone, Token.Distance,
@@ -35,7 +40,7 @@ object GameEventParsed
     }
   }
 
-  private def generateGoalAttempt(eventType: String) = Array("GOAL", "SHOT", "MISS").contains(eventType)
+  private def generateGoalAttempt(eventType: String) = Array("BLOCK", "GOAL", "MISS", "SHOT").contains(eventType)
 }
 
 class GameEventParsed(columns: NodeSeq, description: String,
