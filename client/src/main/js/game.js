@@ -68,8 +68,8 @@ function decrementTime() {
 
     if (event.isGoal()) {
       showEvent(event);
-      incrementValue(event, 'shots');
-      incrementValue(event, 'score');
+      incrementValue(event.teamType, 'shots');
+      incrementValue(event.teamType, 'score');
       extraWaitInMs += 4000;
     }
     else if (event.isPenalty()) {
@@ -77,10 +77,13 @@ function decrementTime() {
       extraWaitInMs += 4000;
     }
     else if (event.isShotOnGoal()) {
-      incrementValue(event, 'shots');
+      incrementValue(event.teamType, 'shots');
     }
     else if (event.isMissedShot()) {
-      incrementValue(event, 'shots-off-target');
+      incrementValue(event.teamType, 'shots-off-target');
+    }
+    else if (event.isBlockedShot()) {
+      incrementValue(event.otherTeamType, 'shots-blocked');
     }
 
     showNotification(event);
@@ -185,8 +188,8 @@ function clearNotification() {
   $('.notifications').text('');
 }
 
-function incrementValue(event, valueType) {
-  var element = $('#' + event.teamType + '-' + valueType);
+function incrementValue(teamType, valueType) {
+  var element = $('#' + teamType + '-' + valueType);
   var value = parseInt(element.text());
   element.text(value + 1);
 }

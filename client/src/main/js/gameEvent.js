@@ -17,6 +17,7 @@ function GameEvents(events, teamTypes) {
 function GameEvent(event, teamTypes) {
   this.event = event;
   this.teamType = event.team ? teamTypes[event.team] : "";
+  this.otherTeamType = event.otherTeam ? teamTypes[event.otherTeam] : "";
 
   this.isGoal = function() { return this.event.type === 'GOAL'; };
   this.isPenalty = function() { return this.event.type === 'PENL'; };
