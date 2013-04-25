@@ -2,6 +2,7 @@ package com.nhlreplay.parser.playbyplay
 
 object Trimmer {
   def preserve(text: String): String = text
+  def removeCounts(text: String): String = text.replaceAll("""\(\d+\)""", "")
   def removeDots(text: String): String = text.replaceAll("""\.""", "")
   def toInt(text: String): Int = text.toInt
   def trimWhitespace(text: String): String = """\s+""".r.replaceAllIn(text, " ")

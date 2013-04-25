@@ -5,7 +5,8 @@ class GameEventGoalAttempt(resultEvent: GameEvent)
 {
   override val tokenValues: Seq[TokenValue] = List(
     TokenValue(Token(GameEvent.Team), getTokenValue(resultEvent.tokenValues, GameEvent.Team)),
-    TokenValue(Token(GameEvent.Player), getTokenValue(resultEvent.tokenValues, GameEvent.Player)),
+    TokenValue(Token(GameEvent.Player),
+               Trimmer.removeCounts(getTokenValue(resultEvent.tokenValues, GameEvent.Player).toString)),
     TokenValue(Token(GameEvent.ShotType),
                Trimmer.trimShotType(getTokenValue(resultEvent.tokenValues, GameEvent.ShotType).toString)),
     TokenValue(Token(GameEvent.Distance), getTokenValue(resultEvent.tokenValues, GameEvent.Distance)))
