@@ -5,6 +5,7 @@ object Pattern {
   lazy val BlockedBy = """\s+BLOCKED\sBY\s+"""
   lazy val Count = """\((\d+)\)"""
   lazy val Distance = """(\d+\sft)\."""
+  lazy val Hit = """\s+HIT\s+"""
   lazy val Label = """((?:\w|\s)+)\:"""
   lazy val Name = """(?:\w|\s|\d|-|'|\(|\))+"""
   lazy val Number = """#\d+"""

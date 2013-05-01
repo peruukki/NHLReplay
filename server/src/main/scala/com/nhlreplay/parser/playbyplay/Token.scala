@@ -14,6 +14,7 @@ object Token {
   val Default = Token("", Pattern.Text, TokenVisibility.Ignored)
   val Distance = Token(GameEvent.Distance, Pattern.Distance, TokenVisibility.Internal)
   val Duration = Token(GameEvent.Duration, Pattern.PenaltyDuration, trimmer = Trimmer.toInt)
+  val Hit = Token("", Pattern.Hit, TokenVisibility.Ignored)
   val OptionalStart = Token("", Pattern.OptionalStart, TokenVisibility.Ignored)
   val OptionalEnd = Token("", Pattern.OptionalEnd, TokenVisibility.Ignored)
   val OtherTeam = Token(GameEvent.OtherTeam, Pattern.Word, trimmer = Trimmer.removeDots)

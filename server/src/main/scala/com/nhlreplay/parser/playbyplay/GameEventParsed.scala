@@ -9,6 +9,7 @@ object GameEventParsed
     "BLOCK" -> blockTokens,
     "FAC" -> faceoffTokens,
     "GOAL" -> goalTokens,
+    "HIT" -> hitTokens,
     "MISS" -> missTokens,
     "PEND" -> defaultTokens,
     "PENL" -> penaltyTokens,
@@ -30,6 +31,8 @@ object GameEventParsed
     Token.Team, Token.Player, Token.ShotType, Token.Zone, Token.Distance,
     Token.OptionalStart, Token.Assists, Token.Assist1st, Token.OptionalEnd,
     Token.OptionalStart, Token.Assist2nd, Token.OptionalEnd)
+
+  val hitTokens = List(Token.Team, Token.Player, Token.Hit, Token.OtherTeam, Token.OtherPlayer, Token.Zone)
 
   val missTokens = List(Token.Team, Token.Player, Token.ShotType, Token.Target, Token.Zone, Token.Distance)
 

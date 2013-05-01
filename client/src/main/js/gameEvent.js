@@ -29,7 +29,8 @@ function GameEvent(event, teamTypes) {
   this.isMissedShot = function() { return this.event.type === 'MISS'; };
   this.isBlockedShot = function() { return this.event.type === 'BLOCK'; };
   this.isFaceoff = function() { return this.event.type === 'FAC'; };
-  this.isNotificationEvent = function() { return !this.isFaceoff(); };
+  this.isHit = function() { return this.event.type === 'HIT'; };
+  this.isNotificationEvent = function() { return !(this.isFaceoff() || this.isHit()); };
 
   this.show = function() {
     if (this.isPeriodStart()) {

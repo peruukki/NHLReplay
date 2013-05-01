@@ -88,6 +88,9 @@ function decrementTime() {
     else if (event.isFaceoff()) {
       incrementValue(event.wonTeamType, 'faceoffs');
     }
+    else if (event.isHit()) {
+      incrementValue(event.teamType, 'hits');
+    }
 
     if (event.isNotificationEvent()) {
       showNotification(event);
