@@ -13,7 +13,11 @@ object GameReportSource
   val reportTypeParam = "viewName"
 
   val seasonValue = "20122013"
-  val gameTypeValue = "2"
+
+  val GameTypeRegularSeason = "2"
+  val GameTypePlayoffs = "3"
+  val gameTypeValue = GameTypePlayoffs
+
   val reportTypeValue = "teamRTSSreports"
 
   def getReportsByTeam(team: String): String = {
