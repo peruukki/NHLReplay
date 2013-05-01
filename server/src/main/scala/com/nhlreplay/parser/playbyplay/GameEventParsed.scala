@@ -7,18 +7,24 @@ object GameEventParsed
 {
   lazy val eventTokens = Map(
     "BLOCK" -> blockTokens,
+    "FAC" -> faceoffTokens,
     "GOAL" -> goalTokens,
     "MISS" -> missTokens,
+    "PEND" -> defaultTokens,
     "PENL" -> penaltyTokens,
-    "SHOT" -> shotOnGoalTokens,
     "PSTR" -> defaultTokens,
-    "PEND" -> defaultTokens)
+    "SHOT" -> shotOnGoalTokens
+ )
 
   val defaultTokens = List(Token.Default)
 
   val blockTokens = List(
     Token.Team, Token.Player, Token.BlockedBy,
     Token.OtherTeam, Token.OtherPlayer, Token.ShotType, Token.Zone)
+
+  val faceoffTokens = List(
+    Token.WonTeam, Token.Won, Token.Zone, Token.Team, Token.Player,
+    Token.Vs, Token.OtherTeam, Token.OtherPlayer)
 
   val goalTokens = List(
     Token.Team, Token.Player, Token.ShotType, Token.Zone, Token.Distance,

@@ -85,9 +85,17 @@ function decrementTime() {
     else if (event.isBlockedShot()) {
       incrementValue(event.otherTeamType, 'shots-blocked');
     }
+    else if (event.isFaceoff()) {
+      incrementValue(event.wonTeamType, 'faceoffs');
+    }
 
-    showNotification(event);
-    extraWaitInMs += 1000;
+    if (event.isNotificationEvent()) {
+      showNotification(event);
+      extraWaitInMs += 1000;
+    }
+    else {
+      clearNotification();
+    }
   }
   else {
     clearNotification();

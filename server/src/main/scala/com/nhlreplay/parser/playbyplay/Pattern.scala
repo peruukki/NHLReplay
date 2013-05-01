@@ -15,6 +15,8 @@ object Pattern {
   lazy val Player = """(""" + Number + Separator + Name + """|TEAM),?"""
   lazy val Separator = """(?:\s|,|;|\s-\s)*"""
   lazy val Text = """(.+)"""
+  lazy val Vs = """\s+vs\s+"""
+  lazy val Won = """\s+won\s+"""
   lazy val Word = """((?:\w|-|\.)+),?"""
   lazy val Words = """((?:\w|-|\.|\s)+),"""
   lazy val Zone = Word + """\sZone"""

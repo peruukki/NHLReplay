@@ -24,6 +24,7 @@ object GameEvent
   val ShotType = "shotType"
   val Target = "target"
   val Team = "team"
+  val WonTeam = "wonTeam"
   val Zone = "zone"
 }
 

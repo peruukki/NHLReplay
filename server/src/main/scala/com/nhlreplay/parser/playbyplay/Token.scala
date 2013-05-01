@@ -24,6 +24,9 @@ object Token {
   val ShotType = Token(GameEvent.ShotType, Pattern.Word, TokenVisibility.Internal)
   val Team = Token(GameEvent.Team, Pattern.Word, trimmer = Trimmer.removeDots)
   val Target = Token(GameEvent.Target, Pattern.Words, trimmer = Trimmer.trimTarget)
+  val Vs = Token("", Pattern.Vs, TokenVisibility.Ignored)
+  val Won = Token("", Pattern.Won, TokenVisibility.Ignored)
+  val WonTeam = Token(GameEvent.WonTeam, Pattern.Word, trimmer = Trimmer.removeDots)
   val Zone = Token(GameEvent.Zone, Pattern.Zone, TokenVisibility.Ignored)
 }
 

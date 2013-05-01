@@ -18,6 +18,7 @@ function GameEvent(event, teamTypes) {
   this.event = event;
   this.teamType = event.team ? teamTypes[event.team] : "";
   this.otherTeamType = event.otherTeam ? teamTypes[event.otherTeam] : "";
+  this.wonTeamType = event.wonTeam ? teamTypes[event.wonTeam] : "";
 
   this.isGoal = function() { return this.event.type === 'GOAL'; };
   this.isPenalty = function() { return this.event.type === 'PENL'; };
@@ -27,6 +28,8 @@ function GameEvent(event, teamTypes) {
   this.isShotOnGoal = function() { return this.event.type === 'SHOT'; };
   this.isMissedShot = function() { return this.event.type === 'MISS'; };
   this.isBlockedShot = function() { return this.event.type === 'BLOCK'; };
+  this.isFaceoff = function() { return this.event.type === 'FAC'; };
+  this.isNotificationEvent = function() { return !this.isFaceoff(); };
 
   this.show = function() {
     if (this.isPeriodStart()) {
