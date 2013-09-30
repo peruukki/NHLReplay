@@ -28,7 +28,9 @@ object FileUtils extends Logging {
 
   def writeToFile(fileName: String, fileContent: Seq[String]): String = {
     logger.info(s"Writing to file '$fileName'")
-    printToFile(new File(fileName))(p => { fileContent foreach p.println })
+    val file = new File(fileName)
+    file.getParentFile.mkdirs()
+    printToFile(file)(p => { fileContent foreach p.println })
     fileName
   }
 
