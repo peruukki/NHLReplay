@@ -57,8 +57,7 @@ class GameEventParsed(columns: NodeSeq, description: String,
                       generateGoalAttempt: Boolean = false, ignore: Boolean = false)
   extends GameEvent(columns, generateGoalAttempt, ignore)
 {
-  // scalastyle:off null
-  override val tokenValues = parseTokens(description).filter(_.value != null)
+  override val tokenValues = parseTokens(description)
 
   private def parseTokens(description: String) = {
     val tokenPattern = tokens.mkString(Pattern.Separator)
@@ -68,12 +67,16 @@ class GameEventParsed(columns: NodeSeq, description: String,
     pattern.findFirstMatchIn(description) match {
       case Some(tokenMatch) => {
         tokens.filter(_.visibility != TokenVisibility.Ignored)
-              .map(x => {
-          val value = tokenMatch.group(x.name)
-          logger.debug(s"Token '${x.name}' has value '$value' in match '$tokenMatch'")
-          // scalastyle:off null
-          TokenValue(x, if (value != null) x.trimmer(value) else value)
-        })
+          .map { x =>
+            val valueOpt = Option(tokenMatch.group(x.name))
+            logger.debug(s"Token '${x.name}' has value '${valueOpt.getOrElse("")}' in match '$tokenMatch'")
+            valueOpt match {
+              case Some(value) => Some(TokenValue(x, value))
+              case None => None
+            }
+          }
+          .filter(_.isDefined)
+          .map(_.get)
       }
       case None => throw new RuntimeException("No match in '%s'".format(description))
     }
