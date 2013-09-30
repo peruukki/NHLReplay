@@ -7,11 +7,6 @@ object GameReportSource
   val sourceURL = "http://www.nhl.com/ice/gamestats.htm"
   val destinationPath = "src/test/resources/reports/"
 
-  val seasonParam = "season"
-  val gameTypeParam = "gameType"
-  val teamParam = "team"
-  val reportTypeParam = "viewName"
-
   val seasonValue = "20122013"
 
   val GameTypeRegularSeason = "2"
@@ -21,11 +16,11 @@ object GameReportSource
   val reportTypeValue = "teamRTSSreports"
 
   def getReportsByTeam(team: String): String = {
-    val reportURL = sourceURL + "?" +
-      seasonParam + "=" + seasonValue +
-      "&" + gameTypeParam + "=" + gameTypeValue +
-      "&" + teamParam + "=" + team +
-      "&" + reportTypeParam + "=" + reportTypeValue
+    val reportURL = sourceURL +
+      "?season=" + seasonValue +
+      "&gameType=" + gameTypeValue +
+      "&team=" + team +
+      "&viewName=" + reportTypeValue
     FileUtils.retrieveFile(reportURL, destinationPath + team + ".HTM")
   }
 }
