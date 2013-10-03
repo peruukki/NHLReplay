@@ -19,6 +19,7 @@ object Token {
   val OptionalEnd = Token("", Pattern.OptionalEnd, TokenVisibility.Ignored)
   val OtherTeam = Token(GameEvent.OtherTeam, Pattern.Word, trimmer = Trimmer.removeDots)
   val OtherPlayer = Token(GameEvent.OtherPlayer, Pattern.Player, trimmer = Trimmer.trimWhitespace)
+  val PenaltyShot = Token("", Pattern.PenaltyShot, TokenVisibility.Ignored)
   val Player = Token(GameEvent.Player, Pattern.Player, trimmer = Trimmer.trimWhitespace)
   val Reason = Token(GameEvent.Reason, Pattern.PenaltyReason, trimmer = Trimmer.trimPenaltyReason)
   val ShotOnGoal = Token(GameEvent.ShotOnGoal, Pattern.Word, TokenVisibility.Ignored)

@@ -38,7 +38,7 @@ object GameEventParsed
 
   val penaltyTokens = List(Token.Team, Token.Player, Token.Reason, Token.Duration)
 
-  val shotOnGoalTokens = List(Token.Team, Token.ShotOnGoal, Token.Player, Token.ShotType, Token.Zone, Token.Distance)
+  val shotOnGoalTokens = List(Token.Team, Token.ShotOnGoal, Token.Player, Token.PenaltyShot, Token.ShotType, Token.Zone, Token.Distance)
 
   def apply(columns: NodeSeq): GameEvent = {
     val description = columns(GameEvent.EventColDescription).mkString
