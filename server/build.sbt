@@ -1,4 +1,9 @@
+import de.johoop.jacoco4sbt._
+import JacocoPlugin._
+
 org.scalastyle.sbt.ScalastylePlugin.Settings
+
+jacoco.settings
 
 name := "NHLReplay"
 
