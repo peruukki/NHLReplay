@@ -8,10 +8,11 @@ object NHLReplayBuild extends Build {
   import Resolvers._
 
   val buildSettings = Defaults.defaultSettings ++ Seq(
-    organization := "com.nhlreplay",
-    version      := "0.1",
-    scalaVersion := "2.10.3",
-    resolvers    := allResolvers
+    organization  := "com.nhlreplay",
+    version       := "0.1",
+    scalaVersion  := "2.10.3",
+    scalacOptions := Seq("-deprecation", "-feature", "-unchecked"),
+    resolvers     := allResolvers
   )
   lazy val jacocoSettings = Seq(jacoco.settings:_*)
   lazy val scalastyleSettings = Seq(ScalastylePlugin.Settings:_*)
