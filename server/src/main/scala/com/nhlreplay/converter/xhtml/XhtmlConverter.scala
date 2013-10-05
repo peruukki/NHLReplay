@@ -23,7 +23,7 @@ object XhtmlConverter extends Logging
     val filter = new RewriteRule {
       override def transform(node: Node): Seq[Node] = node match {
         // Filter out all script tags
-        case n if (n.label == "script") => NodeSeq.Empty
+        case n if n.label == "script" => NodeSeq.Empty
         case x => x
       }
     }

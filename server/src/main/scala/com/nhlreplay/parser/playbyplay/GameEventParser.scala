@@ -24,7 +24,7 @@ object GameEventParser extends Logging
 
   private def getHtmlEvents(document: NodeSeq) = document \\ "body" \ "table" \\ "tr" filter { x => (x \ "@class").text == "evenColor" }
   private def getHtmlNameInfo(document: NodeSeq, attr: String) = document \\ "table" filter { x => (x \ "@id").text == attr }
-  private def getHtmlAbbrInfo(document: NodeSeq) = document \\ "td" filter { x => x.text contains " On Ice" }
+  private def getHtmlAbbrInfo(document: NodeSeq) = document \\ "td" filter { _.text contains " On Ice" }
 
   private def addEvents(events: Seq[GameEvent]) = {
     var newEvents = new ListBuffer[GameEvent]
