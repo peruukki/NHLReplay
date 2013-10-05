@@ -19,8 +19,9 @@ object Main
 
   private def retrieveGameReports() = {
     val gameReportFile = GameReportSource.getReportsByTeam("TOR")
-    val xhtmlFile = XhtmlConverter.convertHtml(gameReportFile)
-    GameReportsParser.parse(xhtmlFile)
+    val html = FileUtils.getFileContent(gameReportFile)
+    val xhtml = XhtmlConverter.convertHtml(html, Some(gameReportFile))
+    GameReportsParser.parse(xhtml)
   }
 
   private def retrievePlayByPlayReport(reportURL: String) = {
@@ -29,11 +30,14 @@ object Main
   }
 
   private def parsePlayByPlay(reportPath: String) {
-    val xhtmlFile = {
-      if (reportPath.toLowerCase.endsWith(".xhtml")) reportPath
-      else XhtmlConverter.convertHtml(reportPath)
+    val xhtml = {
+      if (reportPath.toLowerCase.endsWith(".xhtml")) FileUtils.getFileSource(reportPath)
+      else {
+        val html = FileUtils.getFileContent(reportPath)
+        XhtmlConverter.convertHtml(html, Some(reportPath))
+      }
     }
-    val gameInfo = GameEventParser.parse(xhtmlFile)
+    val gameInfo = GameEventParser.parse(xhtml)
     gameInfo.writeToJsonpFile("../client/src/main/jsonp/data.jsonp")
   }
 }

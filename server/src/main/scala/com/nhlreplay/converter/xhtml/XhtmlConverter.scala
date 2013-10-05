@@ -1,19 +1,16 @@
 package com.nhlreplay.converter.xhtml
 
-import com.nhlreplay.utils.FileUtils
 import xml.{Node, NodeSeq, XML}
 import org.ccil.cowan.tagsoup.jaxp.SAXFactoryImpl
 import xml.transform.{RuleTransformer, RewriteRule}
 import com.typesafe.scalalogging.slf4j.Logging
+import scala.io.Source
 
 object XhtmlConverter extends Logging
 {
-  def convertHtml(filePath: String): String = {
-    logger.info(s"Converting file '$filePath'")
-    val htmlContent = FileUtils.getFileContent(filePath)
-    val xhtmlContent = filterXhtml(convertToXhtml(htmlContent))
-    val xhtmlFileName = filePath.take(filePath.lastIndexOf(".") + 1) + "XHTML"
-    FileUtils.writeToFile(xhtmlFileName, List(xhtmlContent))
+  def convertHtml(htmlContent: String, fileName: Option[String] = None): Source = {
+    fileName.map(file => logger.info(s"Converting file '$file'"))
+    filterXhtml(convertToXhtml(htmlContent))
   }
 
   private def convertToXhtml(htmlContent: String) = {
@@ -30,6 +27,6 @@ object XhtmlConverter extends Logging
         case x => x
       }
     }
-    new RuleTransformer(filter).transform(xhtmlContent).mkString
+    Source.fromIterable(new RuleTransformer(filter).transform(xhtmlContent).mkString.toIterable)
   }
 }

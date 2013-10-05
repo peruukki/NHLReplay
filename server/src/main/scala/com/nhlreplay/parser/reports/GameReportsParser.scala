@@ -1,14 +1,14 @@
 package com.nhlreplay.parser.reports
 
-import com.nhlreplay.utils.FileUtils
 import xml.NodeSeq
 import com.typesafe.scalalogging.slf4j.Logging
+import scala.io.Source
+import scala.xml.parsing.XhtmlParser
 
 object GameReportsParser extends Logging
 {
-  def parse(filePath: String): Seq[GameReports] = {
-    logger.info(s"Parsing file '$filePath'")
-    val document = xml.parsing.XhtmlParser(FileUtils.getFileSource(filePath))
+  def parse(xhtmlContent: Source): Seq[GameReports] = {
+    val document = XhtmlParser(xhtmlContent)
     val reportRows = getReportRows(document)
     reportRows map { x => new GameReports(x \ "td") }
   }
