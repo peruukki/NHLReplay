@@ -12,7 +12,13 @@ object FileUtils extends Logging {
     Source.fromFile(fileName, encoding)
   }
 
+  private def getResourceFileSource(fileName: String): Source = {
+    Source.fromInputStream(getClass.getClassLoader.getResourceAsStream(fileName), encoding)
+  }
+
   def getFileContent(fileName: String): String = getFileContent(getFileSource(fileName))
+
+  def getResourceFileContent(fileName: String): String = getFileContent(getResourceFileSource(fileName))
 
   def retrieveFile(url: String, targetFile: String): String = {
     logger.info(s"Retrieving file from URL '$url'")
