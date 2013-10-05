@@ -1,4 +1,5 @@
-import com.nhlreplay.converter.xhtml.XhtmlConverter
+package com.nhlreplay.converter.xhtml
+
 import com.nhlreplay.utils.FileUtils
 import org.specs2.mutable.Specification
 import scala.xml.parsing.XhtmlParser
