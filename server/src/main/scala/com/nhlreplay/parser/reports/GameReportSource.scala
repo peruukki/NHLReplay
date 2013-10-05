@@ -5,7 +5,7 @@ import com.nhlreplay.utils.FileUtils
 object GameReportSource
 {
   val sourceURL = "http://www.nhl.com/ice/gamestats.htm"
-  val destinationPath = "src/test/resources/reports/"
+  val destinationPath = "src/main/resources/reports/"
 
   val seasonValue = "20132014"
 
