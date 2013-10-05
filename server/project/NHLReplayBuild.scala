@@ -5,11 +5,13 @@ import org.scalastyle.sbt._
 
 object NHLReplayBuild extends Build {
   import Dependency._
+  import Resolvers._
 
   val buildSettings = Defaults.defaultSettings ++ Seq(
     organization := "com.nhlreplay",
     version      := "0.1",
-    scalaVersion := "2.10.3"
+    scalaVersion := "2.10.3",
+    resolvers    := allResolvers
   )
   lazy val jacocoSettings = Seq(jacoco.settings:_*)
   lazy val scalastyleSettings = Seq(ScalastylePlugin.Settings:_*)
@@ -26,5 +28,11 @@ object NHLReplayBuild extends Build {
     val logback = "ch.qos.logback" % "logback-classic" % "1.0.13"
     val scalaLogging = "com.typesafe" %% "scalalogging-slf4j" % "1.0.1"
     val specs2 = "org.specs2" %% "specs2" % "2.2.2" % "test"
+  }
+
+  object Resolvers {
+    val allResolvers = Seq(
+      "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
+    )
   }
 }
