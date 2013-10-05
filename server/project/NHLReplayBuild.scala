@@ -14,8 +14,8 @@ object NHLReplayBuild extends Build {
     scalacOptions := Seq("-deprecation", "-feature", "-unchecked"),
     resolvers     := allResolvers
   )
-  lazy val jacocoSettings = Seq(jacoco.settings:_*)
-  lazy val scalastyleSettings = Seq(ScalastylePlugin.Settings:_*)
+  lazy val jacocoSettings = jacoco.settings
+  lazy val scalastyleSettings = ScalastylePlugin.Settings
 
   lazy val root = Project(
     id = "root",
