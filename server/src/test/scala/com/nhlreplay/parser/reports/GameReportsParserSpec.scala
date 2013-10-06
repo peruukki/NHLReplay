@@ -17,6 +17,22 @@ class GameReportsParserSpec extends Specification
       gameReports.last mustEqual GameReports("Feb 23 '13", "TORONTO",  "OTTAWA",  "http://www.nhl.com/scores/htmlreports/20122013/PL020256.HTM")
     }
 
+    "parse playbyplay report URL correctly even when an extra column exists before it" in {
+      GameReportsParser.parse(document(beforeReports = ":")) shouldEqual Seq(documentGameReports)
+    }
+
+    "reject invalid game reports date" in {
+      GameReportsParser.parse(document(beforeDate = ":")) should throwA(new InvalidContentException("Invalid date: ':'"))
+    }
+
+    "reject invalid game reports away team" in {
+      GameReportsParser.parse(document(beforeAway = ":")) should throwA(new InvalidContentException("Invalid away team: ':'"))
+    }
+
+    "reject invalid game reports home team" in {
+      GameReportsParser.parse(document(beforeHome = ":")) should throwA(new InvalidContentException("Invalid home team: ':'"))
+    }
+
     "reject game reports document without report table" in {
       GameReportsParser.parse(documentWithoutTables) should throwA(new InvalidContentException("No report table"))
     }
@@ -29,6 +45,37 @@ class GameReportsParserSpec extends Specification
       GameReportsParser.parse(documentWithoutReportRows) should throwA(new InvalidContentException("No report rows"))
     }
   }
+
+  val documentGameReports = GameReports("Apr 10 '13", "TORONTO", "NY RANGERS", "http://www.nhl.com/scores/htmlreports/20122013/PL020592.HTM")
+
+  private def document(beforeDate: String = "", beforeAway: String = "", beforeHome: String = "", beforeReports: String = "") =
+    Source.fromString(
+      <html>
+        <table>
+          <thead/>
+          <tbody>
+            <tr>
+              {if (!beforeDate.isEmpty) <td>{beforeDate}</td>}
+              <td>{documentGameReports.date}</td>
+              <td>708</td>
+              {if (!beforeAway.isEmpty) <td>{beforeAway}</td>}
+              <td>{documentGameReports.awayTeam}</td>
+              {if (!beforeHome.isEmpty) <td>{beforeHome}</td>}
+              <td>{documentGameReports.homeTeam}</td>
+              {if (!beforeReports.isEmpty) <td>{beforeReports}</td>}
+              <td><a href="http://www.nhl.com/scores/htmlreports/20122013/RO020592.HTM">Roster</a></td>
+              <td><a href="http://www.nhl.com/scores/htmlreports/20122013/GS020592.HTM">Summary</a></td>
+              <td><a href="http://www.nhl.com/scores/htmlreports/20122013/ES020592.HTM">Events</a></td>
+              <td><a href="http://www.nhl.com/scores/htmlreports/20122013/FC020592.HTM">Face-offs</a></td>
+              <td><a href={documentGameReports.playByPlayURL}>Play by Play</a></td>
+              <td><a href="http://www.nhl.com/scores/htmlreports/20122013/SS020592.HTM">Shots</a></td>
+              <td><a href="http://www.nhl.com/scores/htmlreports/20122013/TH020592.HTM">Home TOI</a></td>
+              <td><a href="http://www.nhl.com/scores/htmlreports/20122013/TV020592.HTM">Vis. TOI</a></td>
+              <td><a href="http://www.nhl.com/scores/htmlreports/20122013/SO020592.HTM">Shootout</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </html>.mkString)
 
   private def documentWithoutTables = Source.fromString(<html/>.mkString)
 
