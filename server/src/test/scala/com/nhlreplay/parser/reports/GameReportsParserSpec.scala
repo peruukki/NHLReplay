@@ -17,9 +17,38 @@ class GameReportsParserSpec extends Specification
       gameReports.last mustEqual GameReports("Feb 23 '13", "TORONTO",  "OTTAWA",  "http://www.nhl.com/scores/htmlreports/20122013/PL020256.HTM")
     }
 
-    "reject invalid game reports document" in {
-      val xhtml = Source.fromString("<html/>")
-      GameReportsParser.parse(xhtml) should throwAn[InvalidContentException]
+    "reject game reports document without report table" in {
+      GameReportsParser.parse(documentWithoutTables) should throwA(new InvalidContentException("No report table"))
+    }
+
+    "reject game reports document with too many report tables" in {
+      GameReportsParser.parse(documentWithTooManyTables) should throwA(new InvalidContentException("Too many report tables: 2"))
+    }
+
+    "reject game reports document without report rows" in {
+      GameReportsParser.parse(documentWithoutReportRows) should throwA(new InvalidContentException("No report rows"))
     }
   }
+
+  private def documentWithoutTables = Source.fromString(<html/>.mkString)
+
+  private def documentWithTooManyTables = Source.fromString(
+    <html>
+      <table>
+        <thead/>
+        <tbody><tr/></tbody>
+      </table>
+      <table>
+        <thead/>
+        <tbody><tr/></tbody>
+      </table>
+    </html>.mkString)
+
+  private def documentWithoutReportRows = Source.fromString(
+    <html>
+      <table>
+        <thead/>
+        <tbody/>
+      </table>
+    </html>.mkString)
 }

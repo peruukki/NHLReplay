@@ -15,8 +15,12 @@ object GameReportsParser extends Logging
   }
 
   private def getReportRows(document: NodeSeq) = {
-    val tableRows = document \\ "table" \ "tbody" \ "tr"
-    if (tableRows.length <= 1) throw new InvalidContentException("No report rows")
-    tableRows.tail
+    val reportTables = (document \\ "table").filterNot(_ \ "thead" isEmpty)
+    if (reportTables.isEmpty) throw new InvalidContentException("No report table")
+    if (reportTables.length > 1) throw new InvalidContentException(s"Too many report tables: ${reportTables.length}")
+
+    val tableRows = reportTables.head \ "tbody" \ "tr"
+    if (tableRows.isEmpty) throw new InvalidContentException("No report rows")
+    tableRows
   }
 }
