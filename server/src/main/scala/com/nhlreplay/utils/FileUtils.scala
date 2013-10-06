@@ -12,7 +12,7 @@ object FileUtils extends Logging {
     Source.fromFile(fileName, encoding)
   }
 
-  private def getResourceFileSource(fileName: String): Source = {
+  def getResourceFileSource(fileName: String): Source = {
     Source.fromInputStream(getClass.getClassLoader.getResourceAsStream(fileName), encoding)
   }
 

@@ -2,10 +2,13 @@ package com.nhlreplay.parser.reports
 
 import xml.NodeSeq
 
-class GameReports(columns: NodeSeq)
-{
-  val date = columns(0).text
-  val awayTeam = columns(2).text
-  val homeTeam = columns(3).text
-  val playByPlayURL = (((columns \ "a") filter { _.text == "Play by Play" }).head \ "@href").text
+object GameReports {
+  def apply(columns: NodeSeq): GameReports = GameReports(
+    date = columns(0).text,
+    awayTeam = columns(2).text,
+    homeTeam = columns(3).text,
+    playByPlayURL = (((columns \ "a") filter { _.text == "Play by Play" }).head \ "@href").text
+  )
 }
+
+case class GameReports(date: String, awayTeam: String, homeTeam: String, playByPlayURL: String)
