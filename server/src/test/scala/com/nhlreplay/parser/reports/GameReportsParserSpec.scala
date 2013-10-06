@@ -12,9 +12,9 @@ class GameReportsParserSpec extends Specification
     "parse valid game reports document correctly" in {
       val xhtml = FileUtils.getResourceFileSource("reports/TOR.XHTML")
       val gameReports = GameReportsParser.parse(xhtml)
-      gameReports.length mustEqual 30
-      gameReports.head mustEqual GameReports("Apr 27 '13", "MONTREAL", "TORONTO", "http://www.nhl.com/scores/htmlreports/20122013/PL020708.HTM")
-      gameReports.last mustEqual GameReports("Feb 23 '13", "TORONTO",  "OTTAWA",  "http://www.nhl.com/scores/htmlreports/20122013/PL020256.HTM")
+      gameReports.length shouldEqual 30
+      gameReports.head shouldEqual GameReports("Apr 27 '13", "MONTREAL", "TORONTO", "http://www.nhl.com/scores/htmlreports/20122013/PL020708.HTM")
+      gameReports.last shouldEqual GameReports("Feb 23 '13", "TORONTO",  "OTTAWA",  "http://www.nhl.com/scores/htmlreports/20122013/PL020256.HTM")
     }
 
     "parse playbyplay report URL correctly even when an extra column exists before it" in {

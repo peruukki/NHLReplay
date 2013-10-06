@@ -10,12 +10,12 @@ class XhtmlConverterSpec extends Specification
 
     "convert playbyplay file from HTML to XHTML" in {
       val xhtml = convertToXhtml("playbyplay/PL020004.HTM")
-      (xhtml \\ "tr").length mustEqual 9478
+      (xhtml \\ "tr").length shouldEqual 9478
     }
 
     "convert reports file from HTML to XHTML" in {
       val xhtml = convertToXhtml("reports/TOR.HTM")
-      (xhtml \\ "tr").length mustEqual 39
+      (xhtml \\ "tr").length shouldEqual 39
     }
   }
 
