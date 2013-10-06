@@ -71,7 +71,7 @@ class GameEventParsed(columns: NodeSeq, description: String,
             val valueOpt = Option(tokenMatch.group(x.name))
             logger.debug(s"Token '${x.name}' has value '${valueOpt.getOrElse("")}' in match '$tokenMatch'")
             valueOpt match {
-              case Some(value) => Some(TokenValue(x, value))
+              case Some(value) => Some(TokenValue(x, x.trimmer(value)))
               case None => None
             }
           }
