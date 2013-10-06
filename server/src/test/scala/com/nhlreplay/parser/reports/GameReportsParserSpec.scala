@@ -1,8 +1,8 @@
 package com.nhlreplay.parser.reports
 
 import com.nhlreplay.parser.InvalidContentException
-import org.specs2.mutable.Specification
 import com.nhlreplay.utils.FileUtils
+import org.specs2.mutable.Specification
 import scala.io.Source
 
 class GameReportsParserSpec extends Specification
@@ -21,15 +21,15 @@ class GameReportsParserSpec extends Specification
       GameReportsParser.parse(document(beforeReports = ":")) shouldEqual Seq(documentGameReports)
     }
 
-    "reject invalid game reports date" in {
+    "reject invalid date when an extra column with invalid data is added in its place" in {
       GameReportsParser.parse(document(beforeDate = ":")) should throwA(new InvalidContentException("Invalid date: ':'"))
     }
 
-    "reject invalid game reports away team" in {
+    "reject invalid away team when an extra column with invalid data is added in its place" in {
       GameReportsParser.parse(document(beforeAway = ":")) should throwA(new InvalidContentException("Invalid away team: ':'"))
     }
 
-    "reject invalid game reports home team" in {
+    "reject invalid home team when an extra column with invalid data is added in its place" in {
       GameReportsParser.parse(document(beforeHome = ":")) should throwA(new InvalidContentException("Invalid home team: ':'"))
     }
 
