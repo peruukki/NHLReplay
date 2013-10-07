@@ -9,7 +9,7 @@ class GameReportsParserSpec extends Specification
 {
   "GameReportsParser" should {
 
-    "parse valid game reports document correctly" in {
+    "parse valid game reports document" in {
       val xhtml = FileUtils.getResourceFileSource("reports/TOR.XHTML")
       val gameReports = GameReportsParser.parse(xhtml)
       gameReports.length shouldEqual 30
@@ -17,7 +17,7 @@ class GameReportsParserSpec extends Specification
       gameReports.last shouldEqual GameReports("Feb 23 '13", "TORONTO",  "OTTAWA",  "http://www.nhl.com/scores/htmlreports/20122013/PL020256.HTM")
     }
 
-    "parse playbyplay report URL correctly even when an extra column exists before it" in {
+    "parse playbyplay report URL even when an extra column exists before it" in {
       GameReportsParser.parse(document(beforeReports = ":")) shouldEqual Seq(documentGameReports)
     }
 
