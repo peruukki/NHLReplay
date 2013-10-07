@@ -10,16 +10,23 @@ object GameEventParser extends Logging
 {
   def parse(xhtmlContent: Source): GameInfo = {
     val document = XhtmlParser(xhtmlContent)
+    val teams = parseTeams(document)
+    val events = parseEvents(document)
+    GameInfo(teams, events)
+  }
 
+  private def parseTeams(document: NodeSeq) = {
     val abbrInfo = getHtmlAbbrInfo(document)
-    val awayTeam = new Team("away", getHtmlNameInfo(document, "Visitor"), abbrInfo.head)
-    val homeTeam = new Team("home", getHtmlNameInfo(document, "Home"), abbrInfo.tail.head)
+    val away = new Team("away", getHtmlNameInfo(document, "Visitor"), abbrInfo.head)
+    val home = new Team("home", getHtmlNameInfo(document, "Home"), abbrInfo.tail.head)
+    GameTeams(away, home)
+  }
 
+  private def parseEvents(document: NodeSeq) = {
     val htmlEvents = getHtmlEvents(document)
     val gameEvents = htmlEvents map { x => GameEventParsed(x \ "td") }
     val interestingEvents = gameEvents filter { !_.ignore }
-    val finalEvents = addEvents(interestingEvents)
-    GameInfo(List(awayTeam, homeTeam), finalEvents)
+    GameEvents(gameEvents, interestingEvents, addEvents(interestingEvents))
   }
 
   private def getHtmlEvents(document: NodeSeq) = document \\ "body" \ "table" \\ "tr" filter { x => (x \ "@class").text == "evenColor" }

@@ -3,8 +3,8 @@ package com.nhlreplay.parser.playbyplay
 import com.nhlreplay.utils.FileUtils
 import collection.mutable.ListBuffer
 
-case class GameInfo(teams: Seq[Team], events: Seq[GameEvent]) {
-
+case class GameInfo(teams: GameTeams, events: GameEvents)
+{
   val dataVariable = "data"
 
   def writeToJsonpFile(fileName: String) {
@@ -23,8 +23,8 @@ case class GameInfo(teams: Seq[Team], events: Seq[GameEvent]) {
     FileUtils.writeToFile(fileName, jsonp.toList)
   }
 
-  private def getJsonpEvents = getJsonp("gameEvents", events)
-  private def getJsonpTeams = getJsonp("teams", teams)
+  private def getJsonpEvents = getJsonp("gameEvents", events.eventual)
+  private def getJsonpTeams = getJsonp("teams", Seq(teams.away, teams.home))
 
   private def getJsonp(name: String, values: Seq[HasJson]) = {
     val builder = new StringBuilder()
@@ -36,3 +36,7 @@ case class GameInfo(teams: Seq[Team], events: Seq[GameEvent]) {
     builder.toString()
   }
 }
+
+case class GameTeams(away: Team, home: Team)
+
+case class GameEvents(original: Seq[GameEvent], filtered: Seq[GameEvent], eventual: Seq[GameEvent])
