@@ -5,8 +5,8 @@ import xml.NodeSeq
 class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeSeq)
   extends HasJson
 {
-  val teamName = getTeamName(nameColumns)
-  val teamAbbreviation = getTeamAbbreviation(abbreviationColumn)
+  val name = getTeamName(nameColumns)
+  val abbreviation = getTeamAbbreviation(abbreviationColumn)
 
   private def getTeamName(columns: NodeSeq) = {
     val pattern = """>(.+)<br.*?>""".r
@@ -28,7 +28,7 @@ class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeS
 
   def getJson: String = {
     val builder = new StringBuilder()
-    builder.append("""{ "type":"%s", "name":"%s", "abbreviation":"%s" }""".format(teamType, teamName, teamAbbreviation))
+    builder.append("""{ "type":"%s", "name":"%s", "abbreviation":"%s" }""".format(teamType, name, abbreviation))
     builder.toString()
   }
 }
