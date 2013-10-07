@@ -1,9 +1,8 @@
 package com.nhlreplay.parser.playbyplay
 
-import scala.xml.NodeSeq
-import collection.mutable.ListBuffer
 import com.typesafe.scalalogging.slf4j.Logging
 import scala.io.Source
+import scala.xml.NodeSeq
 import scala.xml.parsing.XhtmlParser
 
 object GameEventParser extends Logging
@@ -33,12 +32,8 @@ object GameEventParser extends Logging
   private def getHtmlNameInfo(document: NodeSeq, attr: String) = document \\ "table" filter { x => (x \ "@id").text == attr }
   private def getHtmlAbbrInfo(document: NodeSeq) = document \\ "td" filter { _.text contains " On Ice" }
 
-  private def addEvents(events: Seq[GameEvent]) = {
-    var newEvents = new ListBuffer[GameEvent]
-    events.foreach { x =>
-      if (x.generateGoalAttempt) newEvents += new GameEventGoalAttempt(x)
-      newEvents += x
-    }
-    newEvents.toSeq
+  private def addEvents(events: Seq[GameEvent]) = events.flatMap { event =>
+    if (event.generateGoalAttempt) Seq(new GameEventGoalAttempt(event), event)
+    else Seq(event)
   }
 }
