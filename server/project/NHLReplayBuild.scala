@@ -21,14 +21,14 @@ object NHLReplayBuild extends Build {
     id = "root",
     base = file("."),
     settings = buildSettings ++ jacocoSettings ++ scalastyleSettings ++ Seq(
-      libraryDependencies ++= Seq(logback, scalaLogging, specs2)
+      libraryDependencies ++= Seq(logback, scalaLogging, scalaTest)
     )
   )
 
   object Dependency {
     val logback = "ch.qos.logback" % "logback-classic" % "1.0.13"
     val scalaLogging = "com.typesafe" %% "scalalogging-slf4j" % "1.0.1"
-    val specs2 = "org.specs2" %% "specs2" % "2.2.2" % "test"
+    val scalaTest = "org.scalatest" % "scalatest_2.10" % "1.9.2" % "test"
   }
 
   object Resolvers {

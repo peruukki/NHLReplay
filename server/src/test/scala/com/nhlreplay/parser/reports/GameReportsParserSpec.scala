@@ -2,10 +2,11 @@ package com.nhlreplay.parser.reports
 
 import com.nhlreplay.parser.InvalidContentException
 import com.nhlreplay.utils.FileUtils
-import org.specs2.mutable.Specification
+import org.scalatest.WordSpec
+import org.scalatest.matchers.ShouldMatchers
 import scala.io.Source
 
-class GameReportsParserSpec extends Specification
+class GameReportsParserSpec extends WordSpec with ShouldMatchers
 {
   "GameReportsParser" should {
 
@@ -22,27 +23,39 @@ class GameReportsParserSpec extends Specification
     }
 
     "reject invalid date when an extra column with invalid data is added in its place" in {
-      GameReportsParser.parse(document(beforeDate = ":")) should throwA(new InvalidContentException("Invalid date: ':'"))
+      intercept[InvalidContentException] {
+        GameReportsParser.parse(document(beforeDate = ":"))
+      }.getMessage shouldEqual "Invalid date: ':'"
     }
 
     "reject invalid away team when an extra column with invalid data is added in its place" in {
-      GameReportsParser.parse(document(beforeAway = ":")) should throwA(new InvalidContentException("Invalid away team: ':'"))
+      intercept[InvalidContentException] {
+        GameReportsParser.parse(document(beforeAway = ":"))
+      }.getMessage shouldEqual "Invalid away team: ':'"
     }
 
     "reject invalid home team when an extra column with invalid data is added in its place" in {
-      GameReportsParser.parse(document(beforeHome = ":")) should throwA(new InvalidContentException("Invalid home team: ':'"))
+      intercept[InvalidContentException] {
+        GameReportsParser.parse(document(beforeHome = ":"))
+      }.getMessage shouldEqual "Invalid home team: ':'"
     }
 
     "reject game reports document without report table" in {
-      GameReportsParser.parse(documentWithoutTables) should throwA(new InvalidContentException("No report table"))
+      intercept[InvalidContentException] {
+        GameReportsParser.parse(documentWithoutTables)
+      }.getMessage shouldEqual "No report table"
     }
 
     "reject game reports document with too many report tables" in {
-      GameReportsParser.parse(documentWithTooManyTables) should throwA(new InvalidContentException("Too many report tables: 2"))
+      intercept[InvalidContentException] {
+        GameReportsParser.parse(documentWithTooManyTables)
+      }.getMessage shouldEqual "Too many report tables: 2"
     }
 
     "reject game reports document without report rows" in {
-      GameReportsParser.parse(documentWithoutReportRows) should throwA(new InvalidContentException("No report rows"))
+      intercept[InvalidContentException] {
+        GameReportsParser.parse(documentWithoutReportRows)
+      }.getMessage shouldEqual "No report rows"
     }
   }
 

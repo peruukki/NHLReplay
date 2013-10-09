@@ -1,9 +1,10 @@
 package com.nhlreplay.parser.playbyplay
 
-import org.specs2.mutable.Specification
 import com.nhlreplay.utils.FileUtils
+import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.WordSpec
 
-class GameEventParserSpec extends Specification
+class GameEventParserSpec extends WordSpec with ShouldMatchers
 {
   "GameEventParser" should {
     val xhtml = FileUtils.getResourceFileSource("playbyplay/PL020004.XHTML")

@@ -1,10 +1,11 @@
 package com.nhlreplay.converter.xhtml
 
 import com.nhlreplay.utils.FileUtils
-import org.specs2.mutable.Specification
+import org.scalatest.WordSpec
+import org.scalatest.matchers.ShouldMatchers
 import scala.xml.parsing.XhtmlParser
 
-class XhtmlConverterSpec extends Specification
+class XhtmlConverterSpec extends WordSpec with ShouldMatchers
 {
   "XhtmlConverter" should {
 
