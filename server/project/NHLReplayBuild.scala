@@ -10,7 +10,7 @@ object NHLReplayBuild extends Build {
   val buildSettings = Defaults.defaultSettings ++ Seq(
     organization  := "com.nhlreplay",
     version       := "0.1",
-    scalaVersion  := "2.10.3",
+    scalaVersion  := "2.10.2",
     scalacOptions := Seq("-deprecation", "-feature", "-unchecked"),
     resolvers     := allResolvers
   )
