@@ -34,7 +34,7 @@ object GameEventParsed
 
   val hitTokens = List(Token.Team, Token.Player, Token.Hit, Token.OtherTeam, Token.OtherPlayer, Token.Zone)
 
-  val missTokens = List(Token.Team, Token.Player, Token.ShotType, Token.Target, Token.Zone, Token.Distance)
+  val missTokens = List(Token.Team, Token.Player, Token.PenaltyShot, Token.ShotType, Token.Target, Token.Zone, Token.Distance)
 
   val penaltyTokens = List(Token.Team, Token.Player, Token.Reason, Token.Duration)
 
