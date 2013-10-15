@@ -1,5 +1,6 @@
 package com.nhlreplay.parser.playbyplay
 
+import com.nhlreplay.json.HasJson
 import util.matching.Regex
 import xml.{NodeSeq, Node}
 import com.typesafe.scalalogging.slf4j.Logging
@@ -48,7 +49,7 @@ abstract class GameEvent(val columns: NodeSeq, val generateGoalAttempt: Boolean,
 
   protected def trim(text: String) = """\s+""".r.replaceAllIn(text, " ")
 
-  def getJson: String = {
+  def toJson: String = {
     val builder = startJson()
     tokenValues.filter(_.token.visibility == TokenVisibility.Public)
                .foreach(tv => appendValue(builder, tv.token.name, tv.value))

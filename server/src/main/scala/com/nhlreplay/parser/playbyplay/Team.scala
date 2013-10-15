@@ -1,5 +1,6 @@
 package com.nhlreplay.parser.playbyplay
 
+import com.nhlreplay.json.HasJson
 import xml.NodeSeq
 
 class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeSeq)
@@ -26,7 +27,7 @@ class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeS
     }
   }
 
-  def getJson: String = {
+  def toJson: String = {
     val builder = new StringBuilder()
     builder.append("""{ "type":"%s", "name":"%s", "abbreviation":"%s" }""".format(teamType, name, abbreviation))
     builder.toString()

@@ -1,5 +1,6 @@
 package com.nhlreplay.parser.playbyplay
 
+import com.nhlreplay.json.HasJson
 import com.nhlreplay.utils.FileUtils
 import collection.mutable.ListBuffer
 
@@ -30,7 +31,7 @@ case class GameInfo(teams: GameTeams, events: GameEvents)
     val builder = new StringBuilder()
     builder.append("""  %s += '"%s": [' +
                      |""".stripMargin.format(dataVariable, name))
-    values foreach { v => builder.append("    '").append(v.getJson).append(",' +\n") }
+    values foreach { v => builder.append("    '").append(v.toJson).append(",' +\n") }
     builder.deleteCharAt(builder.lastIndexOf(","))
     builder.append("  ']';")
     builder.toString()
