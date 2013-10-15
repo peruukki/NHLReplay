@@ -1,13 +1,15 @@
 package com.nhlreplay.parser.playbyplay
 
+import GameEventType._
+
 object TestGameEventXhtml
 {
-  val goalWithoutAssistsXhtml = gameEvent("GOAL", "PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.")
+  val goalWithoutAssistsXhtml = gameEvent(goal, "PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.")
 
-  val goalWithOneAssistXhtml = gameEvent("GOAL", """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
+  val goalWithOneAssistXhtml = gameEvent(goal, """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
     |<br clear="none"/>Assist: #40 LECAVALIER(33)""".stripMargin)
 
-  val goalWithTwoAssistsXhtml = gameEvent("GOAL", """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
+  val goalWithTwoAssistsXhtml = gameEvent(goal, """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
     |<br clear="none"/>Assists: #40 LECAVALIER(33); #32 STREIT(10)""".stripMargin)
 
   private def gameEvent(eventType: String, description: String) =

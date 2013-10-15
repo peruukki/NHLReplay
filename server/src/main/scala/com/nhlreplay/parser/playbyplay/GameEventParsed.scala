@@ -2,19 +2,20 @@ package com.nhlreplay.parser.playbyplay
 
 import xml.NodeSeq
 import util.matching.Regex
+import GameEventType._
 
 object GameEventParsed
 {
   lazy val eventTokens = Map(
-    "BLOCK" -> blockTokens,
-    "FAC" -> faceoffTokens,
-    "GOAL" -> goalTokens,
-    "HIT" -> hitTokens,
-    "MISS" -> missTokens,
-    "PEND" -> defaultTokens,
-    "PENL" -> penaltyTokens,
-    "PSTR" -> defaultTokens,
-    "SHOT" -> shotOnGoalTokens
+    block -> blockTokens,
+    faceoff -> faceoffTokens,
+    goal -> goalTokens,
+    hit -> hitTokens,
+    miss -> missTokens,
+    penalty -> penaltyTokens,
+    periodEnd -> defaultTokens,
+    periodStart -> defaultTokens,
+    shot -> shotOnGoalTokens
  )
 
   val defaultTokens = List(Token.Default)
@@ -49,7 +50,7 @@ object GameEventParsed
     }
   }
 
-  private def generateGoalAttempt(eventType: String) = Array("BLOCK", "GOAL", "MISS", "SHOT").contains(eventType)
+  private def generateGoalAttempt(eventType: String) = Array(block, goal, miss, shot).contains(eventType)
 }
 
 class GameEventParsed(columns: NodeSeq, description: String,

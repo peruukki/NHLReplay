@@ -3,16 +3,17 @@ package com.nhlreplay.parser.playbyplay
 import org.json4s.JsonDSL._
 import org.json4s.JsonAST.JValue
 import org.json4s.native.JsonMethods._
+import GameEventType._
 
 object TestGameEventJson
 {
-  val goalWithoutAssistsJson = serialize(gameEventCommonJson("GOAL") ~
+  val goalWithoutAssistsJson = serialize(gameEventCommonJson(goal) ~
     ("player" -> "#10 SCHENN(1)"))
 
-  val goalWithOneAssistJson = serialize(gameEventCommonJson("GOAL") ~
+  val goalWithOneAssistJson = serialize(gameEventCommonJson(goal) ~
     ("player" -> "#10 SCHENN(1)") ~ ("assist1st" -> "#40 LECAVALIER(33)"))
 
-  val goalWithTwoAssistsJson = serialize(gameEventCommonJson("GOAL") ~
+  val goalWithTwoAssistsJson = serialize(gameEventCommonJson(goal) ~
     ("player" -> "#10 SCHENN(1)") ~ ("assist1st" -> "#40 LECAVALIER(33)") ~ ("assist2nd" -> "#32 STREIT(10)"))
 
   private def gameEventCommonJson(eventType: String) =
