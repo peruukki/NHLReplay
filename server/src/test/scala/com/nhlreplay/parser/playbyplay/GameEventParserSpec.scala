@@ -3,6 +3,7 @@ package com.nhlreplay.parser.playbyplay
 import com.nhlreplay.utils.FileUtils
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.WordSpec
+import scala.xml.NodeSeq
 import TestGameEventJson._
 import TestGameEventXhtml._
 
@@ -23,17 +24,12 @@ class GameEventParserSpec extends WordSpec with ShouldMatchers
     "filter original game events" in { gameInfo.events.filtered.length shouldEqual 260 }
     "produce eventual game events" in { gameInfo.events.eventual.length shouldEqual 375 }
 
-    "parse goal event without assists" in {
-      GameEventParser.parseGameEvents(goalWithoutAssistsXhtml).head.toJson shouldEqual goalWithoutAssistsJson
-    }
-    "parse goal event with one assist" in {
-      GameEventParser.parseGameEvents(goalWithOneAssistXhtml).head.toJson shouldEqual goalWithOneAssistJson
-    }
-    "parse goal event with two assists" in {
-      GameEventParser.parseGameEvents(goalWithTwoAssistsXhtml).head.toJson shouldEqual goalWithTwoAssistsJson
-    }
-    "parse shot on goal" in {
-      GameEventParser.parseGameEvents(shotOnGoalXhtml).head.toJson shouldEqual shotOnGoalJson
-    }
+    "parse goal event without assists" in { parse(goalWithoutAssistsXhtml) shouldEqual goalWithoutAssistsJson }
+    "parse goal event with one assist" in { parse(goalWithOneAssistXhtml) shouldEqual goalWithOneAssistJson }
+    "parse goal event with two assists" in { parse(goalWithTwoAssistsXhtml) shouldEqual goalWithTwoAssistsJson }
+
+    "parse shot on goal" in { parse(shotOnGoalXhtml) shouldEqual shotOnGoalJson }
+
+    def parse(gameEvent: NodeSeq) = GameEventParser.parseGameEvents(gameEvent).head.toJson
   }
 }
