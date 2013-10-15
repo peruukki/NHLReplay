@@ -23,10 +23,12 @@ object GameEventParser extends Logging
 
   private def parseEvents(document: NodeSeq) = {
     val htmlEvents = getHtmlEvents(document)
-    val gameEvents = htmlEvents map { x => GameEventParsed(x \ "td") }
+    val gameEvents = parseGameEvents(htmlEvents)
     val interestingEvents = gameEvents filter { !_.ignore }
     GameEvents(gameEvents, interestingEvents, addEvents(interestingEvents))
   }
+
+  def parseGameEvents(htmlEvents: NodeSeq): Seq[GameEvent] = htmlEvents.map(event => GameEventParsed(event \ "td"))
 
   private def getHtmlEvents(document: NodeSeq) = document \\ "body" \ "table" \\ "tr" filter { x => (x \ "@class").text == "evenColor" }
   private def getHtmlNameInfo(document: NodeSeq, attr: String) = document \\ "table" filter { x => (x \ "@id").text == attr }

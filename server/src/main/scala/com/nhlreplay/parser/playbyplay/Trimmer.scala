@@ -5,7 +5,7 @@ object Trimmer {
   def removeCounts(text: String): String = text.replaceAll("""\(\d+\)""", "")
   def removeDots(text: String): String = text.replaceAll("""\.""", "")
   def toInt(text: String): Int = text.toInt
-  def trimWhitespace(text: String): String = """\s+""".r.replaceAllIn(text, " ")
+  def trimWhitespace(text: String): String = """\s+""".r.replaceAllIn(text, " ").trim
 
   def trimPenaltyReason(reason: String): String = trimWhitespace(reason).toLowerCase
 
