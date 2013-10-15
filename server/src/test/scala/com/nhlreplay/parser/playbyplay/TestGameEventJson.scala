@@ -16,6 +16,8 @@ object TestGameEventJson
   val goalWithTwoAssistsJson = serialize(teamEventJson(goal) ~
     ("player" -> "#10 SCHENN(1)") ~ ("assist1st" -> "#40 LECAVALIER(33)") ~ ("assist2nd" -> "#32 STREIT(10)"))
 
+  val periodEndJson = serialize(commonJson(periodEnd))
+
   val periodStartJson = serialize(commonJson(periodStart))
 
   val shotBlockedJson = serialize(teamEventJson(block) ~

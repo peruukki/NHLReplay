@@ -12,6 +12,8 @@ object TestGameEventXhtml
   val goalWithTwoAssistsXhtml = gameEvent(goal, """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
     |<br clear="none"/>Assists: #40 LECAVALIER(33); #32 STREIT(10)""".stripMargin)
 
+  val periodEndXhtml = gameEvent(periodEnd, "Period End- Local time: 8:07 EDT")
+
   val periodStartXhtml = gameEvent(periodStart, "Period Start- Local time: 7:27 EDT")
 
   val shotBlockedXhtml = gameEvent(block, "PHI #51 GARDINER BLOCKED BY  MTL #26 GORGES, Wrist, Def. Zone")
