@@ -2,15 +2,21 @@ package com.nhlreplay.parser.playbyplay
 
 object TestGameEventXhtml
 {
-  lazy val goalWithTwoAssistsXhtml =
+  val goalWithoutAssistsXhtml = gameEvent("GOAL", "PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.")
+
+  val goalWithOneAssistXhtml = gameEvent("GOAL", """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
+    |<br clear="none"/>Assist: #40 LECAVALIER(33)""".stripMargin)
+
+  val goalWithTwoAssistsXhtml = gameEvent("GOAL", """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
+    |<br clear="none"/>Assists: #40 LECAVALIER(33); #32 STREIT(10)""".stripMargin)
+
+  private def gameEvent(eventType: String, description: String) =
     <tr class="evenColor"><td class="goal + bborder" rowspan="1" colspan="1" align="center">124</td>
       <td class="goal + bborder" rowspan="1" colspan="1" align="center">1</td>
       <td class="goal + bborder" rowspan="1" colspan="1" align="center">PP</td>
       <td class="goal + bborder" rowspan="1" colspan="1" align="center">19:53<br clear="none"/>0:07</td>
-      <td class="goal + bborder" rowspan="1" colspan="1" align="center">GOAL</td>
-      <td class="goal + bborder" rowspan="1" colspan="1">PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
-        <br clear="none"/>Assists: #40 LECAVALIER(33); #32 STREIT(10)
-      </td>
+      <td class="goal + bborder" rowspan="1" colspan="1" align="center">{eventType}</td>
+      <td class="goal + bborder" rowspan="1" colspan="1">{description}</td>
       {onIce}
     </tr>
 
