@@ -4,19 +4,21 @@ import GameEventType._
 
 object TestGameEventXhtml
 {
-  val goalWithoutAssistsXhtml = gameEvent(goal, "#10 SCHENN(1), Wrist, Off. Zone, 10 ft.")
+  val goalWithoutAssistsXhtml = gameEvent(goal, "PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.")
 
-  val goalWithOneAssistXhtml = gameEvent(goal, """#10 SCHENN(1), Wrist, Off. Zone, 10 ft.
+  val goalWithOneAssistXhtml = gameEvent(goal, """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
     |<br clear="none"/>Assist: #40 LECAVALIER(33)""".stripMargin)
 
-  val goalWithTwoAssistsXhtml = gameEvent(goal, """#10 SCHENN(1), Wrist, Off. Zone, 10 ft.
+  val goalWithTwoAssistsXhtml = gameEvent(goal, """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.
     |<br clear="none"/>Assists: #40 LECAVALIER(33); #32 STREIT(10)""".stripMargin)
 
-  val shotBlockedXhtml = gameEvent(block, "#51 GARDINER BLOCKED BY  MTL #26 GORGES, Wrist, Def. Zone")
+  val periodStartXhtml = gameEvent(periodStart, "Period Start- Local time: 7:27 EDT")
 
-  val shotMissedXhtml = gameEvent(miss, "#67 PACIORETTY, Slap, Wide of Net, Off. Zone, 30 ft.")
+  val shotBlockedXhtml = gameEvent(block, "PHI #51 GARDINER BLOCKED BY  MTL #26 GORGES, Wrist, Def. Zone")
 
-  val shotOnGoalXhtml = gameEvent(shot, "ONGOAL - #11 MCCLEMENT, Wrist, Def. Zone, 152 ft.")
+  val shotMissedXhtml = gameEvent(miss, "PHI #67 PACIORETTY, Slap, Wide of Net, Off. Zone, 30 ft.")
+
+  val shotOnGoalXhtml = gameEvent(shot, "PHI ONGOAL - #11 MCCLEMENT, Wrist, Def. Zone, 152 ft.")
 
   private def gameEvent(eventType: String, description: String) =
     <tr class="evenColor"><td class="goal + bborder" rowspan="1" colspan="1" align="center">124</td>
@@ -24,7 +26,7 @@ object TestGameEventXhtml
       <td class="goal + bborder" rowspan="1" colspan="1" align="center">PP</td>
       <td class="goal + bborder" rowspan="1" colspan="1" align="center">19:53<br clear="none"/>0:07</td>
       <td class="goal + bborder" rowspan="1" colspan="1" align="center">{eventType}</td>
-      <td class="goal + bborder" rowspan="1" colspan="1">PHI {description}</td>
+      <td class="goal + bborder" rowspan="1" colspan="1">{description}</td>
       {onIce}
     </tr>
 
