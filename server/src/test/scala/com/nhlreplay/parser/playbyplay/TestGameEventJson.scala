@@ -16,6 +16,9 @@ object TestGameEventJson
   val goalWithTwoAssistsJson = serialize(commonJson(goal) ~
     ("player" -> "#10 SCHENN(1)") ~ ("assist1st" -> "#40 LECAVALIER(33)") ~ ("assist2nd" -> "#32 STREIT(10)"))
 
+  val shotBlockedJson = serialize(commonJson(block) ~
+    ("player" -> "#51 GARDINER") ~ ("otherTeam" -> "MTL") ~ ("otherPlayer" -> "#26 GORGES"))
+
   val shotMissedJson = serialize(commonJson(miss) ~
     ("player" -> "#67 PACIORETTY") ~ ("target" -> "wide"))
 

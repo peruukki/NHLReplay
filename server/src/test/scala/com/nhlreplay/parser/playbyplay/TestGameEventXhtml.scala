@@ -12,6 +12,8 @@ object TestGameEventXhtml
   val goalWithTwoAssistsXhtml = gameEvent(goal, """#10 SCHENN(1), Wrist, Off. Zone, 10 ft.
     |<br clear="none"/>Assists: #40 LECAVALIER(33); #32 STREIT(10)""".stripMargin)
 
+  val shotBlockedXhtml = gameEvent(block, "#51 GARDINER BLOCKED BY  MTL #26 GORGES, Wrist, Def. Zone")
+
   val shotMissedXhtml = gameEvent(miss, "#67 PACIORETTY, Slap, Wide of Net, Off. Zone, 30 ft.")
 
   val shotOnGoalXhtml = gameEvent(shot, "ONGOAL - #11 MCCLEMENT, Wrist, Def. Zone, 152 ft.")
