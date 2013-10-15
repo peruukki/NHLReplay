@@ -32,5 +32,8 @@ class GameEventParserSpec extends WordSpec with ShouldMatchers
     "parse goal event with two assists" in {
       GameEventParser.parseGameEvents(goalWithTwoAssistsXhtml).head.toJson shouldEqual goalWithTwoAssistsJson
     }
+    "parse shot on goal" in {
+      GameEventParser.parseGameEvents(shotOnGoalXhtml).head.toJson shouldEqual shotOnGoalJson
+    }
   }
 }
