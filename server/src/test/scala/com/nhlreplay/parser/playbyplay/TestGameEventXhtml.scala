@@ -4,6 +4,8 @@ import GameEventType._
 
 object TestGameEventXhtml
 {
+  val faceoffXhtml = gameEvent(faceoff, "PHI won Off. Zone - PHI #43 KADRI vs MTL #8 PRUST")
+
   val goalWithoutAssistsXhtml = gameEvent(goal, "PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.")
 
   val goalWithOneAssistXhtml = gameEvent(goal, """PHI #10 SCHENN(1), Wrist, Off. Zone, 10 ft.

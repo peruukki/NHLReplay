@@ -24,6 +24,8 @@ class GameEventParserSpec extends WordSpec with ShouldMatchers
     "filter original game events" in { gameInfo.events.filtered.length shouldEqual 260 }
     "produce eventual game events" in { gameInfo.events.eventual.length shouldEqual 375 }
 
+    "parse faceoff" in { parse(faceoffXhtml) shouldEqual faceoffJson }
+
     "parse goal event without assists" in { parse(goalWithoutAssistsXhtml) shouldEqual goalWithoutAssistsJson }
     "parse goal event with one assist" in { parse(goalWithOneAssistXhtml) shouldEqual goalWithOneAssistJson }
     "parse goal event with two assists" in { parse(goalWithTwoAssistsXhtml) shouldEqual goalWithTwoAssistsJson }

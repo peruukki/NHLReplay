@@ -7,6 +7,9 @@ import GameEventType._
 
 object TestGameEventJson
 {
+  val faceoffJson = serialize(commonJson(faceoff) ~
+    ("wonTeam" -> "PHI") ~ ("team" -> "PHI") ~ ("player" -> "#43 KADRI") ~ ("otherTeam" -> "MTL") ~ ("otherPlayer" -> "#8 PRUST"))
+
   val goalWithoutAssistsJson = serialize(teamEventJson(goal) ~
     ("player" -> "#10 SCHENN(1)"))
 
