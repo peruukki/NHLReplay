@@ -26,9 +26,9 @@ class GameEventParserSpec extends WordSpec with ShouldMatchers
 
     "parse faceoff" in { parse(faceoffXhtml) shouldEqual faceoffJson }
 
-    "parse goal event without assists" in { parse(goalWithoutAssistsXhtml) shouldEqual goalWithoutAssistsJson }
-    "parse goal event with one assist" in { parse(goalWithOneAssistXhtml) shouldEqual goalWithOneAssistJson }
-    "parse goal event with two assists" in { parse(goalWithTwoAssistsXhtml) shouldEqual goalWithTwoAssistsJson }
+    "parse goal without assists" in { parse(goalWithoutAssistsXhtml) shouldEqual goalWithoutAssistsJson }
+    "parse goal with one assist" in { parse(goalWithOneAssistXhtml) shouldEqual goalWithOneAssistJson }
+    "parse goal with two assists" in { parse(goalWithTwoAssistsXhtml) shouldEqual goalWithTwoAssistsJson }
 
     "parse hit" in { parse(hitXhtml) shouldEqual hitJson }
 
