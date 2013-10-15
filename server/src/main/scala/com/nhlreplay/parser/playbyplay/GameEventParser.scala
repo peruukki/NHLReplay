@@ -24,7 +24,7 @@ object GameEventParser extends Logging
   private def parseEvents(document: NodeSeq) = {
     val htmlEvents = getHtmlEvents(document)
     val gameEvents = parseGameEvents(htmlEvents)
-    val interestingEvents = gameEvents filter { !_.ignore }
+    val interestingEvents = gameEvents.filterNot(_.ignore)
     GameEvents(gameEvents, interestingEvents, addEvents(interestingEvents))
   }
 

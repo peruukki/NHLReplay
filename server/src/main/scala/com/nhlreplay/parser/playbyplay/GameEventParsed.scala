@@ -61,7 +61,7 @@ class GameEventParsed(columns: NodeSeq, description: String,
 
   private def parseTokens(description: String) = {
     val tokenPattern = tokens.mkString(Pattern.Separator)
-    val tokenNames = tokens.map(_.name).filter(!_.isEmpty)
+    val tokenNames = tokens.map(_.name).filterNot(_.isEmpty)
     val pattern = new Regex(tokenPattern, tokenNames:_*)
 
     pattern.findFirstMatchIn(description) match {
