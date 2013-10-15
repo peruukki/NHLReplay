@@ -1,9 +1,10 @@
 package com.nhlreplay.parser.playbyplay
 
 import com.nhlreplay.json.HasJson
+import com.typesafe.scalalogging.slf4j.Logging
+import org.json4s.JsonDSL._
 import util.matching.Regex
 import xml.{NodeSeq, Node}
-import com.typesafe.scalalogging.slf4j.Logging
 
 object GameEvent
 {
@@ -50,40 +51,15 @@ abstract class GameEvent(val columns: NodeSeq, val generateGoalAttempt: Boolean,
   protected def trim(text: String) = """\s+""".r.replaceAllIn(text, " ")
 
   def toJson: String = {
-    val builder = startJson()
-    tokenValues.filter(_.token.visibility == TokenVisibility.Public)
-               .foreach(tv => appendValue(builder, tv.token.name, tv.value))
-    finishJson(builder)
+    val filteredValues = tokenValues.filter(_.token.visibility == TokenVisibility.Public)
+    val json = filteredValues.foldLeft(commonPropertiesToJson)((json, tv) => json ~ (tv.token.name -> tv.toJValue))
+    escape(serializeJson(json))
   }
 
-  protected def startJson() = {
-    val builder = new StringBuilder()
-    builder.append("{")
-    appendValue(builder, "period", period)
-    appendValue(builder, "minElapsed", minElapsed)
-    appendValue(builder, "secElapsed", secElapsed)
-    appendValue(builder, "minLeft", minLeft)
-    appendValue(builder, "secLeft", secLeft)
-    appendValue(builder, "type", eventType)
-    appendValue(builder, "strength", strength)
-    builder
+  private def commonPropertiesToJson = {
+    ("period" -> period) ~ ("minElapsed" -> minElapsed) ~ ("secElapsed" -> secElapsed) ~
+      ("minLeft" -> minLeft) ~ ("secLeft" -> secLeft) ~ ("type" -> eventType) ~ ("strength" -> strength)
   }
 
-  protected def finishJson(builder: StringBuilder) = {
-    builder.deleteCharAt(builder.length - 1)
-    builder.append(" }")
-    builder.toString()
-  }
-
-  private def appendValue(builder: StringBuilder, key: String, value: Any) {
-    builder.append(getJsonValue(key, value))
-  }
-
-  private def getJsonValue(key: String, value: Any) = {
-    val format = {
-      if (value.isInstanceOf[String]) """ "%s":"%s","""
-      else """ "%s":%s,"""
-    }
-    format.format(key, value).replaceAll("'", """\\'""")
-  }
+  private def escape(text: String) = text.replaceAll("'", """\\'""")
 }
