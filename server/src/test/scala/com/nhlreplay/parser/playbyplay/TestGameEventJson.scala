@@ -47,6 +47,9 @@ object TestGameEventJson
   val shotMissedJson = serialize(teamEventJson(miss) ~
     ("player" -> "#67 PACIORETTY") ~ ("target" -> "wide"))
 
+  val shotMissedPenaltyShotJson = serialize(teamEventJson(miss) ~
+    ("player" -> "#36 GUNNARSSON") ~ ("target" -> "wide"))
+
   val shotOnGoalJson = serialize(teamEventJson(shot) ~
     ("player" -> "#11 MCCLEMENT"))
 

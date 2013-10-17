@@ -34,6 +34,8 @@ object TestGameEventXhtml
 
   val shotMissedXhtml = gameEvent(miss, "PHI #67 PACIORETTY, Slap, Wide of Net, Off. Zone, 30 ft.")
 
+  val shotMissedPenaltyShotXhtml = gameEvent(miss, "PHI #36 GUNNARSSON, Penalty Shot, Backhand, Wide of Net, Off. Zone, 15 ft.")
+
   val shotOnGoalXhtml = gameEvent(shot, "PHI ONGOAL - #11 MCCLEMENT, Wrist, Def. Zone, 152 ft.")
 
   val shotOnGoalPenaltyShotXhtml = gameEvent(shot, "PHI ONGOAL - #17 SIMMONDS, Penalty Shot, Wrist, Off. Zone, 17 ft.")

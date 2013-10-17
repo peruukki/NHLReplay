@@ -44,6 +44,7 @@ class GameEventParserSpec extends WordSpec with ShouldMatchers
     "parse blocked shot" in { parse(shotBlockedXhtml) shouldEqual shotBlockedJson }
 
     "parse shot that missed the goal" in { parse(shotMissedXhtml) shouldEqual shotMissedJson }
+    "parse penalty shot that missed the goal" in { parse(shotMissedPenaltyShotXhtml) shouldEqual shotMissedPenaltyShotJson }
 
     "parse shot on goal" in { parse(shotOnGoalXhtml) shouldEqual shotOnGoalJson }
     "parse penalty shot on goal" in { parse(shotOnGoalPenaltyShotXhtml) shouldEqual shotOnGoalPenaltyShotJson }
