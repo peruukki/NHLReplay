@@ -10,6 +10,18 @@ object TestGameEventJson
   val faceoffJson = serialize(commonJson(faceoff) ~
     ("wonTeam" -> "PHI") ~ ("team" -> "PHI") ~ ("player" -> "#43 KADRI") ~ ("otherTeam" -> "MTL") ~ ("otherPlayer" -> "#8 PRUST"))
 
+  val goalAttemptGoalJson = serialize(teamEventJson(goalAttempt) ~
+    ("player" -> "#10 SCHENN") ~ ("shotType" -> "takes a wrist shot") ~ ("distance" -> "10 ft"))
+
+  val goalAttemptShotBlockedJson = serialize(teamEventJson(goalAttempt) ~
+    ("player" -> "#51 GARDINER") ~ ("shotType" -> "tries a wrap-around"))
+
+  val goalAttemptShotMissedJson = serialize(teamEventJson(goalAttempt) ~
+    ("player" -> "#67 PACIORETTY") ~ ("shotType" -> "takes a slapshot") ~ ("distance" -> "30 ft"))
+
+  val goalAttemptShotOnGoalJson = serialize(teamEventJson(goalAttempt) ~
+    ("player" -> "#11 MCCLEMENT") ~ ("shotType" -> "tries to tip it in"))
+
   val goalWithoutAssistsJson = serialize(teamEventJson(goal) ~
     ("player" -> "#10 SCHENN(1)"))
 

@@ -1,7 +1,7 @@
 package com.nhlreplay.parser.playbyplay
 
 class GameEventGoalAttempt(resultEvent: GameEvent)
-  extends GameEventGenerated(resultEvent.columns, "GATT")
+  extends GameEventGenerated(resultEvent.columns, GameEventType.goalAttempt)
 {
   val commonTokenValues = List(
     TokenValue(Token(GameEvent.Team), getTokenValue(resultEvent.tokenValues, GameEvent.Team)),

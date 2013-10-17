@@ -5,6 +5,7 @@ object GameEventType
   val block = "BLOCK"
   val faceoff = "FAC"
   val goal = "GOAL"
+  val goalAttempt = "GATT"
   val hit = "HIT"
   val miss = "MISS"
   val penalty = "PENL"

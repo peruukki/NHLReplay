@@ -30,13 +30,13 @@ object TestGameEventXhtml
 
   val periodStartXhtml = gameEvent(periodStart, "Period Start- Local time: 7:27 EDT")
 
-  val shotBlockedXhtml = gameEvent(block, "PHI #51 GARDINER BLOCKED BY  MTL #26 GORGES, Wrist, Def. Zone")
+  val shotBlockedXhtml = gameEvent(block, "PHI #51 GARDINER BLOCKED BY  MTL #26 GORGES, Wrap-around, Off. Zone")
 
   val shotMissedXhtml = gameEvent(miss, "PHI #67 PACIORETTY, Slap, Wide of Net, Off. Zone, 30 ft.")
 
   val shotMissedPenaltyShotXhtml = gameEvent(miss, "PHI #36 GUNNARSSON, Penalty Shot, Backhand, Wide of Net, Off. Zone, 15 ft.")
 
-  val shotOnGoalXhtml = gameEvent(shot, "PHI ONGOAL - #11 MCCLEMENT, Wrist, Def. Zone, 152 ft.")
+  val shotOnGoalXhtml = gameEvent(shot, "PHI ONGOAL - #11 MCCLEMENT, Tip-In, Def. Zone, 152 ft.")
 
   val shotOnGoalPenaltyShotXhtml = gameEvent(shot, "PHI ONGOAL - #17 SIMMONDS, Penalty Shot, Wrist, Off. Zone, 17 ft.")
 
