@@ -16,8 +16,8 @@ object GameEventParser extends Logging
 
   private def parseTeams(document: NodeSeq) = {
     val abbrInfo = getHtmlAbbrInfo(document)
-    val away = new Team("away", getHtmlNameInfo(document, "Visitor"), abbrInfo.head)
-    val home = new Team("home", getHtmlNameInfo(document, "Home"), abbrInfo.tail.head)
+    val away = Team(Team.away, getHtmlNameInfo(document, "Visitor"), abbrInfo.head)
+    val home = Team(Team.home, getHtmlNameInfo(document, "Home"), abbrInfo.tail.head)
     GameTeams(away, home)
   }
 

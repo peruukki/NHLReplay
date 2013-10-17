@@ -4,11 +4,14 @@ import com.nhlreplay.json.HasJson
 import org.json4s.JsonDSL._
 import xml.NodeSeq
 
-class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeSeq)
-  extends HasJson
+object Team
 {
-  val name = getTeamName(nameColumns)
-  val abbreviation = getTeamAbbreviation(abbreviationColumn)
+  val away = "away"
+  val home = "home"
+
+  def apply(teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeSeq): Team = {
+    Team(teamType, getTeamName(nameColumns), getTeamAbbreviation(abbreviationColumn))
+  }
 
   private def getTeamName(columns: NodeSeq) = {
     val pattern = """>(.+)<br.*?>""".r
@@ -23,15 +26,15 @@ class Team(val teamType: String, nameColumns: NodeSeq, abbreviationColumn: NodeS
     val pattern = (Pattern.Word + Pattern.Separator + """On Ice""").r
     val content = column.mkString
     pattern.findFirstMatchIn(content) match {
-      case Some(teamMatch) => Team.trimAbbreviation(teamMatch.group(1))
+      case Some(teamMatch) => trimAbbreviation(teamMatch.group(1))
       case None => throw new RuntimeException("No match in '%s'".format(content))
     }
   }
 
-  def toJson: String = serializeJson(("type" -> teamType) ~ ("name" -> name) ~ ("abbreviation" -> abbreviation))
+  private def trimAbbreviation(abbreviation: String): String = abbreviation.replaceAll("""\.""", "")
 }
 
-object Team
+case class Team(teamType: String, name: String, abbreviation: String) extends HasJson
 {
-  def trimAbbreviation(abbreviation: String): String = abbreviation.replaceAll("""\.""", "")
+  def toJson: String = serializeJson(("type" -> teamType) ~ ("name" -> name) ~ ("abbreviation" -> abbreviation))
 }

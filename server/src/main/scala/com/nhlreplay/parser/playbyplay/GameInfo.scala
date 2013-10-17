@@ -7,8 +7,14 @@ import collection.mutable.ListBuffer
 case class GameInfo(teams: GameTeams, events: GameEvents)
 {
   val dataVariable = "data"
+  val gameEventsName = "gameEvents"
+  val teamsName = "teams"
 
   def writeToJsonpFile(fileName: String) {
+    FileUtils.writeToFile(fileName, toJsonp)
+  }
+
+  def toJsonp: Seq[String] = {
     val jsonp = new ListBuffer[String]
     jsonp += """function getJsonData() {
                |  var %s = '{ ';
@@ -21,11 +27,11 @@ case class GameInfo(teams: GameTeams, events: GameEvents)
                |
                |  return %s;
                |}""".stripMargin.format(dataVariable, dataVariable)
-    FileUtils.writeToFile(fileName, jsonp.toList)
+    jsonp.toSeq
   }
 
-  private def getJsonpEvents = getJsonp("gameEvents", events.eventual)
-  private def getJsonpTeams = getJsonp("teams", Seq(teams.away, teams.home))
+  private def getJsonpEvents = getJsonp(gameEventsName, events.eventual)
+  private def getJsonpTeams = getJsonp(teamsName, Seq(teams.away, teams.home))
 
   private def getJsonp(name: String, values: Seq[HasJson]) = {
     val builder = new StringBuilder()

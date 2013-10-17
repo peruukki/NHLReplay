@@ -36,10 +36,10 @@ abstract class GameEvent(val columns: NodeSeq, val generateGoalAttempt: Boolean,
 {
   val tokenValues: Seq[TokenValue]
 
-  val period = columns(GameEvent.EventColPeriod).text.trim.toInt
-  val strength = columns(GameEvent.EventColStrength).text.trim
+  lazy val period = columns(GameEvent.EventColPeriod).text.trim.toInt
+  lazy val strength = columns(GameEvent.EventColStrength).text.trim
   val eventType: String
-  val (minElapsed, secElapsed, minLeft, secLeft) = parseTime(columns(GameEvent.EventColTime))
+  lazy val (minElapsed, secElapsed, minLeft, secLeft) = parseTime(columns(GameEvent.EventColTime))
 
   private def parseTime(timeNode: Node) = {
     val pattern = new Regex("""(\d+):(\d+).+?(\d+):(\d+)""", "minElapsed", "secElapsed", "minLeft", "secLeft")
