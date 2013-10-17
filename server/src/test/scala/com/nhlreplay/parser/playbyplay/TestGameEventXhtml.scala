@@ -36,6 +36,8 @@ object TestGameEventXhtml
 
   val shotOnGoalXhtml = gameEvent(shot, "PHI ONGOAL - #11 MCCLEMENT, Wrist, Def. Zone, 152 ft.")
 
+  val shotOnGoalPenaltyShotXhtml = gameEvent(shot, "PHI ONGOAL - #17 SIMMONDS, Penalty Shot, Wrist, Off. Zone, 17 ft.")
+
   private def gameEvent(eventType: String, description: String) =
     <tr class="evenColor"><td class="goal + bborder" rowspan="1" colspan="1" align="center">124</td>
       <td class="goal + bborder" rowspan="1" colspan="1" align="center">1</td>

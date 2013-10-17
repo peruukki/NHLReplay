@@ -50,6 +50,9 @@ object TestGameEventJson
   val shotOnGoalJson = serialize(teamEventJson(shot) ~
     ("player" -> "#11 MCCLEMENT"))
 
+  val shotOnGoalPenaltyShotJson = serialize(teamEventJson(shot) ~
+    ("player" -> "#17 SIMMONDS"))
+
   private def teamEventJson(eventType: String) = commonJson(eventType) ~ ("team" -> "PHI")
 
   private def commonJson(eventType: String) =

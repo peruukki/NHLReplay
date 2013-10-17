@@ -46,6 +46,7 @@ class GameEventParserSpec extends WordSpec with ShouldMatchers
     "parse shot that missed the goal" in { parse(shotMissedXhtml) shouldEqual shotMissedJson }
 
     "parse shot on goal" in { parse(shotOnGoalXhtml) shouldEqual shotOnGoalJson }
+    "parse penalty shot on goal" in { parse(shotOnGoalPenaltyShotXhtml) shouldEqual shotOnGoalPenaltyShotJson }
 
     def parse(gameEvent: NodeSeq) = GameEventParser.parseGameEvents(gameEvent).head.toJson
   }
