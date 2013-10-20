@@ -2,6 +2,7 @@ import sbt._
 import sbt.Keys._
 import de.johoop.jacoco4sbt.JacocoPlugin._
 import org.scalastyle.sbt._
+import play.Project._
 
 object NHLReplayBuild extends Build {
   import Dependency._
@@ -16,11 +17,11 @@ object NHLReplayBuild extends Build {
   )
   lazy val jacocoSettings = jacoco.settings
   lazy val scalastyleSettings = ScalastylePlugin.Settings
+  lazy val playSettings = playScalaSettings
 
-  lazy val root = Project(
-    id = "root",
-    base = file("."),
-    settings = buildSettings ++ jacocoSettings ++ scalastyleSettings ++ Seq(
+  lazy val root = play.Project(
+    name = "NHLReplay",
+    settings = buildSettings ++ jacocoSettings ++ scalastyleSettings ++ playSettings ++ Seq(
       libraryDependencies ++= Seq(json4sNative, logback, scalaLogging, scalaTest)
     )
   )
@@ -34,7 +35,8 @@ object NHLReplayBuild extends Build {
 
   object Resolvers {
     val allResolvers = Seq(
-      "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
+      "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/",
+      "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
     )
   }
 }
