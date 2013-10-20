@@ -7,7 +7,7 @@ import utils.FileUtils
 
 object Main
 {
-  val playByPlayPath = "src/main/resources/playbyplay"
+  val playByPlayPath = "app/resources/playbyplay"
 
   def main(args: Array[String]) {
     val playByPlayReportFile = {
