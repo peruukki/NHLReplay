@@ -10,4 +10,8 @@ object Application extends Controller
     Main.main(Array.empty)
     Ok(views.html.index("Updated the latest game."))
   }
+
+  def game = Action {
+    Ok(views.html.game.render())
+  }
 }

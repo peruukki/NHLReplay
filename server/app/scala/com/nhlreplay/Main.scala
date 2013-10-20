@@ -38,6 +38,6 @@ object Main
       }
     }
     val gameInfo = GameEventParser.parse(xhtml)
-    gameInfo.writeToJsonpFile("../client/src/main/jsonp/data.jsonp")
+    gameInfo.writeToJsonpFile("public/jsonp/data.jsonp")
   }
 }
