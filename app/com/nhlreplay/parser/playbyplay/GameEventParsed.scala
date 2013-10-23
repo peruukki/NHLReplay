@@ -45,18 +45,16 @@ object GameEventParsed
     val description = columns(GameEvent.EventColDescription).mkString
     val eventType = columns(GameEvent.EventColEvent).text.trim
     eventTokens.get(eventType) match {
-      case Some(tokens) => new GameEventParsed(columns, description, eventType, tokens, generateGoalAttempt(eventType))
+      case Some(tokens) => new GameEventParsed(columns, description, eventType, tokens)
       case None => new GameEventParsed(columns, description, eventType, defaultTokens, ignore = true)
     }
   }
-
-  private def generateGoalAttempt(eventType: String) = Array(block, goal, miss, shot).contains(eventType)
 }
 
 class GameEventParsed(columns: NodeSeq, description: String,
                       val eventType: String, val tokens: Seq[Token],
-                      generateGoalAttempt: Boolean = false, ignore: Boolean = false)
-  extends GameEvent(columns, generateGoalAttempt, ignore)
+                      ignore: Boolean = false)
+  extends GameEvent(columns, ignore)
 {
   override val tokenValues = parseTokens(description)
 

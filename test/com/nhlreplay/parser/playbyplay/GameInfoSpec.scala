@@ -14,7 +14,7 @@ class GameInfoSpec extends WordSpec with ShouldMatchers
       info.toJsonp.mkString("\n") shouldEqual expectedJsonp(info.dataVariable, info.gameEventsName, info.teamsName, events, teams)
     }
 
-    lazy val gameEvent = new GameEvent(Seq.empty, false, false) {
+    lazy val gameEvent = new GameEvent(Seq.empty, false) {
       private val tokenValue = TokenValue(Token("token"), "value")
       val tokenValues = Seq(tokenValue, tokenValue)
       val eventType = "EVENT"

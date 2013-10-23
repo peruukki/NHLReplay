@@ -30,7 +30,7 @@ object GameEvent
   val Zone = "zone"
 }
 
-abstract class GameEvent(val columns: NodeSeq, val generateGoalAttempt: Boolean, val ignore: Boolean)
+abstract class GameEvent(val columns: NodeSeq, val ignore: Boolean)
   extends HasJson
   with Logging
 {
