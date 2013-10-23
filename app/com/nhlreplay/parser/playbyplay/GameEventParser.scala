@@ -37,8 +37,13 @@ object GameEventParser extends Logging
 
   def addEvents(events: Seq[GameEvent]): Seq[GameEvent] = events.flatMap(generateEvents)
 
-  private def generateEvents(event: GameEvent): Seq[GameEvent] = event.eventType match {
-    case attempt if Seq(block, goal, miss, shot).contains(attempt) => new GameEventGoalAttempt(event) :: event :: Nil
-    case _ => event :: Nil
+  private def generateEvents(event: GameEvent): Seq[GameEvent] = {
+    lazy val isPenaltyShot = GameEventParsed.getTokenValue(event.tokenValues, GameEvent.Reason).toString.startsWith("ps-")
+
+    event.eventType match {
+      case eventType if Seq(block, goal, miss, shot).contains(eventType) => new GameEventGoalAttempt(event) :: event :: Nil
+      case eventType if eventType == penalty => (if (isPenaltyShot) new GameEventPenaltyShot(event) else event) :: Nil
+      case _ => event :: Nil
+    }
   }
 }

@@ -5,6 +5,7 @@ object Pattern {
   lazy val BlockedBy = """\s+BLOCKED\sBY\s+"""
   lazy val Count = """\((\d+)\)"""
   lazy val Distance = """(\d+\sft)\."""
+  lazy val DrawnBy = """Drawn\sBy:"""
   lazy val Hit = """\s+HIT\s+"""
   lazy val Label = """((?:\w|\s)+)\:"""
   lazy val Name = """(?:\w|\s|\d|-|'|\(|\))+"""
@@ -16,6 +17,7 @@ object Pattern {
   lazy val PenaltyShot = OptionalStart + """Penalty\sShot""" + OptionalEnd
   lazy val Player = """(""" + Number + Separator + Name + """|TEAM),?"""
   lazy val Separator = """(?:\s|,|;|\s-\s)*"""
+  lazy val ServedBy = """Served\sBy:"""
   lazy val Text = """(.+)"""
   lazy val Vs = """\s+vs\s+"""
   lazy val Won = """\s+won\s+"""

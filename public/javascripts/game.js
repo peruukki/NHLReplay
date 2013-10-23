@@ -188,6 +188,9 @@ function showNotification(event) {
   else if (event.isPenalty()) {
     content = event.event.player + ' gets a ' + event.event.duration + ' min penalty for ' + event.event.reason + '.';
   }
+  else if (event.isPenaltyShot()) {
+    content = event.event.player + ' is awarded a penalty shot!';
+  }
   else {
     content = '';
   }

@@ -37,7 +37,9 @@ object GameEventParsed
 
   val missTokens = List(Token.Team, Token.Player, Token.PenaltyShot, Token.ShotType, Token.Target, Token.Zone, Token.Distance)
 
-  val penaltyTokens = List(Token.Team, Token.Player, Token.Reason, Token.Duration)
+  val penaltyTokens = List(Token.Team, Token.Player, Token.Reason, Token.Duration,
+    Token.OptionalStart, Token.ServedBy, Token.ServedByPlayer, Token.OptionalEnd, Token.Zone,
+    Token.OptionalStart, Token.DrawnBy, Token.OtherTeam, Token.OtherPlayer, Token.OptionalEnd)
 
   val shotOnGoalTokens = List(Token.Team, Token.ShotOnGoal, Token.Player, Token.PenaltyShot, Token.ShotType, Token.Zone, Token.Distance)
 
@@ -49,6 +51,9 @@ object GameEventParsed
       case None => new GameEventParsed(columns, description, eventType, defaultTokens, ignore = true)
     }
   }
+
+  def getTokenValue(tokenValues: Seq[TokenValue], tokenName: String): Any =
+    tokenValues.find(_.token.name == tokenName).map(_.value).getOrElse("")
 }
 
 class GameEventParsed(columns: NodeSeq, description: String,

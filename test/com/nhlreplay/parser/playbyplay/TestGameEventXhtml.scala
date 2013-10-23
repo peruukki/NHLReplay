@@ -24,6 +24,8 @@ object TestGameEventXhtml
 
   val penaltyServedByXhtml = gameEvent(penalty, "PHI #2 FRASER Interference(2 min) Served By: #81 KESSEL, Def. Zone Drawn By: MTL #8 PRUST")
 
+  val penaltyShotXhtml = gameEvent(penalty, "ANA #33 SILFVERBERG PS-Holding on breakaway(0 min), Def. Zone Drawn By: PHI #21 VAN RIEMSDYK")
+
   val penaltyTeamXhtml = gameEvent(penalty, "PHI TEAM Too many men/ice - bench(2 min) Served By: #48 BRIERE, Neu. Zone")
 
   val periodEndXhtml = gameEvent(periodEnd, "Period End- Local time: 8:07 EDT")

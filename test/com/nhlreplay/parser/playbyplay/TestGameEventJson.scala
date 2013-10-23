@@ -35,16 +35,19 @@ object TestGameEventJson
     ("player" -> "#76 SUBBAN") ~ ("otherTeam" -> "TOR") ~ ("otherPlayer" -> "#42 BOZAK"))
 
   val penaltyDrawnJson = serialize(teamEventJson(penalty) ~
-    ("player" -> "#81 ELLER") ~ ("reason" -> "tripping") ~ ("duration" -> 2))
+    ("player" -> "#81 ELLER") ~ ("reason" -> "tripping") ~ ("duration" -> 2) ~ ("otherTeam" -> "TOR") ~ ("otherPlayer" -> "#19 LUPUL"))
 
   val penaltyMajorJson = serialize(teamEventJson(penalty) ~
-    ("player" -> "#2 FRASER") ~ ("reason" -> "fighting") ~ ("duration" -> 5))
+    ("player" -> "#2 FRASER") ~ ("reason" -> "fighting") ~ ("duration" -> 5) ~ ("otherTeam" -> "MTL") ~ ("otherPlayer" -> "#32 MOEN"))
 
   val penaltyUndrawnJson = serialize(teamEventJson(penalty) ~
     ("player" -> "#2 FRASER") ~ ("reason" -> "unsportsmanlike conduct") ~ ("duration" -> 2))
 
   val penaltyServedByJson = serialize(teamEventJson(penalty) ~
-    ("player" -> "#2 FRASER") ~ ("reason" -> "interference") ~ ("duration" -> 2))
+    ("player" -> "#2 FRASER") ~ ("reason" -> "interference") ~ ("duration" -> 2) ~ ("otherTeam" -> "MTL") ~ ("otherPlayer" -> "#8 PRUST"))
+
+  val penaltyShotJson = serialize(teamEventJson(penaltyShot) ~
+    ("player" -> "#21 VAN RIEMSDYK"))
 
   val penaltyTeamJson = serialize(teamEventJson(penalty) ~
     ("player" -> "TEAM") ~ ("reason" -> "too many men/ice - bench") ~ ("duration" -> 2))

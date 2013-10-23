@@ -4,11 +4,11 @@ class GameEventGoalAttempt(resultEvent: GameEvent)
   extends GameEventGenerated(resultEvent.columns, GameEventType.goalAttempt)
 {
   val commonTokenValues = List(
-    TokenValue(Token(GameEvent.Team), getTokenValue(resultEvent.tokenValues, GameEvent.Team)),
+    TokenValue(Token(GameEvent.Team), GameEventParsed.getTokenValue(resultEvent.tokenValues, GameEvent.Team)),
     TokenValue(Token(GameEvent.Player),
-               Trimmer.removeCounts(getTokenValue(resultEvent.tokenValues, GameEvent.Player).toString)),
+               Trimmer.removeCounts(GameEventParsed.getTokenValue(resultEvent.tokenValues, GameEvent.Player).toString)),
     TokenValue(Token(GameEvent.ShotType),
-               Trimmer.trimShotType(getTokenValue(resultEvent.tokenValues, GameEvent.ShotType).toString)))
+               Trimmer.trimShotType(GameEventParsed.getTokenValue(resultEvent.tokenValues, GameEvent.ShotType).toString)))
 
   val optionalDistanceValues = {
     val distanceValues = resultEvent.tokenValues.filter(_.token.name == GameEvent.Distance)
@@ -23,7 +23,4 @@ class GameEventGoalAttempt(resultEvent: GameEvent)
   }
 
   override val tokenValues: Seq[TokenValue] = commonTokenValues ++ optionalDistanceValues
-
-  private def getTokenValue(tokenValues: Seq[TokenValue], tokenName: String) =
-    tokenValues.filter(_.token.name == tokenName).head.value
 }

@@ -22,6 +22,7 @@ function GameEvent(event, teamTypes) {
 
   this.isGoal = function() { return this.event.type === 'GOAL'; };
   this.isPenalty = function() { return this.event.type === 'PENL'; };
+  this.isPenaltyShot = function() { return this.event.type === 'PSHT'; };
   this.isPeriodEnd = function() { return this.event.type === 'PEND'; };
   this.isPeriodStart = function() { return this.event.type === 'PSTR'; };
   this.isGoalAttempt = function() { return this.event.type === 'GATT'; };

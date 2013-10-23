@@ -53,6 +53,7 @@ class GameEventParserSpec extends WordSpec with ShouldMatchers
     "generate goal attempt from blocked shot event" in { create(shotBlockedXhtml) shouldEqual goalAttemptShotBlockedJson }
     "generate goal attempt from missed shot event" in { create(shotMissedXhtml) shouldEqual goalAttemptShotMissedJson }
     "generate goal attempt without distance from far away shot on goal event" in { create(shotOnGoalXhtml) shouldEqual goalAttemptShotOnGoalJson }
+    "generate penalty shot from penalty shot penalty event" in { create(penaltyShotXhtml) shouldEqual penaltyShotJson }
 
     def parse(gameEvent: NodeSeq) = GameEventParser.parseGameEvents(gameEvent).head.toJson
     def create(gameEvent: NodeSeq) = GameEventParser.addEvents(GameEventParser.parseGameEvents(gameEvent)).head.toJson
