@@ -7,7 +7,7 @@ import utils.FileUtils
 
 object Main
 {
-  val playByPlayPath = "src/main/resources/playbyplay"
+  val playByPlayPath = "app/resources/playbyplay"
 
   def main(args: Array[String]) {
     val playByPlayReportFile = {
@@ -38,6 +38,6 @@ object Main
       }
     }
     val gameInfo = GameEventParser.parse(xhtml)
-    gameInfo.writeToJsonpFile("../client/src/main/jsonp/data.jsonp")
+    gameInfo.writeToJsonpFile("public/jsonp/data.jsonp")
   }
 }

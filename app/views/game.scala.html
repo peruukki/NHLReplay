@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='@routes.Assets.at("stylesheets/game.css")'>
+    <script type="text/javascript" src='@routes.Assets.at("javascripts/jquery-1.9.0.min.js")'></script>
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/game.js")'></script>
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/gameEvent.js")'></script>
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/clock.js")'></script>
+    <script type='text/javascript' src='@routes.Assets.at("jsonp/data.jsonp")'></script>
+</head>
+<body onload="gameInit()">
+<div class="container">
+    <div class="main-container">
+        <div class="buttons">
+            <a class="button" id="button-play" href="#">Start</a>
+        </div>
+        <div class="away">
+            <div><span id="away-team">AWAY</span></div>
+            <div class="scorebar"><span id="away-penalties"></span><span id="away-score" class="stat score">0</span></div>
+            <div><span id="away-shots" class="stat">0</span></div>
+            <div><span id="away-shots-off-target" class="stat">0</span></div>
+            <div><span id="away-shots-blocked" class="stat">0</span></div>
+            <div><span id="away-faceoffs" class="stat">0</span></div>
+            <div><span id="away-hits" class="stat">0</span></div>
+        </div>
+        <div class="title">
+            <div><span id="title-state">Game start</span></div>
+            <div class="scorebar"><span id="game-clock">20:00</span></div>
+            <div><span id="title-shots">Shots</span></div>
+            <div><span id="title-shots-off-target">Off target</span></div>
+            <div><span id="title-shots-blocked">Blocked</span></div>
+            <div><span id="title-faceoffs">Faceoffs</span></div>
+            <div><span id="title-hits">Hits</span></div>
+        </div>
+        <div class="home">
+            <div><span id="home-team">HOME</span></div>
+            <div class="scorebar"><span id="home-score" class="stat score">0</span><span id="home-penalties"></span></div>
+            <div><span id="home-shots" class="stat">0</span></div>
+            <div><span id="home-shots-off-target" class="stat">0</span></div>
+            <div><span id="home-shots-blocked" class="stat">0</span></div>
+            <div><span id="home-faceoffs" class="stat">0</span></div>
+            <div><span id="home-hits" class="stat">0</span></div>
+        </div>
+        <div class="notifications"></div>
+        <div class="events"></div>
+    </div>
+</div>
+</body>
+</html>
