@@ -1,14 +1,14 @@
 package com.nhlreplay.parser.playbyplay
 
 class GameEventGoalAttempt(resultEvent: GameEvent)
-  extends GameEventGenerated(resultEvent.columns, GameEventType.goalAttempt)
+  extends GameEventGenerated(resultEvent.columns, GameEventType.goalAttempt) with Trimmer
 {
   val commonTokenValues = List(
     TokenValue(Token(GameEvent.Team), GameEventParsed.getTokenValue(resultEvent.tokenValues, GameEvent.Team)),
     TokenValue(Token(GameEvent.Player),
-               Trimmer.removeCounts(GameEventParsed.getTokenValue(resultEvent.tokenValues, GameEvent.Player).toString)),
+               removeCounts(GameEventParsed.getTokenValue(resultEvent.tokenValues, GameEvent.Player).toString)),
     TokenValue(Token(GameEvent.ShotType),
-               Trimmer.trimShotType(GameEventParsed.getTokenValue(resultEvent.tokenValues, GameEvent.ShotType).toString)))
+               trimShotType(GameEventParsed.getTokenValue(resultEvent.tokenValues, GameEvent.ShotType).toString)))
 
   val optionalDistanceValues = {
     val distanceValues = resultEvent.tokenValues.filter(_.token.name == GameEvent.Distance)

@@ -1,6 +1,7 @@
 package com.nhlreplay.parser.playbyplay
 
-object Trimmer {
+trait Trimmer
+{
   def preserve(text: String): String = text
   def removeCounts(text: String): String = text.replaceAll("""\(\d+\)""", "")
   def removeDots(text: String): String = text.replaceAll("""\.""", "")
