@@ -86,5 +86,5 @@ class GameEventParsed(columns: NodeSeq, description: String,
     }
   }
 
-  private def containsCatchingGroup(regex: String) = """\([^?]""".r.findFirstIn(regex).isDefined
+  private def containsCatchingGroup(regex: String) = """(?<!\\)\([^?]""".r.findFirstIn(regex).isDefined
 }
