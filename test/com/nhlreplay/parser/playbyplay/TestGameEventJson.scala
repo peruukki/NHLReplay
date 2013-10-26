@@ -52,6 +52,9 @@ object TestGameEventJson
   val penaltyTeamJson = serialize(teamEventJson(penalty) ~
     ("player" -> "TEAM") ~ ("reason" -> "too many men/ice - bench") ~ ("duration" -> 2))
 
+  val penaltyWithoutZoneJson = serialize(teamEventJson(penalty) ~
+    ("player" -> "#71 CLARKSON") ~ ("reason" -> "hooking") ~ ("duration" -> 2) ~ ("otherTeam" -> "CBJ") ~ ("otherPlayer" -> "#71 FOLIGNO"))
+
   val periodEndJson = serialize(commonJson(periodEnd))
 
   val periodStartJson = serialize(commonJson(periodStart))

@@ -37,6 +37,7 @@ class GameEventParserSpec extends WordSpec with ShouldMatchers
     "parse undrawn penalty" in { parse(penaltyUndrawnXhtml) shouldEqual penaltyUndrawnJson }
     "parse penalty served by another player" in { parse(penaltyServedByXhtml) shouldEqual penaltyServedByJson }
     "parse team penalty" in { parse(penaltyTeamXhtml) shouldEqual penaltyTeamJson }
+    "parse penalty without zone" in { parse(penaltyWithoutZoneXhtml) shouldEqual penaltyWithoutZoneJson }
 
     "parse period end" in { parse(periodEndXhtml) shouldEqual periodEndJson }
     "parse period start" in { parse(periodStartXhtml) shouldEqual periodStartJson }

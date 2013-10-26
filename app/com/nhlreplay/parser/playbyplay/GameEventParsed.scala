@@ -38,7 +38,8 @@ object GameEventParsed
   val missTokens = List(Token.Team, Token.Player, Token.PenaltyShot, Token.ShotType, Token.Target, Token.Zone, Token.Distance)
 
   val penaltyTokens = List(Token.Team, Token.Player, Token.Reason, Token.Duration,
-    Token.OptionalStart, Token.ServedBy, Token.ServedByPlayer, Token.OptionalEnd, Token.Zone,
+    Token.OptionalStart, Token.ServedBy, Token.ServedByPlayer, Token.OptionalEnd,
+    Token.OptionalStart, Token.Zone, Token.OptionalEnd,
     Token.OptionalStart, Token.DrawnBy, Token.OtherTeam, Token.OtherPlayer, Token.OptionalEnd)
 
   val shotOnGoalTokens = List(Token.Team, Token.ShotOnGoal, Token.Player, Token.PenaltyShot, Token.ShotType, Token.Zone, Token.Distance)
