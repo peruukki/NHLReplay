@@ -68,28 +68,29 @@ function decrementTime() {
 
     if (event.isGoal()) {
       showEvent(event);
-      incrementValue(event.teamType, 'shots');
-      incrementValue(event.teamType, 'score');
+      incrementValue(event.teamType, 'shots', 1);
+      incrementValue(event.teamType, 'score', 1);
       extraWaitInMs += 4000;
     }
     else if (event.isPenalty()) {
       addPenaltyClock(_gamePenalties, event);
+      incrementValue(event.teamType, 'pim', event.event.duration);
       extraWaitInMs += 4000;
     }
     else if (event.isShotOnGoal()) {
-      incrementValue(event.teamType, 'shots');
+      incrementValue(event.teamType, 'shots', 1);
     }
     else if (event.isMissedShot()) {
-      incrementValue(event.teamType, 'shots-off-target');
+      incrementValue(event.teamType, 'shots-off-target', 1);
     }
     else if (event.isBlockedShot()) {
-      incrementValue(event.otherTeamType, 'shots-blocked');
+      incrementValue(event.otherTeamType, 'shots-blocked', 1);
     }
     else if (event.isFaceoff()) {
-      incrementValue(event.wonTeamType, 'faceoffs');
+      incrementValue(event.wonTeamType, 'faceoffs', 1);
     }
     else if (event.isHit()) {
-      incrementValue(event.teamType, 'hits');
+      incrementValue(event.teamType, 'hits', 1);
     }
 
     if (event.isNotificationEvent()) {
@@ -202,10 +203,10 @@ function clearNotification() {
   $('.notifications').text('');
 }
 
-function incrementValue(teamType, valueType) {
+function incrementValue(teamType, valueType, increment) {
   var element = $('#' + teamType + '-' + valueType);
   var value = parseInt(element.text());
-  element.text(value + 1);
+  element.text(value + increment);
 }
 
 function convertLength(length) {
