@@ -8,10 +8,10 @@ object Application extends Controller
 {
   def index: Action[AnyContent] = Action {
     Main.main(Array.empty)
-    Ok(views.html.index("Updated the latest game."))
+    Ok(views.html.index())
   }
 
   def game: Action[AnyContent] = Action {
-    Ok(views.html.game.render())
+    Ok(views.html.game())
   }
 }
