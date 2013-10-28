@@ -1,15 +1,7 @@
-import com.google.inject.{Guice, AbstractModule}
 import com.nhlreplay.NHLGameReportService
-import play.api.GlobalSettings
-import services.GameReportService
+import services.Settings
 
-object Global extends GlobalSettings
+object Global extends Settings
 {
-  val injector = Guice.createInjector(new AbstractModule {
-    protected def configure() {
-      bind(classOf[GameReportService]).to(classOf[NHLGameReportService])
-    }
-  })
-
-  override def getControllerInstance[A](controllerClass: Class[A]): A = injector.getInstance(controllerClass)
+  val injector = createInjector(classOf[NHLGameReportService])
 }
