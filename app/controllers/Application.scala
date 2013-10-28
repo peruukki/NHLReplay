@@ -1,13 +1,15 @@
 package controllers
 
-import com.nhlreplay.Main
+import javax.inject.{Singleton, Inject}
 import play.api._
 import play.api.mvc._
+import services.GameReportService
 
-object Application extends Controller
+@Singleton
+class Application @Inject() (gameReportService: GameReportService) extends Controller
 {
   def index: Action[AnyContent] = Action {
-    Main.main(Array.empty)
+    gameReportService.update()
     Ok(views.html.index())
   }
 

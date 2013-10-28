@@ -21,11 +21,13 @@ object NHLReplayBuild extends Build {
     name = "NHLReplay",
     settings = buildSettings ++ jacocoSettings ++ scalastyleSettings ++ playSettings ++ Seq(
       libraryDependencies ++=
-        Seq(Dependency.json4sNative, Dependency.logback, Dependency.scalaLogging, Dependency.scalaTest) ++ Dependency.play
+        Seq(Dependency.guice, Dependency.json4sNative, Dependency.logback, Dependency.scalaLogging, Dependency.scalaTest) ++
+        Dependency.play
     )
   )
 
   object Dependency {
+    val guice = "com.google.inject" % "guice" % "3.0"
     val json4sNative = "org.json4s" %% "json4s-native" % "3.2.5"
     val logback = "ch.qos.logback" % "logback-classic" % "1.0.13"
     val scalaLogging = "com.typesafe" %% "scalalogging-slf4j" % "1.0.1"

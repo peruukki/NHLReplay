@@ -1,19 +1,19 @@
 package com.nhlreplay
 
 import converter.xhtml.XhtmlConverter
+import javax.inject.Singleton
 import parser.playbyplay.GameEventParser
 import parser.reports.{GameReportSource, GameReportsParser}
+import services.GameReportService
 import utils.FileUtils
 
-object Main
+@Singleton
+class NHLGameReportService extends GameReportService
 {
   val playByPlayPath = "app/resources/playbyplay"
 
-  def main(args: Array[String]) {
-    val playByPlayReportFile = {
-      if (args.length > 0) playByPlayPath + "/" + args.head
-      else retrievePlayByPlayReport(retrieveGameReports().head.playByPlayURL)
-    }
+  def update(): Unit = {
+    val playByPlayReportFile = retrievePlayByPlayReport(retrieveGameReports().head.playByPlayURL)
     parsePlayByPlay(playByPlayReportFile)
   }
 
