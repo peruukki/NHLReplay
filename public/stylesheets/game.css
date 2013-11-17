@@ -1,18 +1,15 @@
-body {
-  background-color: #fff;
-  min-width: 40em;
-}
-
 div {
   margin: 0.5em 1em;
 }
 div.main-container {
-  background-color: #f4f4f4;
+  background-color: #33338A;
+  width: 45em;
   padding: 10px;
+  margin: 0 auto;
+  height: 100%;
 
-  -moz-box-shadow: 0 0 5px 5px #aaa;
-  -webkit-box-shadow: 0 0 5px 5px #aaa;
-  box-shadow: 0 0 5px 5px #aaa;
+  border-left: 4px solid #0E163D;
+  border-right: 4px solid #0E163D;
 }
 div.buttons {
   text-align: center;
@@ -49,9 +46,6 @@ div.notifications {
   text-align: center;
 }
 div.events {
-  text-align: left;
-  margin-left: 15%;
-  margin-right: 15%;
   line-height: 1.5em;
 }
 
@@ -86,10 +80,10 @@ p {
 }
 
 .away {
-  color: #CC334D;
+  color: #D0E0FF;
 }
 .home {
-  color: #334DCC;
+  color: #FFE0D0;
 }
 .score {
   font-weight: bolder;
@@ -101,11 +95,18 @@ p {
 }
 .button {
   display: inline-block;
-  min-width: 4em;
+  min-width: 5em;
   padding: 0.3em 0.6em;
-  border-radius: 0.6em;
-  background: #333;
+  border-radius: 0.5em;
+  background-color: #0E163D;
   color: #fff;
+
   font-size: 1.2em;
   text-decoration: none;
+}
+.button a {
+  color: #fff;
+}
+.button:hover {
+  background-color: #1E1E7F;
 }
