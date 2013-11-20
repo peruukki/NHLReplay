@@ -25,28 +25,27 @@ div.scorebar {
   height: 2em;
   line-height: 2em;
 }
-div.away {
+.stats-container {
   float: left;
   width: 43%;
   margin-left: auto;
   margin-right: auto;
+}
+#stats-away {
   text-align: right;
 }
-div.home {
-  float: left;
-  width: 43%;
-  margin-left: auto;
-  margin-right: auto;
+#stats-home {
   text-align: left;
 }
 div.notifications {
-  height: 16em;
+  height: 17em;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
-div.events {
-  line-height: 1.5em;
+div.event {
+  line-height: 1.0em;
+  margin: 0;
 }
 
 div.title div {
@@ -91,7 +90,7 @@ p {
 .PSTR {
   font-weight: bolder;
   text-align: center;
-  padding: 1em 0em 0em 0em;
+  padding: 0.5em 0;
 }
 .button {
   display: inline-block;
@@ -109,4 +108,16 @@ p {
 }
 .button:hover {
   background-color: #1E1E7F;
+}
+
+.event-time {
+    width: 3em;
+    text-align: right;
+}
+.event-team, .event-strength {
+    width: 2em;
+}
+td {
+    padding-top: 0;
+    padding-bottom: 0;
 }

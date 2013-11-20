@@ -69,29 +69,27 @@ function GameEvent(event, teamTypes) {
   }
 
   function showTimedEvent(gameEvent) {
+    function cell(cssClass, content) { return '<td class="event-' + cssClass + '">' + content + '</td>'; }
+    function showAssists(event) {
+      var content;
+      if (event.assist2nd) { content = 'Assists: ' + event.assist1st + ' & ' + event.assist2nd; }
+      else if (event.assist1st) { content = 'Assist: ' + event.assist1st; }
+      else { content = 'Unassisted'; }
+      return '<tr><td/><td/><td/>' + cell('assists', content) + '</tr>';
+    }
+
     var event = gameEvent.event;
-    var output = showEventTime(event.minElapsed, event.secElapsed, event.period) + ' ' + event.team + ' ';
+    var time = showEventTime(event.minElapsed, event.secElapsed, event.period);
+    var output = '<table><tr>' + cell('time', time) + cell('team', event.team);
+
     if (gameEvent.isGoal()) {
-      output += event.strength + ' ' + event.player + ' ';
-      if (event.assist2nd) {
-        output += 'Assists: ' + event.assist1st + ' & ' + event.assist2nd;
-      }
-      else if (event.assist1st) {
-        output += 'Assist: ' + event.assist1st;
-      }
-      else {
-        output += 'Unassisted';
-      }
-    }
-    else if (gameEvent.isPenalty()) {
-      output += event.player + ' ' + event.reason;
-    }
-    else if (gameEvent.isShotOnGoal()) {
-      output += event.player;
+      output += cell('strength', event.strength) + cell('scorer', event.player) + '</tr>';
+      output += showAssists(event)
     }
     else {
-      output += event.type;
+      output += cell("type", event.type) + '</tr>';
     }
+    output += '</table>';
     return output;
   }
 

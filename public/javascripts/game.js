@@ -163,7 +163,7 @@ function setStatus(status) {
 }
 
 function showEvent(event) {
-  $('.events').append('<p class="' + event.event.type + ' ' + event.teamType + '">' + event.show() + '</p>');
+  $('.events').append('<div class="event ' + event.event.type + ' ' + event.teamType + '">' + event.show() + '</div>');
 }
 
 function showNotification(event) {
