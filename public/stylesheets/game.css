@@ -25,6 +25,10 @@ div.scorebar {
   height: 2em;
   line-height: 2em;
 }
+.stats div {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+}
 .stats-container {
   float: left;
   width: 43%;
@@ -38,7 +42,7 @@ div.scorebar {
   text-align: left;
 }
 div.notifications {
-  height: 17em;
+  height: 14.5em;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
