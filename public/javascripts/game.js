@@ -47,6 +47,7 @@ function startPeriod() {
 }
 
 function decrementTime() {
+  var baseWaitInMs = 1000;
   var extraWaitInMs = 0;
 
   if (!_gameClock.isRunning) return;
@@ -62,7 +63,7 @@ function decrementTime() {
     }
     if (event.isPeriodEnd()) {
       setStatus('Period end!');
-      setTimeout(function() { startPeriod(); }, 3000);
+      setTimeout(function() { startPeriod(); }, 3 * baseWaitInMs);
       return;
     }
 
@@ -70,12 +71,12 @@ function decrementTime() {
       showEvent(event);
       incrementValue(event.teamType, 'shots', 1);
       incrementValue(event.teamType, 'score', 1);
-      extraWaitInMs += 4000;
+      extraWaitInMs += 4 * baseWaitInMs;
     }
     else if (event.isPenalty()) {
       addPenaltyClock(_gamePenalties, event);
       incrementValue(event.teamType, 'pim', event.event.duration);
-      extraWaitInMs += 4000;
+      extraWaitInMs += 4 * baseWaitInMs;
     }
     else if (event.isShotOnGoal()) {
       incrementValue(event.teamType, 'shots', 1);
@@ -95,7 +96,7 @@ function decrementTime() {
 
     if (event.isNotificationEvent()) {
       showNotification(event);
-      extraWaitInMs += 1000;
+      extraWaitInMs += baseWaitInMs;
     }
     else {
       clearNotification();
